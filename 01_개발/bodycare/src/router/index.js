@@ -33,11 +33,7 @@ const routes = [
     name: 'activityManage',
     component: () => import("../components/weightmanage/ActivityManage")
 
-  }
-
-  
-
-
+  } 
   // {
   //   path: '/about',
   //   name: 'about',
