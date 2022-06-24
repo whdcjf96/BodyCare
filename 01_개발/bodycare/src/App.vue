@@ -141,7 +141,7 @@
       <!-- TODO : ActivityManage 라우터버튼 -->
       <!-- Nav Item - ActivityManage -->
       <li class="nav-item">
-        <router-link to="/activityInput" class="nav-link">
+        <router-link to="/activityManage" class="nav-link">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>활동관리</span>
         </router-link>
