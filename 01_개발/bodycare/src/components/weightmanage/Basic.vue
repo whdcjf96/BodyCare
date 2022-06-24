@@ -142,9 +142,9 @@
                        style="position: relative; left: 100%; border: 2px solid black; height: 100%; width: 2px;"></div>
                 </div><!----></div>
             </div>
-            <div  class="pa-4 ma-3 v-card v-card--flat v-sheet theme--light">
-              <div  class="v-card__title">추천 체중 관리</div>
-              <div  class="v-card__text font-weight-bold"> 다이어트 추천</div>
+            <div class="pa-4 ma-3 v-card v-card--flat v-sheet theme--light">
+              <div class="v-card__title">추천 체중 관리</div>
+              <div class="v-card__text font-weight-bold"> 다이어트 추천</div>
             </div>
           </div>
 
