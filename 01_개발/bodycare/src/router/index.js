@@ -11,11 +11,26 @@ const routes = [
     name: 'home',
     component: () => import('../views/HomeView.vue')
   },
+  // TODO : Basic 라우터 달기
   {
     path: '/basic',
     name: 'baisc',
     component: () => import('../components/weightmanage/Basic.vue')
-  }
+  },
+   // TODO : ActivityManage 라우터 달기
+   {
+    path: '/activityManage',
+    name: 'activityManage',
+    component: () => import("../components/weightmanage/ActivityManage")
+  },
+  // TODO : ActivityInput 라우터 달기
+   {
+    path: '/activityInput',
+    name: 'activityInput',
+    component: () => import("../components/weightmanage/ActivityInput")
+  },
+  
+
 
   // {
   //   path: '/about',
