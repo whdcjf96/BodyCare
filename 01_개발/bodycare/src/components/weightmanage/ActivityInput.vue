@@ -78,7 +78,9 @@
     <!-- 화면 바디 끝 -->
 
     <!-- 취소버튼 -->
+    <router-link to="/activityManage">
     <button class="btn btn-danger float-left">취소</button>
+    </router-link>
 
     <!-- 저장 후 추가 버튼 -->
     <button class="btn btn-primary float-right">저장 후 추가</button>
