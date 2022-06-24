@@ -18,7 +18,6 @@ const routes = [
     component: () => import('../components/weightmanage/Basic.vue')
   },
 
-
   // TODO : food 라우터 달기
   {
     path: '/food',
@@ -27,13 +26,20 @@ const routes = [
   },
 
   // TODO : ActivityManage 라우터 달기
-
   {
     path: '/activityManage',
     name: 'activityManage',
     component: () => import("../components/weightmanage/ActivityManage")
 
-  } 
+  },
+
+  // TODO : ActivityInput 라우터 달기
+  {
+    path: '/activityInput',
+    name: 'activityInput',
+    component: () => import("../components/weightmanage/ActivityInput")
+
+  }
   // {
   //   path: '/about',
   //   name: 'about',
