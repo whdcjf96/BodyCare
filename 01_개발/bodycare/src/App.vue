@@ -138,6 +138,15 @@
         >
       </li>
 
+      <!-- TODO : ActivityManage 라우터버튼 -->
+      <!-- Nav Item - ActivityManage -->
+      <li class="nav-item">
+        <router-link to="/activityManage" class="nav-link">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>활동관리</span>
+        </router-link>
+      </li>
+
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
