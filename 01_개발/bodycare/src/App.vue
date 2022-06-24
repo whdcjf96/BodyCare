@@ -147,6 +147,23 @@
         </router-link>
       </li>
 
+      <!-- TODO : Food 라우터버튼 -->
+      <!-- Nav Item - ActivityManage -->
+      <li class="nav-item">
+        <router-link to="/food" class="nav-link">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>식단관리</span>
+        </router-link>
+      </li>
+
+<!--      <li class="nav-item active">-->
+<!--        <router-link to="/" class="nav-link">-->
+<!--          <i class="fas fa-fw fa-tachometer-alt"></i>-->
+<!--          <span>Dashboard</span>-->
+<!--        </router-link>-->
+<!--      </li>-->
+
+
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
