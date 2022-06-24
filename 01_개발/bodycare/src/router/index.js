@@ -15,7 +15,12 @@ const routes = [
     path: '/basic',
     name: 'baisc',
     component: () => import('../components/weightmanage/Basic.vue')
-  }
+  },
+  {
+    path: '/diet',
+    name: 'diet',
+    component: () => import('../components/exerciseAssistant/DietCom')
+  },
 
   // {
   //   path: '/about',
