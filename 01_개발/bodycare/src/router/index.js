@@ -11,11 +11,13 @@ const routes = [
     name: 'home',
     component: () => import('../views/HomeView.vue')
   },
+    //todo 기본 페이지 추가
   {
     path: '/basic',
     name: 'baisc',
     component: () => import('../components/weightmanage/Basic.vue')
   },
+
 
   // TODO : food 라우터 달기
   {
@@ -25,11 +27,16 @@ const routes = [
   },
 
   // TODO : ActivityManage 라우터 달기
+
   {
     path: '/activityManage',
     name: 'activityManage',
     component: () => import("../components/weightmanage/ActivityManage")
+
   }
+
+  
+
 
   // {
   //   path: '/about',
