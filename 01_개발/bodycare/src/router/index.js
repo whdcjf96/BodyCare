@@ -11,11 +11,17 @@ const routes = [
     name: 'home',
     component: () => import('../views/HomeView.vue')
   },
+    //todo 기본 페이지 추가
   {
     path: '/basic',
     name: 'baisc',
     component: () => import('../components/weightmanage/Basic.vue')
-  }
+  },
+  {
+    path: '/activityManage',
+    name: 'activityManage',
+    component: () => import("../components/weightmanage/ActivityManage")
+  },
 
   // {
   //   path: '/about',
