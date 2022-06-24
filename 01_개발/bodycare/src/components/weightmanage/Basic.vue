@@ -17,6 +17,7 @@
       <div class="col-4 input-group mb-3 input-group-lg">
         <input type="text" class="form-control" placeholder="골격근량">
         <span class="input-group-text">kg</span>
+        <h6>hi</h6>
       </div>
   </div>
 
