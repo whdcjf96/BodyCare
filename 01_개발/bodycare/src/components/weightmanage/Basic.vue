@@ -174,7 +174,7 @@
         <div class="card shadow mt-3 col col-12">
           <div class="pa-4 ml-3  mt-2 ma-3 v-card v-card--flat v-sheet theme--light">
             <div class="v-card__title">추천 체중 관리</div>
-            <div class="ml-3 mt-2 mb-3 v-card__text font-weight-bold"> 다이어트 추천, 상승다이어트 가능하나, 식단, 운동 노력이 상당히 필요.
+            <div class="mt-2 mb-3 v-card__text font-weight-bold"> 다이어트 추천, 상승다이어트 가능하나, 식단, 운동 노력이 상당히 필요.
             </div>
           </div>
         </div>
