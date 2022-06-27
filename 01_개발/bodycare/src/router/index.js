@@ -45,7 +45,19 @@ const routes = [
     name: 'diet',
     component: () => import("../components/exerciseAssistant/DietCom")
 
-  }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import("../components/userManage/LogInCom")
+
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import("../components/userManage/RegisterCom")
+
+  },
   // {
   //   path: '/about',
   //   name: 'about',
