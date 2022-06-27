@@ -143,7 +143,7 @@
                 <div class="card shadow mb-4">
                   <div class="card-header py-1">
                     <h6 class="m-0 font-weight-bold text-primary">
-                      체지방량
+                      체지방률
                     </h6>
                   </div>
                   <div class="card-body text-center">
