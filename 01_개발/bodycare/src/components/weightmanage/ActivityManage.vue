@@ -54,7 +54,6 @@
         </li>
       </ul>
       <!-- End of Sidebar -->
-      >>>>>>> Stashed changes
     </div>
     <div style="width: 100%">
       <!-- Topbar -->
