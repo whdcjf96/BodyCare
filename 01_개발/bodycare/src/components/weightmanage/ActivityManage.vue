@@ -1,11 +1,50 @@
 <template>
+<div>
+  <!-- Topbar -->
+  <nav
+    class="
+      navbar navbar-expand navbar-light
+      bg-primary
+      topbar
+      static-top
+      shadow
+    "
+  >
+  
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+              <router-link to="/basic"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                체중관리
+              </router-link>
+        </li>
+        <li class="nav-item">
+              <router-link to="/DietCom"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                운동도우미
+              </router-link>
+        </li>
+    </ul>
+  
+  </nav>
+  <!-- End of Topbar -->
+
   <!-- 화면 전체 시작 -->
   <div class="container-fluid">
     <!-- 화면 헤더 시작 -->
     <!-- 현재 날짜 출력 시작 -->
     <!-- TODO : 현재 날짜 출력 -->
     <div class="text-center">
-      <h2>{{ today }}</h2>
+      <h2 class="text-primary">&lt;{{ today }}&gt;</h2>
     </div>
     <!-- 현재 날짜 출력 끝 -->
     <!-- 화면 헤더 끝 -->
@@ -169,14 +208,12 @@
 
     <!-- 추가하기버튼 시작 -->
     <router-link to="/activityInput">
-        <button class="btn btn-primary float-right">
-          추가하기
-        </button>
+      <button class="btn btn-primary float-right">추가하기</button>
     </router-link>
     <!-- 추가하기버튼 끝 -->
-    
   </div>
   <!-- 화면 전체 끝 -->
+  </div>
 </template>
 
 <script>
@@ -195,4 +232,7 @@ export default {
 </script>
 
 <style scoped>
+ul{
+   list-style:none;
+   }
 </style>
