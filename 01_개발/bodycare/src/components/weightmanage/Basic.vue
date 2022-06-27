@@ -112,8 +112,9 @@
           </div>
         </div>
         <!-- 현재 날짜 출력 끝 -->
-        <!-- 화면 헤더 끝 -->
-          <!-- 화면 바디 시작 -->
+        <div class="basic">
+
+          <!-- 본문 -->
           <div class="row no-gutters align-center justify-center">
 
             <!-- 체성분 인풋란 -->
@@ -287,6 +288,7 @@
             </div>
           </div>
 
+        </div>
       </div>
     </div>
   </div>

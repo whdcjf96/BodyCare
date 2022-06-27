@@ -3,13 +3,13 @@
     <div>
       <!-- Sidebar -->
       <ul
-          class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-          id="accordionSidebar"
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
         <router-link
-            to="/"
-            class="sidebar-brand d-flex align-items-center justify-content-center"
+          to="/"
+          class="sidebar-brand d-flex align-items-center justify-content-center"
         >
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
@@ -54,38 +54,33 @@
         </li>
       </ul>
       <!-- End of Sidebar -->
-
+      >>>>>>> Stashed changes
     </div>
     <div style="width: 100%">
       <!-- Topbar -->
       <nav
-          class="
-      navbar navbar-expand navbar-light
-      bg-primary
-      topbar
-      static-top
-      shadow
-    "
+        class="
+          navbar navbar-expand navbar-light
+          bg-primary
+          topbar
+          static-top
+          shadow
+        "
       >
-
         <!-- Topbar Navbar -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="/basic"
-                         class="nav-link mr-5 text-white"
-                         id="navbarDropdownMenuLink"
-                         aria-haspopup="true"
-                         aria-expanded="false"
+            <router-link
+              to="/basic"
+              class="nav-link mr-5 text-white"
+              id="navbarDropdownMenuLink"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
               체중관리
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/DietCom"
-                         class="nav-link mr-5 text-white"
-                         id="navbarDropdownMenuLink"
-                         aria-haspopup="true"
-                         aria-expanded="false"
             <router-link
               to="/diet"
               class="nav-link mr-5 text-white"
@@ -97,28 +92,20 @@
             </router-link>
           </li>
         </ul>
-
       </nav>
       <!-- End of Topbar -->
+
       <!-- 화면 전체 시작 -->
       <div class="container-fluid">
         <!-- 화면 헤더 시작 -->
         <!-- 현재 날짜 출력 시작 -->
         <!-- TODO : 현재 날짜 출력 -->
-        <div class="row ">
-          <div
-              class="ma-0 pa-3 col col-12"
-              style="
-          color: #4e73df;
-          font-size: 30px;
-          font-weight: bold;
-          text-align: center;
-        ">
-            <span>&lt;   </span>{{ today }}<span c>   &gt;</span>
-          </div>
+        <div class="text-center">
+          <h2 class="text-primary">&lt;{{ today }}&gt;</h2>
         </div>
         <!-- 현재 날짜 출력 끝 -->
         <!-- 화면 헤더 끝 -->
+
         <!-- 화면 바디 시작 -->
         <div class="row">
           <!-- 활동대사량 시작 -->
@@ -161,45 +148,50 @@
               <!-- 총 활동 시간 바디부분 -->
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table" id="dataTable" width="100%" cellspacing="0">
+                  <table
+                    class="table"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
                     <thead>
-                    <tr>
-                      <th scope="col">Name</th>
-                      <th scope="col">Time</th>
-                      <th scope="col">활동강도</th>
-                    </tr>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">활동강도</th>
+                      </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>빈둥빈둥</td>
-                      <td>24hr</td>
-                      <td>1.4</td>
-                    </tr>
-                    <tr>
-                      <td>좌식업무</td>
-                      <td>24hr</td>
-                      <td>1.5</td>
-                    </tr>
-                    <tr>
-                      <td>돌아다니는 업무</td>
-                      <td>24hr</td>
-                      <td>1.75</td>
-                    </tr>
-                    <tr>
-                      <td>활동적인 업무</td>
-                      <td>24hr</td>
-                      <td>1.75</td>
-                    </tr>
-                    <tr>
-                      <td>일반 직장인</td>
-                      <td>24hr</td>
-                      <td>1.75</td>
-                    </tr>
-                    <tr>
-                      <td>휴일 직장인</td>
-                      <td>24hr</td>
-                      <td>1.75</td>
-                    </tr>
+                      <tr>
+                        <td>빈둥빈둥</td>
+                        <td>24hr</td>
+                        <td>1.4</td>
+                      </tr>
+                      <tr>
+                        <td>좌식업무</td>
+                        <td>24hr</td>
+                        <td>1.5</td>
+                      </tr>
+                      <tr>
+                        <td>돌아다니는 업무</td>
+                        <td>24hr</td>
+                        <td>1.75</td>
+                      </tr>
+                      <tr>
+                        <td>활동적인 업무</td>
+                        <td>24hr</td>
+                        <td>1.75</td>
+                      </tr>
+                      <tr>
+                        <td>일반 직장인</td>
+                        <td>24hr</td>
+                        <td>1.75</td>
+                      </tr>
+                      <tr>
+                        <td>휴일 직장인</td>
+                        <td>24hr</td>
+                        <td>1.75</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -220,40 +212,40 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <table
-                      class="table table-bordered"
-                      id="dataTable"
-                      width="100%"
-                      cellspacing="0"
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
                   >
                     <thead>
-                    <tr>
-                      <th>Name</th>
-                    </tr>
+                      <tr>
+                        <th>Name</th>
+                      </tr>
                     </thead>
                     <tfoot>
-                    <tr>
-                      <th>Name</th>
-                    </tr>
+                      <tr>
+                        <th>Name</th>
+                      </tr>
                     </tfoot>
                     <tbody>
-                    <tr>
-                      <td>빈둥빈둥</td>
-                    </tr>
-                    <tr>
-                      <td>좌식업무</td>
-                    </tr>
-                    <tr>
-                      <td>돌아다니는 업무</td>
-                    </tr>
-                    <tr>
-                      <td>활동적인 업무</td>
-                    </tr>
-                    <tr>
-                      <td>일반 직장인</td>
-                    </tr>
-                    <tr>
-                      <td>휴일 직장인</td>
-                    </tr>
+                      <tr>
+                        <td>빈둥빈둥</td>
+                      </tr>
+                      <tr>
+                        <td>좌식업무</td>
+                      </tr>
+                      <tr>
+                        <td>돌아다니는 업무</td>
+                      </tr>
+                      <tr>
+                        <td>활동적인 업무</td>
+                      </tr>
+                      <tr>
+                        <td>일반 직장인</td>
+                      </tr>
+                      <tr>
+                        <td>휴일 직장인</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>

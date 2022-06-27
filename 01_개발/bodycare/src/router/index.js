@@ -41,11 +41,23 @@ const routes = [
 
   // TODO : ActivityInput 라우터 달기
   {
-    path: '/activityInput',
-    name: 'activityInput',
-    component: () => import("../components/weightmanage/ActivityInput")
+    path: '/diet',
+    name: 'diet',
+    component: () => import("../components/exerciseAssistant/DietCom")
 
-  }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import("../components/userManage/LogInCom")
+
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import("../components/userManage/RegisterCom")
+
+  },
   // {
   //   path: '/about',
   //   name: 'about',
