@@ -169,12 +169,9 @@
 
     <!-- 추가하기버튼 시작 -->
     <router-link to="/activityInput">
-        <button class="btn btn-primary float-right">
-          추가하기
-        </button>
+      <button class="btn btn-primary float-right">추가하기</button>
     </router-link>
     <!-- 추가하기버튼 끝 -->
-    
   </div>
   <!-- 화면 전체 끝 -->
 </template>
