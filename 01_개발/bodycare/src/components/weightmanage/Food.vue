@@ -1,6 +1,6 @@
 <template>
   <!-- Begin Page Content -->
-  <div class="container-fluid">
+  <div class="container-fluid" id="page-top">
     <!-- Page Heading -->
     <!-- TODO : 현재 날짜 출력 -->
     <div class="text-center">
@@ -49,14 +49,14 @@
               <div class="graph">
                 <!-- 기준 -->
                 <ul class="y-axis">
-                  <li><span>35</span></li>
-                  <li><span>30</span></li>
-                  <li><span>25</span></li>
-                  <li><span>20</span></li>
-                  <li><span>15</span></li>
-                  <li><span>10</span></li>
-                  <li><span>5</span></li>
+                  <li><span>1000</span></li>
+                  <li><span>850</span></li>
+                  <li><span>700</span></li>
+                  <li><span>550</span></li>
+                  <li><span>300</span></li>
+                  <li><span>150</span></li>
                   <li><span>0</span></li>
+
                 </ul>
 
                 <!-- 목록 -->
@@ -79,10 +79,31 @@
       </div>
 
       <div class="col-lg-4 mb-4">
-        <!-- Approach -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">활동탬플릿</h6>
+
+          <div class="card-header py-6">
+
+<!--            비율 테이블  -->
+            <template>
+              <div>
+                <table>
+                  <tr>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+
+
+                  </tr>
+                  <tr v-for="item in items" :key="item.title">
+                    <td><span v-html="item.title"></span></td>
+                    <td><span v-html="item.one1"></span></td>
+                    <td><span v-html="item.one2"></span></td>
+                    <td><span v-html="item.one3"></span></td>
+                  </tr>
+                </table>
+              </div>
+            </template>
+
           </div>
           <div class="card-body">
             <!-- DataTales Example -->
@@ -95,16 +116,56 @@
               ></table>
             </div>
           </div>
-        </div>
+
       </div>
     </div>
+
+
   </div>
 </template>
 
 <script>
 /*eslint-disable*/
+import dayjs from "dayjs";
+
 export default {
   name: "food",
+  data() {
+    return {
+      // TODO : 오늘 날짜 가져오는 함수
+      today: dayjs().format("YYYY-MM-DD"),
+
+
+          items: [
+            {
+              "title": "탄수화물<b>비율</b>",
+              "one1": "추천",
+              "one2": "0000",
+              "one3": "권장 단백질 섭취량"
+
+
+            },
+            {
+              "title": "단백질<b>비율</b>",
+              "one1": "0000",
+              "one2": "0000",
+
+            },
+            {
+              "title": "지방 <b>조절</b>",
+              "one1": "0000",
+              "one2": "0000",
+
+            },
+            {
+              "title": "<b>칼로리 조절</b>",
+              "one1": "0000",
+              "one2": "0000",
+
+            }
+          ]
+        };
+      },
 };
 </script>
 
@@ -124,7 +185,7 @@ ul{
 }
 .graph {
   position: relative;
-  height: 185px;
+  height: 385px;
   margin-top: 15px;
 }
 .graph .y-axis {
@@ -192,4 +253,15 @@ ul{
   width: 1px;
   background: #8c8c8c;
 }
+td, th {
+  padding: 30px;
+  border: 2px solid #ccc;
+  height: 100px;
+  background-color: white;
+}
+body {
+  padding: 1rem;
+}
+
+
 </style>
