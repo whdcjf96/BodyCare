@@ -1,5 +1,5 @@
 <template>
-  <div  id="wrapper">
+  <div  id="wrapper" style="width: 100%">
     <div>
       <!-- Sidebar -->
       <ul
