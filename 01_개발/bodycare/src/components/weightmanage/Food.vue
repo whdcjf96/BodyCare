@@ -3,13 +3,13 @@
     <div>
       <!-- Sidebar -->
       <ul
-        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-        id="accordionSidebar"
+          class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+          id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
         <router-link
-          to="/"
-          class="sidebar-brand d-flex align-items-center justify-content-center"
+            to="/"
+            class="sidebar-brand d-flex align-items-center justify-content-center"
         >
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
@@ -54,200 +54,194 @@
         </li>
       </ul>
       <!-- End of Sidebar -->
+
     </div>
 
     <!-- Begin Page Content -->
-    <div style="width: 100%">
-      <!-- Topbar -->
-      <nav
+  <div style="width: 100%">
+    <!-- Topbar -->
+    <nav
         class="
-          navbar navbar-expand navbar-light
-          bg-primary
-          topbar
-          static-top
-          shadow
-        "
-      >
-        <!-- Topbar Navbar -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <router-link
-              to="/basic"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              체중관리
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link
-              to="/diet"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              운동도우미
-            </router-link>
-          </li>
-        </ul>
-      </nav>
-      <!-- End of Topbar -->
-      <div class="container-fluid" id="page-top">
-        <!-- Page Heading -->
-        <!-- TODO : 현재 날짜 출력 -->
-        <div class="row">
-          <div
+      navbar navbar-expand navbar-light
+      bg-primary
+      topbar
+      static-top
+      shadow
+    "
+    >
+
+      <!-- Topbar Navbar -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <router-link to="/basic"
+                       class="nav-link mr-5 text-white"
+                       id="navbarDropdownMenuLink"
+                       aria-haspopup="true"
+                       aria-expanded="false"
+          >
+            체중관리
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/diet"
+                       class="nav-link mr-5 text-white"
+                       id="navbarDropdownMenuLink"
+                       aria-haspopup="true"
+                       aria-expanded="false"
+          >
+            운동도우미
+          </router-link>
+        </li>
+      </ul>
+
+    </nav>
+    <!-- End of Topbar -->
+    <div class="container-fluid" id="page-top">
+
+      <!-- Page Heading -->
+      <!-- TODO : 현재 날짜 출력 -->
+      <div class="row ">
+        <div
             class="ma-0 pa-3 col col-12"
             style="
-              color: #4e73df;
-              font-size: 30px;
-              font-weight: bold;
-              text-align: center;
-            "
-          >
-            <span>&lt; </span>{{ today }}<span c> &gt;</span>
+          color: #4e73df;
+          font-size: 30px;
+          font-weight: bold;
+          text-align: center;
+        ">
+          <span>&lt;   </span>{{ today }}<span c>   &gt;</span>
+        </div>
+      </div>
+      <!-- 현재 날짜 출력 끝 -->
+      <!-- TODO : 내용 수정 -->
+      <!-- Content Row -->
+      <div class="row">
+        <!-- Content Column -->
+        <div class="col-lg-12 mb-4">
+          <!-- Project Card Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <!-- TODO : Project -> 활동대사량 이름 수정 -->
+              <h6 class="m-0 font-weight-bold text-primary">
+                섭취할 칼로리
+                <!-- TODO : 기초대사량 추가 -->
+                <h6 class="m-0 font-weight-bold text-primary float-right">
+                  기초대사량 : 0000 kcal
+                </h6>
+              </h6>
+            </div>
+            <div class="card-body text-center">
+              <h2>0000</h2>
+
+              <h6 class="float-right">kcal</h6>
+              <h6 class="float-none">0000 kcal 부족</h6>
+            </div>
           </div>
         </div>
-        <!-- 현재 날짜 출력 끝 -->
+
+        <div class="row"></div>
         <!-- TODO : 내용 수정 -->
-        <!-- Content Row -->
-        <div class="row">
-          <!-- Content Column -->
-          <div class="col-lg-12 mb-4">
-            <!-- Project Card Example -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <!-- TODO : Project -> 활동대사량 이름 수정 -->
-                <h6 class="m-0 font-weight-bold text-primary">
-                  섭취할 칼로리
-                  <!-- TODO : 기초대사량 추가 -->
-                  <h6 class="m-0 font-weight-bold text-primary float-right">
-                    기초대사량 : 0000 kcal
-                  </h6>
-                </h6>
-              </div>
-              <div class="card-body text-center">
-                <h2>0000</h2>
+        <div class="col-lg-8 mb-4">
+          <!-- Illustrations -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">
+                탄단지 비율 그래프
+              </h6>
 
-                <h6 class="float-right">kcal</h6>
-                <h6 class="float-none">0000 kcal 부족</h6>
-              </div>
-            </div>
-          </div>
 
-          <div class="row"></div>
-          <!-- TODO : 내용 수정 -->
-          <div class="col-lg-8 mb-4">
-            <!-- Illustrations -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">
-                  탄단지 비율 그래프
-                </h6>
-              </div>
-              <div class="card-body">
-                <div class="graph_wrap">
-                  <div>
-                    <b-progress :max="max">
-                      <b-progress-bar
-                        variant="primary"
-                        :value="values[0]"
-                        animated
-                        show-progress
-                      ></b-progress-bar>
-                      <b-progress-bar
-                        variant="success"
-                        :value="values[1]"
-                        animated
-                        show-progress
-                      ></b-progress-bar>
-                      <b-progress-bar
-                        variant="info"
-                        :value="values[2]"
-                        animated
-                        show-progress
-                      ></b-progress-bar>
-                    </b-progress>
-                  </div>
-
-                  <strong class="tit">Kcal</strong>
-                  <div class="graph">
-                    <!-- 기준 -->
-                    <ul class="y-axis">
-                      <li><span>1000</span></li>
-                      <li><span>850</span></li>
-                      <li><span>700</span></li>
-                      <li><span>550</span></li>
-                      <li><span>300</span></li>
-                      <li><span>150</span></li>
-                      <li><span>0</span></li>
-                    </ul>
-
-                    <!-- 목록 -->
-                    <ul class="x-axis">
-                      <li><span>탄수화물</span></li>
-                      <li><span>단백질</span></li>
-                      <li><span>지방</span></li>
-                    </ul>
-
-                    <!-- 바 그래프 (백분율 만큼 heigh값) -->
-                    <ul class="bar">
-                      <li style="height: 100%"><span></span></li>
-                      <li style="height: 70%"><span></span></li>
-                      <li style="height: 30%"><span></span></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mb-4">
-            <div class="card-header py-6">
-              <!--            비율 테이블  -->
-              <template>
-                <div>
-                  <table>
-                    <tr>
-                      <th>1</th>
-                      <th>1</th>
-                      <th>2</th>
-                      <th>3</th>
-                    </tr>
-                    <tr v-for="item in items" :key="item.title">
-                      <td><span v-html="item.title"></span></td>
-                      <td><span v-html="item.one1"></span></td>
-                      <td><span v-html="item.one2"></span></td>
-                      <td><span v-html="item.one3"></span></td>
-                    </tr>
-                  </table>
-                </div>
-              </template>
             </div>
             <div class="card-body">
-              <!-- DataTales Example -->
-              <div class="table-responsive">
-                <table
+              <div class="graph_wrap">
+
+                <div>
+
+
+                  <b-progress :max="max">
+                   <b-progress-bar variant="primary" :value="values[0]" animated show-progress> <div>탄 </div> </b-progress-bar>
+                    <b-progress-bar variant="success" :value="values[1]" animated show-progress><div>단</div> </b-progress-bar>
+                    <b-progress-bar variant="info" :value="values[2]" animated show-progress><div>지</div> </b-progress-bar>
+                  </b-progress>
+                </div>
+
+                <strong class="tit">Kcal</strong>
+                <div class="graph">
+                  <!-- 기준 -->
+                  <ul class="y-axis">
+                    <li><span>1000</span></li>
+                    <li><span>850</span></li>
+                    <li><span>700</span></li>
+                    <li><span>550</span></li>
+                    <li><span>300</span></li>
+                    <li><span>150</span></li>
+                    <li><span>0</span></li>
+
+                  </ul>
+
+                  <!-- 목록 -->
+                  <ul class="x-axis">
+                    <li><span>탄수화물</span></li>
+                    <li><span>단백질</span></li>
+                    <li><span>지방</span></li>
+                  </ul>
+
+                  <!-- 바 그래프 (백분율 만큼 heigh값) -->
+                  <ul class="bar">
+                    <li style="height: 100%"><span></span></li>
+                    <li style="height: 70%"><span></span></li>
+                    <li style="height: 30%"><span></span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+
+          <div class="card-header py-6">
+
+            <!--            비율 테이블  -->
+            <template>
+              <div>
+                <table>
+                  <tr>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+
+
+                  </tr>
+                  <tr v-for="item in items" :key="item.title">
+                    <td><span v-html="item.title"></span></td>
+                    <td><span v-html="item.one1"></span></td>
+                    <td><span v-html="item.one2"></span></td>
+                    <td><span v-html="item.one3"></span></td>
+                  </tr>
+                </table>
+              </div>
+            </template>
+
+          </div>
+          <div class="card-body">
+            <!-- DataTales Example -->
+            <div class="table-responsive">
+              <table
                   class="table table-bordered"
                   id="dataTable"
                   width="100%"
                   cellspacing="0"
-                ></table>
-              </div>
+              ></table>
             </div>
           </div>
-        </div>
 
-        <!-- 추가하기버튼 시작 -->
-        <router-link to="/foodInput">
-          <button class="btn btn-primary float-right">추가하기</button>
-        </router-link>
-        <!-- 추가하기버튼 끝 -->
+        </div>
       </div>
+
+
     </div>
+  </div>
   </div>
 </template>
 
@@ -261,32 +255,38 @@ export default {
     return {
       // TODO : 오늘 날짜 가져오는 함수
       today: dayjs().format("YYYY-MM-DD"),
-      values: [15, 30, 20],
+      values: [30, 30, 40],
       max: 100,
+
 
       items: [
         {
-          title: "탄수화물<b>비율</b>",
-          one1: "추천",
-          one2: "0000",
-          one3: "권장 단백질 섭취량",
+          "title": "탄수화물<b>비율</b>",
+          "one1": "추천",
+          "one2": "0000",
+          "one3": "권장 단백질 섭취량"
+
+
         },
         {
-          title: "단백질<b>비율</b>",
-          one1: "0000",
-          one2: "0000",
+          "title": "단백질<b>비율</b>",
+          "one1": "0000",
+          "one2": "0000",
+
         },
         {
-          title: "지방 <b>조절</b>",
-          one1: "0000",
-          one2: "0000",
+          "title": "지방 <b>조절</b>",
+          "one1": "0000",
+          "one2": "0000",
+
         },
         {
-          title: "<b>칼로리 조절</b>",
-          one1: "0000",
-          one2: "0000",
-        },
-      ],
+          "title": "<b>칼로리 조절</b>",
+          "one1": "0000",
+          "one2": "0000",
+
+        }
+      ]
     };
   },
 };
@@ -389,8 +389,7 @@ ul {
   background: #8c8c8c;
 }
 
-td,
-th {
+td, th {
   padding: 30px;
   border: 2px solid #ccc;
   height: 100px;
@@ -400,4 +399,6 @@ th {
 body {
   padding: 1rem;
 }
+
+
 </style>
