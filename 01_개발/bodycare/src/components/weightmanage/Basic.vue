@@ -81,7 +81,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/DietCom"
+            <router-link to="/diet"
                          class="nav-link mr-5 text-white"
                          id="navbarDropdownMenuLink"
                          aria-haspopup="true"
