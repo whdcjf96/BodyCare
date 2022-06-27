@@ -86,6 +86,12 @@
                          id="navbarDropdownMenuLink"
                          aria-haspopup="true"
                          aria-expanded="false"
+            <router-link
+              to="/diet"
+              class="nav-link mr-5 text-white"
+              id="navbarDropdownMenuLink"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
               운동도우미
             </router-link>
