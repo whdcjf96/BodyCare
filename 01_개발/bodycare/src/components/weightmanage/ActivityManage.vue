@@ -68,7 +68,7 @@
       shadow
     "
   >
-  
+
     <!-- Topbar Navbar -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -92,7 +92,7 @@
               </router-link>
         </li>
     </ul>
-  
+
   </nav>
   <!-- End of Topbar -->
 
