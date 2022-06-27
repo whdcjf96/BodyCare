@@ -7,9 +7,20 @@
       <div class="row no-gutters align-center justify-center">
         <!-- 그래프란 -->
         <div class="card shadow mt-3 col col-12">
-          <div class="pa-4 ml-3  mt-2 ma-3 v-card v-card--flat v-sheet theme--light">
-          그래프
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+            </div>
+            <div class="card-body">
+              <div class="chart-area">
+                <canvas id="myAreaChart"></canvas>
+              </div>
+              <hr>
+              Styling for the area chart can be found in the
+              <code>/js/demo/chart-area-demo.js</code> file.
+            </div>
           </div>
+
         </div>
 
         <!-- 체중 추세 기울기  -->

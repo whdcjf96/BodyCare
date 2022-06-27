@@ -46,7 +46,7 @@
       <!-- TODO : weightHisotry 라우터버튼 -->
       <!-- Nav Item - weightHisotry -->
       <li class="nav-item">
-        <router-link to="/weightHisotry" class="nav-link">
+        <router-link to="/weight" class="nav-link">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>체중추적</span>
         </router-link>
