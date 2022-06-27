@@ -148,9 +148,22 @@
               <h6 class="m-0 font-weight-bold text-primary">
                 탄단지 비율 그래프
               </h6>
+
+
             </div>
             <div class="card-body">
               <div class="graph_wrap">
+
+                <div>
+
+
+                  <b-progress :max="max">
+                    <b-progress-bar variant="primary" :value="values[0]" animated show-progress></b-progress-bar>
+                    <b-progress-bar variant="success" :value="values[1]" animated show-progress></b-progress-bar>
+                    <b-progress-bar variant="info" :value="values[2]" animated show-progress></b-progress-bar>
+                  </b-progress>
+                </div>
+
                 <strong class="tit">Kcal</strong>
                 <div class="graph">
                   <!-- 기준 -->
@@ -242,6 +255,8 @@ export default {
     return {
       // TODO : 오늘 날짜 가져오는 함수
       today: dayjs().format("YYYY-MM-DD"),
+      values: [15, 30, 20],
+      max: 100,
 
 
       items: [
