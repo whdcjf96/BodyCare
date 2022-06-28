@@ -4,37 +4,52 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * packageName : com.example.customerspring.model
- * fileName : Customer
- * author : ds
- * date : 2022-06-07
- * description :
- * ===========================================================
- * DATE            AUTHOR             NOTE
- * -----------------------------------------------------------
- * 2022-06-07         ds          최초 생성
- */
-@Getter
+//import javax.validation.constraints.Email;
+//import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
+
 @Setter
+@Getter
 @ToString
 public class User {
-//    Long(객체), long(일반자료형) => 8byte 정수형
-    private Long id; // 회원아이디
-    private char gender; // 성별
-    private float height; // 키
-    private String name; // 회원 이름
-    private String email;  // email
-    private String password; // 비빌번호
+
+//  유저 아이디
+  private Long id;
+
+//  사용자 이름
+//  @NotBlank
+//  @Size(max=20)
+  private String username;
+
+//  이메일
+//  @NotBlank
+//  @Size(max=50)
+//  @Email
+  private String email;
+
+//  비밀번호
+//  @NotBlank
+//  @Size(max=120)
+  private String password;
+
+//  todo : role column 추가 할것
+//  todo : role 변수 추가 할것 테스트
+//  DB 역할 컬럼
+  private String role;
+// 성별
+  private char gender;
+// 키
+  private float height;
+
+//  SpringSecuriry 역활
+//  private Set<Role> roles = new HashSet<>();
+  private Set<String> roles = new HashSet<>();
+
+  public User(String username, String email, String password) {
+    this.username = username;
+    this.email = email;
+    this.password = password;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
