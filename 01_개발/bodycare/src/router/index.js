@@ -70,6 +70,12 @@ const routes = [
     name: 'register',
     component: () => import("../components/userManage/Register")
 
+  },
+  {
+    path: '/mypage',
+    name: 'mypage',
+    component: () => import("../components/userManage/MyPage")
+
   }
   // {
   //   path: '/about',
