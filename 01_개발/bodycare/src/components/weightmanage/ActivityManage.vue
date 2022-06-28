@@ -199,63 +199,9 @@
           </div>
           <!-- 총 활동 시간 끝 -->
 
-          <!-- 활동탬플릿 시작 -->
-          <!-- TODO : 활동탬플릿 가로길이 6 -> 4 -->
-          <div class="col-lg-4 mb-4">
-            <div class="card shadow mb-4">
-              <!-- 활동탬플릿 제목부분 -->
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">활동탬플릿</h6>
-              </div>
-              <!-- 활동탬플릿 바디부분 -->
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table
-                    class="table table-bordered"
-                    id="dataTable"
-                    width="100%"
-                    cellspacing="0"
-                  >
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                      </tr>
-                    </thead>
-                    <tfoot>
-                      <tr>
-                        <th>Name</th>
-                      </tr>
-                    </tfoot>
-                    <tbody>
-                      <tr>
-                        <td>빈둥빈둥</td>
-                      </tr>
-                      <tr>
-                        <td>좌식업무</td>
-                      </tr>
-                      <tr>
-                        <td>돌아다니는 업무</td>
-                      </tr>
-                      <tr>
-                        <td>활동적인 업무</td>
-                      </tr>
-                      <tr>
-                        <td>일반 직장인</td>
-                      </tr>
-                      <tr>
-                        <td>휴일 직장인</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- 활동탬플릿 끝 -->
-
           <!-- 코멘트 시작 -->
           <!-- TODO : 코멘트 가로길이 6 -> 12 -->
-          <div class="col-lg-12 mb-4">
+          <div class="col-lg-4 mb-4">
             <div class="card shadow mb-4">
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">comment</h6>
