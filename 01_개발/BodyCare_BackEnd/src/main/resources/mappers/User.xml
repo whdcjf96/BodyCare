@@ -3,41 +3,40 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
+
 <mapper namespace="com.example.dongsungsi.dao.TutorialDao">
 
-<!--    TODO:유저 가입-->
-    <insert id="registerUser" parameterType="User">
-        INSERT INTO USER
-        (
-            ID
-        ,EMAIL
-        ,PASSWORD
-        ,NAME
-        ,GENDER
-        ,HEIGHT
-        ,CREATED_TIME
-        ) VALUES
-            (
-                SQ_USER.NEXTVAL
-            ,#{email}
-            ,#{password}
-            ,#{name}
-            ,#{gender}
-            ,#{height}
-            ,TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
-            )
-    </insert>
+    <!--    TODO:유저 가입-->
+    =======
+    <mapper namespace="com.example.bodycare_backend.dao.UserDao">
 
-<!--    TODO: 마이페이지 조회회-->    <select id="myPageSelect" parameterType="String"
-            resultType="com.example.dongsungsi.model.Tutorial">
-        SELECT
-            NAME,
-            EMAIL,
-            HEIGHT,
-            GENDER
-        FROM
-            USER
-    </select>
-</mapper>
+        <insert id="registerUser" parameterType="User">
+            INSERT INTO USER
+            ( ID
+            , EMAIL
+            , PASSWORD
+            , NAME
+            , GENDER
+            , HEIGHT
+            , CREATED_TIME)
+            VALUES ( SQ_USER.NEXTVAL
+                   , #{email}
+                   , #{password}
+                   , #{name}
+                   , #{gender}
+                   , #{height}
+                   , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))
+        </insert>
+
+        <!--    TODO: 마이페이지 조회회-->
+        <select id="myPageSelect" parameterType="String"
+                resultType="com.example.dongsungsi.model.Tutorial">
+            SELECT NAME,
+                   EMAIL,
+                   HEIGHT,
+                   GENDER
+            FROM USER
+        </select>
+    </mapper>
 
 

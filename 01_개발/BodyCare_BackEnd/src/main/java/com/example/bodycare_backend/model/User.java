@@ -19,37 +19,30 @@ public class User {
   private Long id;
 
 //  사용자 이름
-//  @NotBlank
-//  @Size(max=20)
-  private String username;
+  private String name;
 
 //  이메일
-//  @NotBlank
-//  @Size(max=50)
 //  @Email
   private String email;
 
 //  비밀번호
-//  @NotBlank
-//  @Size(max=120)
   private String password;
 
-//  todo : role column 추가 할것
-//  todo : role 변수 추가 할것 테스트
-//  DB 역할 컬럼
-  private String role;
+//  만든시간
+  private String createdTime;
+
+//  수정시간
+  private String updateTime;
+
 // 성별
   private char gender;
 // 키
   private float height;
 
-//  SpringSecuriry 역활
-//  private Set<Role> roles = new HashSet<>();
-  private Set<String> roles = new HashSet<>();
 
-  public User(String username, String email, String password) {
-    this.username = username;
-    this.email = email;
-    this.password = password;
-  }
+//  public User(String username, String email, String password) {
+//    this.name = name;
+//    this.email = email;
+//    this.password = password;
+//  }
 }
