@@ -8,17 +8,21 @@
         INSERT INTO USER
         (
             ID
-        ,USERNAME
         ,EMAIL
         ,PASSWORD
-        ,ROLES
+        ,NAME
+        ,GENDER
+        ,HEIGHT
+        ,CREATED_TIME
         ) VALUES
             (
                 SQ_USER.NEXTVAL
-            ,#{username}
             ,#{email}
             ,#{password}
-            ,#{roles}
+            ,#{name}
+            ,#{gender}
+            ,#{height}
+            ,TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
             )
     </insert>
 </mapper>
