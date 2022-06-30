@@ -4,11 +4,9 @@
         PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
-<mapper namespace="com.example.dongsungsi.dao.TutorialDao">
 
-    <!--    TODO:유저 가입-->
-    =======
     <mapper namespace="com.example.bodycare_backend.dao.UserDao">
+<!--    TODO:유저 가입-->
 
         <insert id="registerUser" parameterType="User">
             INSERT INTO USER
@@ -28,15 +26,35 @@
                    , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))
         </insert>
 
-        <!--    TODO: 마이페이지 조회회-->
-        <select id="myPageSelect" parameterType="String"
+        <!--    TODO:조회-->
+        <select id="AllSelect" parameterType="String"
                 resultType="com.example.dongsungsi.model.Tutorial">
-            SELECT NAME,
-                   EMAIL,
-                   HEIGHT,
-                   GENDER
+            SELECT *
             FROM USER
         </select>
+
+<!--        Todo : basic 페이지 insert-->
+        <insert id="basicUserInsert" parameterType="User">
+            INSERT INTO USER_INFO
+            ( USER_ID
+            , WEIGHT
+            , BODY_FAT
+            , MUSCLE_MASS
+            , CREATED_TIME)
+            VALUES ( #{userId}
+                   , #{weight}
+                   , #{bodyFat}
+                   , #{muscleMass}
+                   , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))
+        </insert>
+
+<!--    Todo: 활동관리 페이지 관련-->
+    <select id="ActivitySelect" parameterType="String"
+            resultType="com.example.dongsungsi.model.Tutorial">
+        SELECT ACTIVITY
+        FROM USER_ACTIVITY
+    </select>
+
     </mapper>
 
 
