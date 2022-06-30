@@ -218,7 +218,12 @@
                 <div class="per-30"></div>
               </div>
               <ul class="graph">
+                <br/>
+                <br/>
                 <li class="item1" :style="{width: muscleg}"></li>
+                <br/>
+                <br/>
+                <br/>
                 <li class="item2" :style="{width: bodyFatg}"></li>
               </ul>
               
