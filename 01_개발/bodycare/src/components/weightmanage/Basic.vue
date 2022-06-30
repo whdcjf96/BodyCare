@@ -130,14 +130,26 @@
               >
                 <div class="card shadow mb-4">
                   <div class="card-header py-1">
-                    <h6 class="m-0 font-weight-bold text-primary">체중</h6>
+                    <label
+                      for="weight"
+                      class="m-0 font-weight-bold text-primary"
+                    >
+                      체중
+                    </label>
                   </div>
                   <div class="card-body text-center">
-                    <input
+                    <!-- <input
                       type="text"
                       style="border: none; border-bottom: solid"
                       placeholder="0"
                       v-model="weight"
+                    /> -->
+                    <input
+                      type="text"
+                      id="weight"
+                      required
+                      name="weight"
+                      v-model="basic.weight"
                     />
 
                     <h6 class="float-right">kg</h6>
@@ -159,16 +171,30 @@
               >
                 <div class="card shadow mb-4">
                   <div class="card-header py-1">
-                    <h6 class="m-0 font-weight-bold text-primary">체지방률</h6>
+                    <label
+                      for="bodyFat"
+                      class="m-0 font-weight-bold text-primary"
+                    >
+                      체지방량
+                    </label>
                   </div>
                   <div class="card-body text-center">
-                    <input
+                    <!-- <input
                       type="text"
                       style="border: none; border-bottom: solid"
                       placeholder="0"
                       @keyup.enter="changeFat"
                       v-model="bodyFat"
                       
+                    /> -->
+
+                    <input
+                      type="text"
+                      id="bodyFat"
+                      required
+                      name="bodyFat"
+                      @keyup.enter="changeFat"
+                      v-model="basic.bodyFat"
                     />
                     <h6 class="float-right">%</h6>
                   </div>
@@ -189,17 +215,32 @@
               >
                 <div class="card shadow mb-4">
                   <div class="card-header py-1">
-                    <h6 class="m-0 font-weight-bold text-primary">골격근량</h6>
+                    <label
+                      for="muscleMass"
+                      class="m-0 font-weight-bold text-primary"
+                    >
+                      골격근량
+                    </label>
                   </div>
                   <div class="card-body text-center">
-                    <input
+                    <!-- <input
                       type="text"
                       style="border: none; border-bottom: solid"
                       placeholder="0"
+                      @keyup.enter="changeFat"
+                      v-model="bodyFat"
+                      
+                    /> -->
+
+                    <input
+                      type="text"
+                      id="muscleMass"
+                      required
+                      name="muscleMass"
                       @keyup.enter="changeMuscle"
-                      v-model="muscle"
+                      v-model="basic.muscleMass"
                     />
-                    <h6 class="float-right">kg</h6>
+                    <h6 class="float-right">Kg</h6>
                   </div>
                 </div>
               </div>
@@ -217,10 +258,9 @@
                 <div class="per-30"></div>
               </div>
               <ul class="graph">
-                <li class="item1" :style="{width: muscleg}"></li>
-                <li class="item2" :style="{width: bodyFatg}"></li>
+                <li class="item1" :style="{ width: muscleg }"></li>
+                <li class="item2" :style="{ width: bodyFatg }"></li>
               </ul>
-              
             </div>
             <!-- 가로그래프 끝 -->
 
@@ -308,22 +348,23 @@ export default {
     return {
       // TODO : 오늘 날짜 가져오는 함수
       today: dayjs().format("YYYY-MM-DD"),
-      bodyFat:0,
-      bodyFatg:0,
-      muscle:0,
-      muscleg:0,
-      weight:0
-    };
-    
-  },
-  methods:{
-      changeFat: function(){
-        this.bodyFatg = (((this.bodyFat/30.0)*100.0)) + '%';
+      bodyFatg: 0,
+      muscleg: 0,
+      basic: {
+        bodyFat: '',
+        muscleMass: '',
+        weight: ''
       },
-      changeMuscle: function() {
-        this.muscleg = (this.muscle/this.weight) * 100 + '%';
-      } 
-    }
+    };
+  },
+  methods: {
+    changeFat: function () {
+      this.bodyFatg = (this.basic.bodyFat / 30.0) * 100.0 + "%";
+    },
+    changeMuscle: function () {
+      this.muscleg = (this.basic.muscleMass / this.basic.weight) * 100 + "%";
+    },
+  },
 };
 </script>
 
