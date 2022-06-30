@@ -3,14 +3,14 @@
     <div>
       <!-- Sidebar -->
       <ul
-        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-        id="accordionSidebar"
-        style="height: 100%"
+          class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+          id="accordionSidebar"
+          style="height: 100%"
       >
         <!-- Sidebar - Brand -->
         <router-link
-          to="/"
-          class="sidebar-brand d-flex align-items-center justify-content-center"
+            to="/"
+            class="sidebar-brand d-flex align-items-center justify-content-center"
         >
           <div class="sidebar-brand-icon ">
             <i class="fas fa-laptop-medical"></i>
@@ -59,7 +59,7 @@
     <div style="width: 100%">
       <!-- Topbar -->
       <nav
-        class="
+          class="
           navbar navbar-expand navbar-light
           bg-primary
           topbar
@@ -71,24 +71,47 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link
-              to="/basic"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
+                to="/basic"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
             >
               체중관리
             </router-link>
           </li>
           <li class="nav-item">
             <router-link
-              to="/diet"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
+                to="/diet"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
             >
               운동도우미
+            </router-link>
+          </li>
+
+          <li class="nav-item" style="position: fixed; right: 0px;">
+            <router-link
+                to="/login"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
+              로그인
+            </router-link>
+          </li>
+          <li class="nav-item" style="position: fixed; right: 100px;">
+            <router-link
+                to="/mypage"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
+              마이페이지
             </router-link>
           </li>
         </ul>
@@ -101,8 +124,8 @@
         <!-- TODO : 현재 날짜 출력 -->
         <div class="row">
           <div
-            class="ma-0 pa-3 col col-12"
-            style="
+              class="ma-0 pa-3 col col-12"
+              style="
               color: #4e73df;
               font-size: 30px;
               font-weight: bold;
@@ -119,7 +142,7 @@
             <!-- 체성분 인풋란 -->
             <div class="mt-3 col-sm-4 col-4">
               <div
-                class="
+                  class="
                   big
                   pa-4
                   ma-3
@@ -135,10 +158,10 @@
                   </div>
                   <div class="card-body text-center">
                     <input
-                      type="text"
-                      style="border: none; border-bottom: solid"
-                      placeholder="0"
-                      v-model="weight"
+                        type="text"
+                        style="border: none; border-bottom: solid"
+                        placeholder="0"
+                        v-model="weight"
                     />
 
                     <h6 class="float-right">kg</h6>
@@ -148,7 +171,7 @@
             </div>
             <div class="mt-3 col-sm-4 col-4">
               <div
-                class="
+                  class="
                   big
                   pa-4
                   ma-3
@@ -164,12 +187,12 @@
                   </div>
                   <div class="card-body text-center">
                     <input
-                      type="text"
-                      style="border: none; border-bottom: solid"
-                      placeholder="0"
-                      @keyup.enter="changeFat"
-                      v-model="bodyFat"
-                      
+                        type="text"
+                        style="border: none; border-bottom: solid"
+                        placeholder="0"
+                        @keyup.enter="changeFat"
+                        v-model="bodyFat"
+
                     />
                     <h6 class="float-right">%</h6>
                   </div>
@@ -178,7 +201,7 @@
             </div>
             <div class="mt-3 col-sm-4 col-4">
               <div
-                class="
+                  class="
                   big
                   pa-4
                   ma-3
@@ -194,11 +217,11 @@
                   </div>
                   <div class="card-body text-center">
                     <input
-                      type="text"
-                      style="border: none; border-bottom: solid"
-                      placeholder="0"
-                      @keyup.enter="changeMuscle"
-                      v-model="muscle"
+                        type="text"
+                        style="border: none; border-bottom: solid"
+                        placeholder="0"
+                        @keyup.enter="changeMuscle"
+                        v-model="muscle"
                     />
                     <h6 class="float-right">kg</h6>
                   </div>
@@ -218,17 +241,22 @@
                 <div class="per-30"></div>
               </div>
               <ul class="graph">
+                <br/>
+                <br/>
                 <li class="item1" :style="{width: muscleg}"></li>
+                <br/>
+                <br/>
+                <br/>
                 <li class="item2" :style="{width: bodyFatg}"></li>
               </ul>
-              
+
             </div>
             <!-- 가로그래프 끝 -->
 
             <!-- 추천 체중관리 -->
             <div class="card shadow mt-3 col col-12">
               <div
-                class="
+                  class="
                   pa-4
                   ml-3
                   mt-2
@@ -248,7 +276,7 @@
             <!-- 체중 관리 가이드 -->
             <div class="card shadow mt-3 col col-12">
               <div
-                class="
+                  class="
                   big
                   pa-4
                   ma-3
@@ -267,9 +295,9 @@
                 <span style="color: red">
                   <span data-v-541632ae="">
                     <button
-                      data-v-541632ae=""
-                      type="button"
-                      class="
+                        data-v-541632ae=""
+                        type="button"
+                        class="
                         elevation-0
                         op_btn
                         ml-3
@@ -280,7 +308,7 @@
                         theme--light
                         v-size--default
                       "
-                      style="
+                        style="
                         background-color: rgb(251, 222, 68);
                         border-color: rgb(251, 222, 68);
                       "
@@ -309,22 +337,22 @@ export default {
     return {
       // TODO : 오늘 날짜 가져오는 함수
       today: dayjs().format("YYYY-MM-DD"),
-      bodyFat:0,
-      bodyFatg:0,
-      muscle:0,
-      muscleg:0,
-      weight:0
+      bodyFat: 0,
+      bodyFatg: 0,
+      muscle: 0,
+      muscleg: 0,
+      weight: 0
     };
-    
+
   },
-  methods:{
-      changeFat: function(){
-        this.bodyFatg = (((this.bodyFat/30.0)*100.0)) + '%';
-      },
-      changeMuscle: function() {
-        this.muscleg = (this.muscle/this.weight) * 100 + '%';
-      } 
+  methods: {
+    changeFat: function () {
+      this.bodyFatg = (((this.bodyFat / 30.0) * 100.0)) + '%';
+    },
+    changeMuscle: function () {
+      this.muscleg = (this.muscle / this.weight) * 100 + '%';
     }
+  }
 };
 </script>
 
