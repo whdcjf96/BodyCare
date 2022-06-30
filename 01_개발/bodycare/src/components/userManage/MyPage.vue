@@ -63,6 +63,29 @@
               운동도우미
             </router-link>
           </li>
+
+          <li class="nav-item" style="position: fixed; right: 0px;">
+            <router-link
+                to="/login"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
+              로그인
+            </router-link>
+          </li>
+          <li class="nav-item" style="position: fixed; right: 100px;">
+            <router-link
+                to="/mypage"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
+              마이페이지
+            </router-link>
+          </li>
         </ul>
       </nav>
       <!-- End of Topbar -->
