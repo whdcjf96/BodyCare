@@ -4,10 +4,8 @@
         PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
-<mapper namespace="com.example.dongsungsi.dao.TutorialDao">
 
     <!--    TODO:유저 가입-->
-    =======
     <mapper namespace="com.example.bodycare_backend.dao.UserDao">
 
         <insert id="registerUser" parameterType="User">
