@@ -318,7 +318,7 @@ export default {
   },
   methods:{
       changeFat: function(){
-        this.bodyFatg = this.bodyFat + '%';
+        this.bodyFatg = (((this.bodyFat/30.0)*100.0)) + '%';
       },
       changeMuscle: function() {
         this.muscleg = (this.muscle/this.weight) * 100 + '%';
