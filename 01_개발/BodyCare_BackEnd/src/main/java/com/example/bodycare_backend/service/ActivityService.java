@@ -20,6 +20,8 @@ import java.util.Optional;
 public interface ActivityService {
     // 모든 회원 조회하는 메소드(결과 : 여러건)
     public List<Activity> findAll(Criteria criteria);
+    // id 로 조회하는 메소드(결과 : 1건)
+    Optional<Activity> findById(long id);
     // 회원 저장 / 수정하는 메소드(insert / update)
     Optional<Activity> save(Activity activity);
 }

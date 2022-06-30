@@ -30,6 +30,12 @@ public class ActivityServiceImpl implements ActivityService{
     // 나중에 에러 로그 추적을 위해 하나 만들어둠
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    // id 로 회워 조회하는 메소드
+    @Override
+    public Optional<Activity> findById(long id) {
+        return activityDao.findById(id);
+    }
+
     // 모든 회원 조회 서비스
     @Override
     public List<Activity> findAll(Criteria criteria) {
