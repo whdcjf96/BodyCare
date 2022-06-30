@@ -1,20 +1,21 @@
 <template>
-  <div id="wrapper">
+  <div id="wrapper" style="width: 100%">
     <div>
       <!-- Sidebar -->
       <ul
         class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
         id="accordionSidebar"
+        style="height: 100%"
       >
         <!-- Sidebar - Brand -->
         <router-link
           to="/"
           class="sidebar-brand d-flex align-items-center justify-content-center"
         >
-          <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+          <div class="sidebar-brand-icon ">
+            <i class="fas fa-laptop-medical"></i>
           </div>
-          <div class="sidebar-brand-text mx-3">Body Care</div>
+          <div class="sidebar-brand-text mx-3">Nutrition Assistant</div>
         </router-link>
 
         <!-- TODO : Basic 라우터버튼 -->
@@ -108,7 +109,7 @@
               text-align: center;
             "
           >
-            <span>&lt; </span>{{ today }}<span c> &gt;</span>
+            <span>&lt; </span>{{ today }}<span> &gt;</span>
           </div>
         </div>
         <!-- 현재 날짜 출력 끝 -->

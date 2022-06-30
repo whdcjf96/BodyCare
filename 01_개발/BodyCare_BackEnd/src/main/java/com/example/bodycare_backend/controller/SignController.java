@@ -1,10 +1,10 @@
 package com.example.bodycare_backend.controller;
 
-//import com.example.bodycare_backend.model.JwtResponse;
-//import com.example.bodycare_backend.model.MessageResponse;
+import com.example.bodycare_backend.model.JwtResponse;
+import com.example.bodycare_backend.model.MessageResponse;
 import com.example.bodycare_backend.model.User;
-//import com.example.bodycare_backend.security.JwtTokenProvider;
-//import com.example.bodycare_backend.service.CustomUserDetailService;
+import com.example.bodycare_backend.security.JwtTokenProvider;
+import com.example.bodycare_backend.service.CustomUserDetailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

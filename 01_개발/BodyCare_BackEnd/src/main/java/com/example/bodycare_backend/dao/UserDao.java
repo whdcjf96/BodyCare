@@ -16,7 +16,9 @@ import java.util.Optional;
  * -----------------------------------------------------------
  * 2022/05/23         kangtaegyung          최초 생성
  */
+
 @Mapper
 public interface UserDao {
+    //    회원정보(user) insert 메소드
     int registerUser(User user);
 }
