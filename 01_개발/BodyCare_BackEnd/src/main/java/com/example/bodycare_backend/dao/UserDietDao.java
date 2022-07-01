@@ -2,6 +2,8 @@ package com.example.bodycare_backend.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * packageName : com.example.bodycare_backend.dao
  * fileName : UserDiet
@@ -18,6 +20,7 @@ public interface UserDietDao {
 
 //    식단관리페이지에서 조회
     UserDietDao selectById(Long id);
+    List<UserDiet> selectById(Long id);
 
 //    인풋창에서 데이터 삽입
     Long insertDiet(UserDietDao userDiet);

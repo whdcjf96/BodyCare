@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+
+<mapper namespace="com.example.bodycare_backend.dao.UserDietDao">
+    <!--    TODO:  인풋창에서 데이터 삽입   -->
+    <insert id="insertDiet" parameterType="com.example.bodycare_backend.model.UserDiet">
+        INSERT INTO USER_DIET(ID,
+                              QUANTITY,
+                              CREATED_TIME,
+                              TIME,
+                              USER_ID,
+                              DIET_ID,
+                              DATE)
+        VALUES (SQ_USER_DIET.nextval,
+                #{quantity},
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),
+                #{time},
+                #{userId},
+                #{dietId},
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'));
+    </insert>
+
+    <!--    TODO: 식단관리페이지에서 조회-->
+    <select id="selectById" parameterType="Long"
+            resultType="com.example.bodycare_backend.model.UserDiet">
+        SELECT *
+        FROM USER_DIET
+        WHERE ID = #{id}
+    </select>
+
+
+</mapper>
+
+

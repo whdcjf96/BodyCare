@@ -31,7 +31,7 @@
                     <a href="#" class="btn btn-primary btn-user btn-block">
                       로그인
                     </a>
-                    <a href="#" class="btn btn-danger btn-user btn-block">
+                    <a href="/register" class="btn btn-danger btn-user btn-block">
                       회원가입
                     </a>
                   </form>

@@ -132,36 +132,33 @@
                 </div>
                 <div class="card-body">
                   <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
+                    <!--                    -->
+                    <template>
+                      <LineChartGenerator
+                          :chart-options="chartOptions"
+                          :chart-data="chartData"
+                          :chart-id="chartId"
+                          :dataset-id-key="datasetIdKey"
+                          :plugins="plugins"
+                          :css-classes="cssClasses"
+                          :styles="styles"
+                          :width="width"
+                          :height="height"
+                      />
+                    </template>
                   </div>
-                  <hr>
-                  Styling for the area chart can be found in the
-                  <code>/js/demo/chart-area-demo.js</code> file.
                 </div>
               </div>
 
             </div>
 
             <!-- 체중 추세 기울기  -->
-            <div class="card shadow mt-3 col col-12">
-              <div class="pa-4 ml-3  mt-2 ma-3 v-card v-card--flat v-sheet theme--light">
-                <div class="v-card__title">체중 추세 기울기: 0 Kg</div>
-                <div class="mt-2 mb-3 v-card__text font-weight-bold"> 다이어트 추천, 상승다이어트 가능하나, 식단, 운동 노력이 상당히 필요.
-                </div>
-              </div>
-            </div>
             <!-- 그래프 시작일 설정  -->
-            <div class="card shadow mt-3 col col-12">
-              <div class="pa-4 ml-3  mt-2 ma-3 v-card v-card--flat v-sheet theme--light">
-                <div class="v-card__title">그래프 시작일 설정</div>
+            <div class="mt-5 card shadow mt-3 col col-12">
+              <div class="mt-5pa-4 ml-3  mt-2 ma-3 v-card v-card--flat v-sheet theme--light">
+                <div class="v-card__title">기타 정보</div>
                 <div class="box">
-                  <section>
-                    <p>format</p>
-                    <date-picker v-model="value2" value-type="format" format="YYYY-MM-DD"></date-picker>
-                    <p>
-                      <code>v-model = {{ value2 }}</code>
-                    </p>
-                  </section>
+                  기타등등
                 </div>
               </div>
             </div>
@@ -173,22 +170,94 @@
 </template>
 <script>
 
+
 /*eslint-disable*/
-import DatePicker from 'vue2-datepicker';
-import 'vue2-datepicker/index.css';
+import {Line as LineChartGenerator} from 'vue-chartjs/legacy'
 
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  LineElement,
+  LinearScale,
+  CategoryScale,
+  PointElement
+} from 'chart.js'
+ChartJS.register(
+    Title,
+    Tooltip,
+    Legend,
+    LineElement,
+    LinearScale,
+    CategoryScale,
+    PointElement
+)
 export default {
-
   name: "weight",
-  components: {DatePicker},
+  components: { LineChartGenerator},
+  props: {
+    chartId: {
+      type: String,
+      default: 'line-chart'
+    },
+    datasetIdKey: {
+      type: String,
+      default: 'label'
+    },
+    width: {
+      type: Number,
+      default: 400
+    },
+    height: {
+      type: Number,
+      default: 400
+    },
+    cssClasses: {
+      default: '',
+      type: String
+    },
+    styles: {
+      type: Object,
+      default: () => {
+      }
+    },
+    plugins: {
+      type: Array,
+      default: () => []
+    }
+  },
   data() {
     return {
+      chartData: {
+        labels: [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July'
+        ],
+        datasets: [
+          {
+            label: '체중',
+            backgroundColor: '#f87979',
+            data: [100,90,80,70,60,50]
+          }
+        ]
+      },
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false
+      },
       time1: null,
       time2: null,
       time3: null,
     };
   },
 };
+
 
 </script>
 
