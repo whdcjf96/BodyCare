@@ -3,15 +3,15 @@
     <div>
       <!-- Sidebar -->
       <ul
-        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-        id="accordionSidebar"
-        style="height: 100%"
+          class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+          id="accordionSidebar"
+          style="height: 100%"
 
       >
         <!-- Sidebar - Brand -->
         <router-link
-          to="/"
-          class="sidebar-brand d-flex align-items-center justify-content-center"
+            to="/"
+            class="sidebar-brand d-flex align-items-center justify-content-center"
         >
           <div class="sidebar-brand-icon ">
             <i class="fas fa-laptop-medical"></i>
@@ -62,7 +62,7 @@
     <div style="width: 100%">
       <!-- Topbar -->
       <nav
-        class="
+          class="
           navbar navbar-expand navbar-light
           bg-primary
           topbar
@@ -74,22 +74,22 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link
-              to="/basic"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
+                to="/basic"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
             >
               체중관리
             </router-link>
           </li>
           <li class="nav-item">
             <router-link
-              to="/diet"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
+                to="/diet"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
             >
               운동도우미
             </router-link>
@@ -125,8 +125,8 @@
         <!-- TODO : 현재 날짜 출력 -->
         <div class="row">
           <div
-            class="ma-0 pa-3 col col-12"
-            style="
+              class="ma-0 pa-3 col col-12"
+              style="
               color: #4e73df;
               font-size: 30px;
               font-weight: bold;
@@ -178,62 +178,76 @@
                   <div>
                     <b-progress :max="max">
                       <b-progress-bar
-                        variant="primary"
-                        :value="values[0]"
-                        animated
-                        show-progress
+                          variant="primary"
+                          :value="values[0]"
+                          animated
+                          show-progress
                       >
                         <div>탄</div>
                       </b-progress-bar>
                       <b-progress-bar
-                        variant="success"
-                        :value="values[1]"
-                        animated
-                        show-progress
-                        ><div>단</div>
+                          variant="success"
+                          :value="values[1]"
+                          animated
+                          show-progress
+                      >
+                        <div>단</div>
                       </b-progress-bar>
                       <b-progress-bar
-                        variant="info"
-                        :value="values[2]"
-                        animated
-                        show-progress
-                        ><div>지</div>
+                          variant="info"
+                          :value="values[2]"
+                          animated
+                          show-progress
+                      >
+                        <div>지</div>
                       </b-progress-bar>
                     </b-progress>
+                    <template>
+                      <Bar
+                          :chart-options="chartOptions"
+                          :chart-data="chartData"
+                          :chart-id="chartId"
+                          :dataset-id-key="datasetIdKey"
+                          :plugins="plugins"
+                          :css-classes="cssClasses"
+                          :styles="styles"
+                          :width="width"
+                          :height="height"
+                      />
+                    </template>
                   </div>
 
                   <strong class="tit">Kcal</strong>
-                  <div class="graph">
-                    <!-- 기준 -->
-                    <ul class="y-axis">
-                      <li><span>1000</span></li>
-                      <li><span>850</span></li>
-                      <li><span>700</span></li>
-                      <li><span>550</span></li>
-                      <li><span>300</span></li>
-                      <li><span>150</span></li>
-                      <li><span>0</span></li>
-                    </ul>
+                  <!--                  <div class="graph">-->
+                  <!--                    &lt;!&ndash; 기준 &ndash;&gt;-->
+                  <!--                    <ul class="y-axis">-->
+                  <!--                      <li><span>1000</span></li>-->
+                  <!--                      <li><span>850</span></li>-->
+                  <!--                      <li><span>700</span></li>-->
+                  <!--                      <li><span>550</span></li>-->
+                  <!--                      <li><span>300</span></li>-->
+                  <!--                      <li><span>150</span></li>-->
+                  <!--                      <li><span>0</span></li>-->
+                  <!--                    </ul>-->
 
-                    <!-- 목록 -->
-                    <ul class="x-axis">
-                      <li><span>탄수화물</span></li>
-                      <li><span>단백질</span></li>
-                      <li><span>지방</span></li>
-                    </ul>
+                  <!--                    &lt;!&ndash; 목록 &ndash;&gt;-->
+                  <!--                    <ul class="x-axis">-->
+                  <!--                      <li><span>탄수화물</span></li>-->
+                  <!--                      <li><span>단백질</span></li>-->
+                  <!--                      <li><span>지방</span></li>-->
+                  <!--                    </ul>-->
 
-                    <!-- 바 그래프 (백분율 만큼 heigh값) -->
-                    <ul class="bar">
-                      <li style="height: 100%"><span></span></li>
-                      <li style="height: 70%"><span></span></li>
-                      <li style="height: 30%"><span></span></li>
-                    </ul>
-                  </div>
+                  <!--                    &lt;!&ndash; 바 그래프 (백분율 만큼 heigh값) &ndash;&gt;-->
+                  <!--                    <ul class="bar">-->
+                  <!--                      <li style="height: 100%"><span></span></li>-->
+                  <!--                      <li style="height: 70%"><span></span></li>-->
+                  <!--                      <li style="height: 30%"><span></span></li>-->
+                  <!--                    </ul>-->
+                  <!--                  </div>-->
                 </div>
               </div>
             </div>
           </div>
-
           <div class="col-lg-4 mb-4">
             <div class="card-header py-6">
               <!--            비율 테이블  -->
@@ -260,10 +274,10 @@
               <!-- DataTales Example -->
               <div class="table-responsive">
                 <table
-                  class="table table-bordered"
-                  id="dataTable"
-                  width="100%"
-                  cellspacing="0"
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
                 ></table>
               </div>
             </div>
@@ -283,16 +297,63 @@
 <script>
 /*eslint-disable*/
 import dayjs from "dayjs";
+import {Bar} from 'vue-chartjs/legacy'
+
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+} from 'chart.js'
+
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+
 
 export default {
   name: "food",
+  components: {
+    Bar
+  },
+  props: {
+    chartId: {
+      type: String,
+      default: 'bar-chart'
+    },
+    datasetIdKey: {
+      type: String,
+      default: 'label'
+    },
+    width: {
+      type: Number,
+      default: 400
+    },
+    height: {
+      type: Number,
+      default: 400
+    },
+    cssClasses: {
+      default: '',
+      type: String
+    },
+    styles: {
+      type: Object,
+      default: () => {
+      }
+    },
+    plugins: {
+      type: Array,
+      default: () => []
+    }
+  },
   data() {
     return {
       // TODO : 오늘 날짜 가져오는 함수
       today: dayjs().format("YYYY-MM-DD"),
       values: [30, 30, 40],
       max: 100,
-
       items: [
         {
           title: "탄수화물<b>비율</b>",
@@ -316,6 +377,25 @@ export default {
           one2: "0000",
         },
       ],
+      chartData: {
+        labels: [
+          '탄수화물',
+          '단백질',
+          '지방',
+
+        ],
+        datasets: [
+          {
+            label: 'Kcal',
+            backgroundColor: '#f87979',
+            data: [100, 90, 80,]
+          }
+        ]
+      },
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
     };
   },
 };
