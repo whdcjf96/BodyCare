@@ -153,25 +153,12 @@
             </div>
 
             <!-- 체중 추세 기울기  -->
-            <div class="card shadow mt-3 col col-12">
-              <div class="pa-4 ml-3  mt-2 ma-3 v-card v-card--flat v-sheet theme--light">
-                <div class="v-card__title">체중 추세 기울기: 0 Kg</div>
-                <div class="mt-2 mb-3 v-card__text font-weight-bold"> 다이어트 추천, 상승다이어트 가능하나, 식단, 운동 노력이 상당히 필요.
-                </div>
-              </div>
-            </div>
             <!-- 그래프 시작일 설정  -->
-            <div class="card shadow mt-3 col col-12">
-              <div class="pa-4 ml-3  mt-2 ma-3 v-card v-card--flat v-sheet theme--light">
-                <div class="v-card__title">그래프 시작일 설정</div>
+            <div class="mt-5 card shadow mt-3 col col-12">
+              <div class="mt-5pa-4 ml-3  mt-2 ma-3 v-card v-card--flat v-sheet theme--light">
+                <div class="v-card__title">기타 정보</div>
                 <div class="box">
-                  <section>
-                    <p>format</p>
-                    <date-picker v-model="value2" value-type="format" format="YYYY-MM-DD"></date-picker>
-                    <p>
-                      <code>v-model = {{ value2 }}</code>
-                    </p>
-                  </section>
+                  기타등등
                 </div>
               </div>
             </div>
@@ -185,8 +172,6 @@
 
 
 /*eslint-disable*/
-import DatePicker from 'vue2-datepicker';
-import 'vue2-datepicker/index.css';
 import {Line as LineChartGenerator} from 'vue-chartjs/legacy'
 
 import {
@@ -210,7 +195,7 @@ ChartJS.register(
 )
 export default {
   name: "weight",
-  components: {DatePicker, LineChartGenerator},
+  components: { LineChartGenerator},
   props: {
     chartId: {
       type: String,
