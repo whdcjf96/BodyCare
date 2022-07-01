@@ -21,7 +21,7 @@
                 #{bodyFat},
                 #{muscleMass},
                 TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),
-                #{id});
+                #{id2});
     </insert>
 
     <!--    TODO: 체중추적에서 조회-->
