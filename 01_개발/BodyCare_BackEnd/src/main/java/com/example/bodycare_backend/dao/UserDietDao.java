@@ -14,12 +14,12 @@ import org.apache.ibatis.annotations.Mapper;
  * 2022-06-30         jc          최초 생성
  */
 @Mapper
-public interface UserDiet {
+public interface UserDietDao {
 
 //    식단관리페이지에서 조회
-    UserDiet selectById(Long id);
+    UserDietDao selectById(Long id);
 
 //    인풋창에서 데이터 삽입
-    Long insertDiet(UserDiet userDiet);
+    Long insertDiet(UserDietDao userDiet);
 
 }

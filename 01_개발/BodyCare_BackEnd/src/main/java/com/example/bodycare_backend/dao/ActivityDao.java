@@ -20,12 +20,10 @@ import java.util.Optional;
  */
 @Mapper
 public interface ActivityDao {
-    // 전체 활동명 조회 메소드
+    // 전체 조회 메소드
     List<Activity> findAll(Criteria criteria);
 
-    // 활동명에 따른 데이터 건수를 세는 메소드
-    public int selectTotalCount(String activity);
 
-    // id 로 회원 조회 메소드
-    Optional<Activity> findById(Long id);
+
+
 }
