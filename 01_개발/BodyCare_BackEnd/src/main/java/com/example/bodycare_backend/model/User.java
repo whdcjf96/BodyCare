@@ -27,5 +27,6 @@ public class User {
     private float height;
     private String createdTime;
     private String updateTime;
+    private int age;
 
 }

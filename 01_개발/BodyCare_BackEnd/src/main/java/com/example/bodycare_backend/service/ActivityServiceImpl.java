@@ -36,13 +36,13 @@ public class ActivityServiceImpl implements ActivityService{
         return activityDao.findById(id);
     }
 
-    // 모든 회원 조회 서비스
+    // 모든 활동명 조회 서비스
     @Override
     public List<Activity> findAll(Criteria criteria) {
         return activityDao.findAll(criteria);
     }
 
-    // 회원 생성 / 수정 서비스 (insert / update)
+    // 활동명 생성 / 수정 서비스 (insert / update)
     @Override
     public Optional<Activity> save(Activity activity) {
         // db 시퀀스 번호 저장을 위한 변수

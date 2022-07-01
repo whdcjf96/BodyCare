@@ -4,37 +4,57 @@
         PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
+<!--    TODO:유저 가입-->
+<mapper namespace="com.example.bodycare_backend.dao.UserDao">
 
-    <!--    TODO:유저 가입-->
-    <mapper namespace="com.example.bodycare_backend.dao.UserDao">
+    <insert id="insertUser" parameterType="com.example.bodycare_backend.model.User">
+        INSERT INTO USER
+        ( ID
+        , EMAIL
+        , PASSWORD
+        , NAME
+        , GENDER
+        , HEIGHT
+        , AGE
+        , CREATED_TIME)
+        VALUES ( SQ_USER.NEXTVAL
+               , #{email}
+               , #{password}
+               , #{name}
+               , #{gender}
+               , #{height}
+               , #{age}
+               , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))
+    </insert>
 
-        <insert id="registerUser" parameterType="User">
-            INSERT INTO USER
-            ( ID
-            , EMAIL
-            , PASSWORD
-            , NAME
-            , GENDER
-            , HEIGHT
-            , CREATED_TIME)
-            VALUES ( SQ_USER.NEXTVAL
-                   , #{email}
-                   , #{password}
-                   , #{name}
-                   , #{gender}
-                   , #{height}
-                   , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))
-        </insert>
+    <!--    TODO: 아이디별로 조회-->
+    <select id="findById" parameterType="Long"
+            resultType="com.example.bodycare_backend.model.User">
+        SELECT *
+        FROM TB_USER
+        WHERE ID = #{id}
+    </select>
 
-        <!--    TODO: 마이페이지 조회회-->
-        <select id="myPageSelect" parameterType="String"
-                resultType="com.example.dongsungsi.model.Tutorial">
-            SELECT NAME,
-                   EMAIL,
-                   HEIGHT,
-                   GENDER
-            FROM USER
-        </select>
-    </mapper>
+<!--    Todo:이메일 조회-->
+    <select id="findByEmail" parameterType="String"
+            resultType="com.example.bodycare_backend.model.User">
+        SELECT *
+        FROM TB_USER
+        WHERE EMAIL = #{email}
+    </select>
+
+
+<!--    Todo:이메일 조회-->
+    <select id="findAll"
+            resultType="com.example.bodycare_backend.model.User">
+        SELECT *
+        FROM TB_USER
+    </select>
+
+<!--    Todo: 데이터 삭제-->
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM TB_USER WHERE EMAIL=#{email}
+    </delete>
+</mapper>
 
 
