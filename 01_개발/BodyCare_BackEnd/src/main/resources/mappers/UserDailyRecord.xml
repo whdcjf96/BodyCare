@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<!--    TODO: 기본페이지에서 입력받을 때 동시 저장-->
+<mapper namespace="com.example.bodycare_backend.dao.UserDailyRecordDao">
+
+    <insert id="insertRecord" parameterType="com.example.bodycare_backend.model.UserDailyRecord">
+        INSERT INTO USER_DAILY_RECORD(ID,
+                                      DATE,
+                                      WEIGHT,
+                                      BODY_FAT,
+                                      MUSCLE_MASS,
+                                      CREATED_TIME,
+                                      ID2)
+        VALUES (SQ_USER_DAILY_FECORD.NEXTVAL,
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),
+                #{weight},
+                #{bodyFat},
+                #{muscleMass},
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),
+                #{id});
+    </insert>
+
+    <!--    TODO: 체중추적에서 조회-->
+    <select id="selectById" parameterType="Long"
+            resultType="com.example.bodycare_backend.model.UserDailyRecord">
+        SELECT ID,
+            DATE,
+            WEIGHT
+        FROM USER_DAILY_RECORD
+    </select>
+
+
+</mapper>
+
+

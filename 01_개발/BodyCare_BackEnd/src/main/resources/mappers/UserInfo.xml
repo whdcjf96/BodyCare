@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.example.bodycare_backend.dao.UserDailyRecordDao">
+    <!--    TODO: 기본페이지 데이터 입력-->
+    <insert id="insertUserBasic" parameterType="com.example.bodycare_backend.model.UserInfo">
+        INSERT INTO USER_INFO(USER_ID,
+                              WEIGHT,
+                              BODY_FAT,
+                              MUSCLE_MASS,
+                              KCAL_START,
+                              KCAL,
+                              KCAL_WEEKLY,
+                              WEIGHT_GOAL,
+                              WEIGHT_LOSS,
+                              CREATED_TIME)
+        VALUES (#{userID},
+                #{weight},
+                #{bodyFat},
+                #{muscleMass},
+                #{kcalStart},
+                #{kcal},
+                #{kcalWeekly},
+                #{weightGoal},
+                #{weightLoss},
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),);
+    </insert>
+
+    <!--    TODO: 운동도우미에서 데이터 삽입-->
+    <insert id="insertUserExer" parameterType="com.example.bodycare_backend.model.UserInfo">
+
+    </insert>
+
+    <!--    TODO: 활동관리페이지/식단관리에서 활동대사량 계산을 위해 읽어오기-->
+    <select id="selectAct" parameterType="Long"
+            resultType="com.example.bodycare_backend.model.UserInfo">
+
+    </select>
+
+    <!--    TODO: 운동도우미에서 리드-->
+    <select id="selectExer" parameterType="Long"
+            resultType="com.example.bodycare_backend.model.UserInfo">
+
+    </select>
+
+
+</mapper>
+
+
