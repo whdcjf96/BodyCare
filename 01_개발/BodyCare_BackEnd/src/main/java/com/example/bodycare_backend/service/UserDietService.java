@@ -23,5 +23,5 @@ public interface UserDietService {
     List<UserDiet> selectById(Long id);
 
     // 인풋창 저장 메소드(insert)
-    Optional<UserDiet> save(UserDiet userDiet);
+    List<UserDiet> save(UserDiet userDiet);
 }

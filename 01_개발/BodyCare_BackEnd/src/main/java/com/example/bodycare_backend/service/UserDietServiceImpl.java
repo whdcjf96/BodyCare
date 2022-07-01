@@ -37,7 +37,7 @@ public class UserDietServiceImpl implements UserDietService {
 
 
     @Override
-    public Optional<UserDiet> save(UserDiet userDiet) {
+    public List<UserDiet> save(UserDiet userDiet) {
         // db 시퀀스 번호 저장을 위한 변수
         long seqId = 0;
 
@@ -54,9 +54,9 @@ public class UserDietServiceImpl implements UserDietService {
 //        }
 
         // insert 문 후에는 customer 의 id 속성에 값이 저장됨(<selectkey>)
-        seqId = user.getId();
+        seqId = userDiet.getId();
         logger.info("seqId {}", seqId);
 
-        return userDao.findById(seqId);
+        return userDietDao.selectById(seqId);
     }
 }
