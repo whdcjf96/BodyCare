@@ -1,9 +1,11 @@
 package com.example.bodycare_backend.dao;
 
+import com.example.bodycare_backend.model.Diet;
 import com.example.bodycare_backend.model.UserActivity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * packageName : com.example.bodycare_backend.dao
@@ -24,4 +26,6 @@ public interface UserActivityDao {
 
 //    입력창에서 활동 선택해서 데이터삽입
     Long insertUserActivity(UserActivity userActivity);
+
+
 }
