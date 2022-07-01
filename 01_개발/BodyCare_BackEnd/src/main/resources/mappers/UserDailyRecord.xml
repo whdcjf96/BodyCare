@@ -4,9 +4,10 @@
         PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
-<!--    TODO: 기본페이지에서 입력받을 때 동시 저장-->
-<mapper namespace="com.example.bodycare_backend.dao.UserDailyRecordDao">
 
+<mapper namespace="com.example.bodycare_backend.dao.UserDailyRecordDao">
+    <!--    TODO: 기본페이지에서 입력받을 때 동시 저장-->
+<!--    TODO : ID2 -> FK-->
     <insert id="insertRecord" parameterType="com.example.bodycare_backend.model.UserDailyRecord">
         INSERT INTO USER_DAILY_RECORD(ID,
                                       DATE,

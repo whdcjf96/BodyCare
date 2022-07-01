@@ -6,6 +6,7 @@
 
 <mapper namespace="com.example.bodycare_backend.dao.UserDailyRecordDao">
     <!--    TODO: 기본페이지 데이터 입력-->
+<!--    TODO: FK-->
     <insert id="insertUserBasic" parameterType="com.example.bodycare_backend.model.UserInfo">
         INSERT INTO USER_INFO(ID,
                               WEIGHT,
@@ -30,6 +31,7 @@
     </insert>
 
     <!--    TODO: 활동관리페이지/식단관리에서 활동대사량 계산을 위해 읽어오기-->
+<!--    TODO: FK-->
     <select id="selectAct" parameterType="Long"
             resultType="com.example.bodycare_backend.model.UserInfo">
         SELECT ID,
@@ -41,6 +43,7 @@
     </select>
 
     <!--    TODO: 운동도우미에서 리드-->
+    <!--    TODO: FK-->
     <select id="selectExer" parameterType="Long"
             resultType="com.example.bodycare_backend.model.UserInfo">
         SELECT ID,
