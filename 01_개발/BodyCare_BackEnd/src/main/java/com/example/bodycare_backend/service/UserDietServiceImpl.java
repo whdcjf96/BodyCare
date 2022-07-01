@@ -31,24 +31,10 @@ public class UserDietServiceImpl implements UserDietService {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public List<UserDiet> selectByIdM(Long id) {
-        return userDietDao.selectByIdM(id);
+    public List<UserDiet> selectById(Long id) {
+        return userDietDao.selectById(id);
     }
 
-    @Override
-    public List<UserDiet> selectByIdL(Long id) {
-        return userDietDao.selectByIdL(id);
-    }
-
-    @Override
-    public List<UserDiet> selectByIdD(Long id) {
-        return userDietDao.selectByIdD(id);
-    }
-
-    @Override
-    public List<UserDiet> selectByIdS(Long id) {
-        return userDietDao.selectByIdS(id);
-    }
 
     @Override
     public Optional<UserDiet> save(UserDiet userDiet) {

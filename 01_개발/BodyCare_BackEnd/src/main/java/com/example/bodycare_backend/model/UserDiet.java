@@ -30,5 +30,5 @@ public class UserDiet {
 //    식단테이블 fk
     private Long dietId;
 
-    private String date;
+    private String dietDate;
 }

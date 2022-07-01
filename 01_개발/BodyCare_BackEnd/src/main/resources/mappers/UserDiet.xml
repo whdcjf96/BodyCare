@@ -14,14 +14,14 @@
                               TIME,
                               USER_ID,
                               DIET_ID,
-                              DATE)
+                              DIET_DATE)
         VALUES (SQ_USER_DIET.nextval,
                 #{quantity},
                 TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),
                 #{time},
                 #{userId},
                 #{dietId},
-                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'));
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD'));
     </insert>
 
     <!--    TODO: 식단관리페이지에서 조회-->

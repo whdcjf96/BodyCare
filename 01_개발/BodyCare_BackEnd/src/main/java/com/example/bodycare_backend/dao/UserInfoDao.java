@@ -29,5 +29,9 @@ public interface UserInfoDao {
 //    운동도우미에서 데이터 삽입
     Long insertUserExer(UserInfo userInfo);
 
+    Long updateUserAct(UserInfo userInfo);
+
+    Long updateUserExer(UserInfo userInfo);
+
 
 }
