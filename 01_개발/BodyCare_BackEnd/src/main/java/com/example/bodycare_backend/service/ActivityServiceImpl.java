@@ -23,38 +23,17 @@ import java.util.Optional;
  * 2022-06-30         4571c          최초 생성
  */
 @Service
-public class ActivityServiceImpl implements ActivityService{
+public class ActivityServiceImpl implements ActivityService {
     @Autowired
     private ActivityDao activityDao; // 객체 정의 ( null => 스프링 객체 )
 
     // 나중에 에러 로그 추적을 위해 하나 만들어둠
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    // id 로 회워 조회하는 메소드
-    @Override
-    public Optional<Activity> findById(long id) {
-        return activityDao.findById(id);
-    }
 
     // 모든 활동명 조회 서비스
     @Override
     public List<Activity> findAll(Criteria criteria) {
         return activityDao.findAll(criteria);
-    }
-
-    // 활동명 생성 / 수정 서비스 (insert / update)
-    @Override
-    public Optional<Activity> save(Activity activity) {
-        // db 시퀀스 번호 저장을 위한 변수
-        long seqId = 0;
-
-        // 매개변수 activity 정보 출력
-        logger.info("activity {}", activity);
-
-        // insert 문 후에는 activity 의 id 속성에 값이 저장됨(<selectkey>)
-        seqId = activity.getId();
-        logger.info("seqId {}", seqId);
-
-        return activityDao.findById(seqId);
     }
 }

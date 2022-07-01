@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.example.bodycare_backend.dao.ActivityDao">
+
+<!--    전체 조회 메소드-->
+    <select id="findAll" parameterType="com.example.bodycare_backend.paging.Criteria" resultType="com.example.bodycare_backend.model.Activity">
+        SELECT *
+        FROM (
+                 SELECT ROWNUM R, AT.*
+                 FROM ACTIVITY AT
+                 WHERE TT.DELETE_YN = 'N'
+                   AND ROWNUM &lt; = (#{page} + 1) * #{size}
+             )
+        WHERE R > #{page} * #{size}
+    </select>
+
+
+
+</mapper>
+
+

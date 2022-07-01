@@ -4,18 +4,20 @@
         PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
-<mapper namespace="com.example.bodycare_backend.dao.UserDailyRecordDao">
+<mapper namespace="com.example.bodycare_backend.dao.UserInfoDao">
     <!--    TODO: 기본페이지 데이터 입력-->
-<!--    TODO: FK-->
+    <!--    TODO: FK-->
     <insert id="insertUserBasic" parameterType="com.example.bodycare_backend.model.UserInfo">
         INSERT INTO USER_INFO(ID,
                               WEIGHT,
                               BODY_FAT,
-                              MUSCLE_MASS,)
+                              MUSCLE_MASS,
+                              CREATED_TIME)
         VALUES (#{id},
                 #{weight},
                 #{bodyFat},
-                #{muscleMass},)
+                #{muscleMass},
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))
     </insert>
 
     <!--    TODO: 운동도우미에서 데이터 삽입-->
@@ -23,15 +25,17 @@
         INSERT INTO USER_INFO(ID,
                               WEIGHT_GOAL,
                               KCAL_START,
-                              KCAL_WEEKLY)
+                              KCAL_WEEKLY,
+                              UPDATE_TIME)
         VALUES (#{id},
                 #{weightGoal},
                 #{kcalStart},
-                #{kcalWeekly})
+                #{kcalWeekly},
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')) )
     </insert>
 
     <!--    TODO: 활동관리페이지/식단관리에서 활동대사량 계산을 위해 읽어오기-->
-<!--    TODO: FK-->
+    <!--    TODO: FK  TB_USER테이블과 USER_ACTIVITY에서 값을 읽어와야 함-->
     <select id="selectAct" parameterType="Long"
             resultType="com.example.bodycare_backend.model.UserInfo">
         SELECT ID,
@@ -46,12 +50,11 @@
     <!--    TODO: FK-->
     <select id="selectExer" parameterType="Long"
             resultType="com.example.bodycare_backend.model.UserInfo">
-        SELECT ID,
-               HEIGHT,
-               WEIGHT,
-               AGE
-        FROM USER_INFO
-        WHERE ID = #{id}
+        SELECT B.WEIGHT, B.BODY_FAT, B.MUSCLE_MASS, A.AGE, A.HEIGHT, A.ID, B.USER_ID
+        FROM TB_USER A,
+             USER_INFO B
+        WHERE B.USER_ID = A.ID
+          AND B.USER_ID = #{userId};
     </select>
 
 

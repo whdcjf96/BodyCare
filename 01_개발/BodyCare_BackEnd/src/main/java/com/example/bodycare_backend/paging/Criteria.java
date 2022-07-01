@@ -31,7 +31,7 @@ public class Criteria {
     // 계산 공식 : (테이블 총 데이터 개수) / (한 페이지 당 출력할 데이터 개수)
     private  Integer totalPages; // 총 페이지수(totalItems / size)
     
-//    private String title; // 검색 제목
+    private String title; // 검색 제목
 //
 //    private String Email; // 검색 이메일
     
