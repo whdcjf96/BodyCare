@@ -26,5 +26,5 @@ public interface UserService {
     // 유저정보 저장 메소드(insert)
     User save(User user);
 
-    Long deleteUser(String email);
+    Boolean deleteUser(String email);
 }
