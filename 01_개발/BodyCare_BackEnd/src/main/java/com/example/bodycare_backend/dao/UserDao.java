@@ -27,5 +27,5 @@ public interface UserDao {
 
     Long insertUser(User user);
 
-    Long deleteUser(String email);
+    int deleteUser(String email);
 }

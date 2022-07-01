@@ -29,7 +29,7 @@ public interface UserDietDao {
     List<UserDiet> selectByIdS(Long id);
 
 //    인풋창에서 데이터 삽입
-    Long insertDiet(UserDietDao userDiet);
+    Long insertDiet(UserDietDao userDietDao);
     
 
 
