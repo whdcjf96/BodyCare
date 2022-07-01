@@ -290,8 +290,52 @@
         </router-link>
         <!-- 추가하기버튼 끝 -->
       </div>
+
+      <!--          아침 점심 저녁 간식 테이블-->
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <tr>
+              <th>아침</th>
+              <td>0Kcal</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+
+            <tr>
+              <th>점심</th>
+              <td>0Kcal</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+
+            <tr>
+              <th>저녁</th>
+              <td>0Kcal</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+
+            </tr>
+
+
+            <tr>
+              <th>간식</th>
+              <td>0Kcal</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
+
+<!--          아침 점심 저녁 간식 테이블 끝-->
+    </div>
 </template>
 
 <script>
@@ -387,7 +431,7 @@ export default {
         datasets: [
           {
             label: 'Kcal',
-            backgroundColor: '#f87979',
+            backgroundColor : ['blue','green','Skyblue'],
             data: [100, 90, 80,]
           }
         ]
@@ -399,6 +443,8 @@ export default {
     };
   },
 };
+
+
 </script>
 
 <style scoped>
