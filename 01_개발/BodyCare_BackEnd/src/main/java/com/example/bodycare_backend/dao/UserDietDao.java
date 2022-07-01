@@ -26,6 +26,8 @@ public interface UserDietDao {
     Long insertDiet(UserDiet userDiet);
 
     Long updateDiet(UserDiet userDiet);
+
+    Long deleteDiet(Long id);
     
 
 

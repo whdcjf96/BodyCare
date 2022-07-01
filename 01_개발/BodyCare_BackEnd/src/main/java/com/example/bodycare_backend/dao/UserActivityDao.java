@@ -29,5 +29,7 @@ public interface UserActivityDao {
 
     Long updateUserActivity(UserActivity userActivity);
 
+    Long deleteUserActivity(Long id);
+
 
 }
