@@ -26,11 +26,10 @@ public interface UserInfoDao {
 //    운동도우미에서 리드
     UserInfo selectExer(Long userId);
 
-//    운동도우미에서 데이터 삽입
-    Long insertUserExer(UserInfo userInfo);
 
     Long updateUserAct(UserInfo userInfo);
 
+//    운동도우미에서 업데이트
     Long updateUserExer(UserInfo userInfo);
 
 
