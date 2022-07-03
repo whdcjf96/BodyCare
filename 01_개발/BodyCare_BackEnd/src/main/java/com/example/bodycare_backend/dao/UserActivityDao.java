@@ -27,5 +27,9 @@ public interface UserActivityDao {
 //    입력창에서 활동 선택해서 데이터삽입
     Long insertUserActivity(UserActivity userActivity);
 
+    Long updateUserActivity(UserActivity userActivity);
+
+    Long deleteUserActivity(Long id);
+
 
 }

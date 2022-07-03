@@ -22,4 +22,8 @@ public interface UserDailyRecordDao {
 
 //    체중추적에서 조회
     UserDailyRecord selectById(Long id);
+
+    Long updateRecord(UserDailyRecord userDailyRecord);
+
+    Long deleteRecord(Long id);
 }

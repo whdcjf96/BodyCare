@@ -231,19 +231,23 @@ export default {
     return {
       chartData: {
         labels: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July'
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+          '6',
+          '8',
+          '9',
+          '10',
+          '11',
+          '12'
         ],
         datasets: [
           {
             label: '체중',
             backgroundColor: '#f87979',
-            data: [100,90,80,70,60,50]
+            data: [100,90,80,70,80,50,60,70,80,90,100]
           }
         ]
       },
@@ -251,9 +255,6 @@ export default {
         responsive: true,
         maintainAspectRatio: false
       },
-      time1: null,
-      time2: null,
-      time3: null,
     };
   },
 };

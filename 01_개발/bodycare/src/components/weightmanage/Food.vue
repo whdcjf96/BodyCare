@@ -223,7 +223,7 @@
                   <!--                    <ul class="y-axis">-->
                   <!--                      <li><span>1000</span></li>-->
                   <!--                      <li><span>850</span></li>-->
-                  <!--                      <li><span>700</span></li>-->
+                  <!--                      <li><span>700</sp an></li>-->
                   <!--                      <li><span>550</span></li>-->
                   <!--                      <li><span>300</span></li>-->
                   <!--                      <li><span>150</span></li>-->
@@ -253,18 +253,14 @@
               <!--            비율 테이블  -->
               <template>
                 <div>
+
                   <table>
-                    <tr>
-                      <th>1</th>
-                      <th>1</th>
-                      <th>2</th>
-                      <th>3</th>
-                    </tr>
+
                     <tr v-for="item in items" :key="item.title">
-                      <td><span v-html="item.title"></span></td>
-                      <td><span v-html="item.one1"></span></td>
-                      <td><span v-html="item.one2"></span></td>
-                      <td><span v-html="item.one3"></span></td>
+                      <td ><span v-html="item.title"></span></td>
+                      <td ><span v-html="item.one1"></span></td>
+                      <td ><span v-html="item.one2"></span></td>
+                      <td ><span v-html="item.one3"></span></td>
                     </tr>
                   </table>
                 </div>
@@ -291,12 +287,14 @@
         <!-- 추가하기버튼 끝 -->
       </div>
 
+
+
       <!--          아침 점심 저녁 간식 테이블-->
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <tr>
-              <th>아침</th>
+          <div class="bab-table">
+            <div class="table-responsive">
+
+            <tr class="one">
+              <th class="thh">아침</th>
               <td>0Kcal</td>
               <td>0</td>
               <td>0</td>
@@ -304,35 +302,34 @@
             </tr>
 
             <tr>
-              <th>점심</th>
+              <th class="thh">점심</th>
               <td>0Kcal</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
+              <td class="carbohydrate">0</td>
+              <td class="protein">0</td>
+              <td class="Fat">0</td>
             </tr>
 
-            <tr>
-              <th>저녁</th>
-              <td>0Kcal</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-
-            </tr>
-
-
-            <tr>
-              <th>간식</th>
+            <tr class="one">
+              <th class="thh">저녁</th>
               <td>0Kcal</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
 
             </tr>
-          </table>
+
+
+            <tr class="one">
+              <th class="thh">간식</th>
+              <td>0Kcal</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
         </div>
       </div>
     </div>
+
 
 <!--          아침 점심 저녁 간식 테이블 끝-->
     </div>
@@ -372,11 +369,11 @@ export default {
     },
     width: {
       type: Number,
-      default: 400
+      default: 200
     },
     height: {
       type: Number,
-      default: 400
+      default: 300
     },
     cssClasses: {
       default: '',
@@ -396,8 +393,10 @@ export default {
     return {
       // TODO : 오늘 날짜 가져오는 함수
       today: dayjs().format("YYYY-MM-DD"),
+      // TODO : 그래프 위 막대 그래프 수치
       values: [30, 30, 40],
       max: 100,
+      //TODO : 오른쪽 테이블
       items: [
         {
           title: "탄수화물<b>비율</b>",
@@ -544,12 +543,43 @@ ul {
   background: #8c8c8c;
 }
 
-td,
-th {
+
+
+tr,td {
   padding: 30px;
   border: 2px solid #ccc;
   height: 100px;
   background-color: white;
+
+
+}
+
+.one.tr,td {
+  padding: 20px;
+  border: none;
+  height: 100px;
+  background-color: white;
+  line-height:0.1px;
+
+}
+
+.content {
+  position: relative;
+}
+
+.carbohydrate {
+ text-decoration: underline;
+  text-underline-position:under;
+  color: blue;
+
+}
+
+.thh{
+  font-size: large;
+}
+
+.bab-table{
+
 }
 
 body {

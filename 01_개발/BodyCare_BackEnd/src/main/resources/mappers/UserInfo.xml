@@ -21,29 +21,24 @@
     </insert>
 
     <!--    TODO: 운동도우미에서 데이터 삽입-->
-    <insert id="insertUserExer" parameterType="com.example.bodycare_backend.model.UserInfo">
-        INSERT INTO USER_INFO(ID,
-                              WEIGHT_GOAL,
-                              KCAL_START,
-                              KCAL_WEEKLY,
-                              UPDATE_TIME)
-        VALUES (#{id},
-                #{weightGoal},
-                #{kcalStart},
-                #{kcalWeekly},
-                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')) )
-    </insert>
+    <update id="updateUserExer" parameterType="com.example.bodycare_backend.model.UserInfo">
+        UPDATE USER_INFO
+        SET KCAL_START=#{kcalStart},
+            KCAL = #{kcal},
+            KCAL_WEEKLY=#{kcalWeekly}
+        WHERE USER_ID=#{userId}
+    </update>
 
     <!--    TODO: 활동관리페이지/식단관리에서 활동대사량 계산을 위해 읽어오기-->
     <!--    TODO: FK  TB_USER테이블과 USER_ACTIVITY에서 값을 읽어와야 함-->
+<!--   TODO: 입력값 수정할거야...-->
     <select id="selectAct" parameterType="Long"
             resultType="com.example.bodycare_backend.model.UserInfo">
-        SELECT ID,
-               HEIGHT,
-               WEIGHT,
-               AGE
-        FROM USER_INFO
-        WHERE ID = #{id}
+        SELECT C.USER_ID, A.HEIGHT, A.AGE, A.GENDER, C.WEIGHT, C.BODY_FAT, C.MUSCLE_MASS
+             , SUM(d.intensity * b.activity_time)
+        FROM TB_USER A, USER_ACTIVITY B, USER_INFO C, ACTIVITY D
+        WHERE C.USER_ID(+)= A.ID AND C.USER_ID(+) = B.USER_ID AND b.activity_id=d.id group by C.USER_ID, A.HEIGHT, A.AGE, A.GENDER, C.WEIGHT,
+                                                                                              C.BODY_FAT, C.MUSCLE_MASS;
     </select>
 
     <!--    TODO: 운동도우미에서 리드-->

@@ -3,14 +3,14 @@
     <div>
       <!-- Sidebar -->
       <ul
-        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-        id="accordionSidebar"
-        style="height: 100%"
+          class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+          id="accordionSidebar"
+          style="height: 100%"
       >
         <!-- Sidebar - Brand -->
         <router-link
-          to="/"
-          class="sidebar-brand d-flex align-items-center justify-content-center"
+            to="/"
+            class="sidebar-brand d-flex align-items-center justify-content-center"
         >
           <div class="sidebar-brand-icon">
             <i class="fas fa-laptop-medical"></i>
@@ -59,7 +59,7 @@
     <div style="width: 100%">
       <!-- Topbar -->
       <nav
-        class="
+          class="
           navbar navbar-expand navbar-light
           bg-primary
           topbar
@@ -71,22 +71,22 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link
-              to="/basic"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
+                to="/basic"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
             >
               체중관리
             </router-link>
           </li>
           <li class="nav-item">
             <router-link
-              to="/diet"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
+                to="/diet"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
             >
               운동도우미
             </router-link>
@@ -94,22 +94,22 @@
 
           <li class="nav-item" style="position: fixed; right: 0px">
             <router-link
-              to="/login"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
+                to="/login"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
             >
               로그인
             </router-link>
           </li>
           <li class="nav-item" style="position: fixed; right: 100px">
             <router-link
-              to="/mypage"
-              class="nav-link mr-5 text-white"
-              id="navbarDropdownMenuLink"
-              aria-haspopup="true"
-              aria-expanded="false"
+                to="/mypage"
+                class="nav-link mr-5 text-white"
+                id="navbarDropdownMenuLink"
+                aria-haspopup="true"
+                aria-expanded="false"
             >
               마이페이지
             </router-link>
@@ -124,8 +124,8 @@
         <!-- TODO : 현재 날짜 출력 -->
         <div class="row">
           <div
-            class="ma-0 pa-3 col col-12"
-            style="
+              class="ma-0 pa-3 col col-12"
+              style="
               color: #4e73df;
               font-size: 30px;
               font-weight: bold;
@@ -145,7 +145,7 @@
             <div class="mt-3 col-sm-4 col-4">
               <!-- 체중 입력창 시작 -->
               <div
-                class="
+                  class="
                   big
                   pa-4
                   ma-3
@@ -158,27 +158,27 @@
                 <div class="card shadow mb-4">
                   <div class="card-header py-1">
                     <label
-                      for="weight"
-                      class="m-0 font-weight-bold text-primary"
+                        for="weight"
+                        class="m-0 font-weight-bold text-primary"
                     >
                       체중
                     </label>
                   </div>
                   <div class="card-body text-center">
                     <input
-                      type="text"
-                      id="weight"
-                      style="border: none; border-bottom: solid"
-                      placeholder="0"
-                      required
-                      name="weight"
-                      v-model="basic.weight"
+                        type="text"
+                        id="weight"
+                        style="border: none; border-bottom: solid"
+                        placeholder="0"
+                        required
+                        name="weight"
+                        v-model="basic.weight"
                     />
 
                     <h6 class="float-right">kg</h6>
                   </div>
                 </div>
-                
+
               </div>
             </div>
             <!-- 체중 입력창 끝 -->
@@ -186,7 +186,7 @@
             <!-- 체지방률 입력창 시작 -->
             <div class="mt-3 col-sm-4 col-4">
               <div
-                class="
+                  class="
                   big
                   pa-4
                   ma-3
@@ -199,22 +199,22 @@
                 <div class="card shadow mb-4">
                   <div class="card-header py-1">
                     <label
-                      for="bodyFat"
-                      class="m-0 font-weight-bold text-primary"
+                        for="bodyFat"
+                        class="m-0 font-weight-bold text-primary"
                     >
                       체지방률
                     </label>
                   </div>
                   <div class="card-body text-center">
                     <input
-                      type="text"
-                      id="bodyFat"
-                      style="border: none; border-bottom: solid"
-                      placeholder="0"
-                      required
-                      name="bodyFat"
-                      @keyup.enter="changeFat"
-                      v-model="basic.bodyFat"
+                        type="text"
+                        id="bodyFat"
+                        style="border: none; border-bottom: solid"
+                        placeholder="0"
+                        required
+                        name="bodyFat"
+                        @keyup.enter="changeFat"
+                        v-model="basic.bodyFat"
                     />
                     <h6 class="float-right">%</h6>
                   </div>
@@ -226,7 +226,7 @@
             <!-- 골격근량 입력창 시작 -->
             <div class="mt-3 col-sm-4 col-4">
               <div
-                class="
+                  class="
                   big
                   pa-4
                   ma-3
@@ -239,22 +239,22 @@
                 <div class="card shadow mb-4">
                   <div class="card-header py-1">
                     <label
-                      for="muscleMass"
-                      class="m-0 font-weight-bold text-primary"
+                        for="muscleMass"
+                        class="m-0 font-weight-bold text-primary"
                     >
                       골격근량
                     </label>
                   </div>
                   <div class="card-body text-center">
                     <input
-                      type="text"
-                      id="muscleMass"
-                      style="border: none; border-bottom: solid"
-                      placeholder="0"
-                      required
-                      name="muscleMass"
-                      @keyup.enter="changeMuscle"
-                      v-model="basic.muscleMass"
+                        type="text"
+                        id="muscleMass"
+                        style="border: none; border-bottom: solid"
+                        placeholder="0"
+                        required
+                        name="muscleMass"
+                        @keyup.enter="changeMuscle"
+                        v-model="basic.muscleMass"
                     />
                     <h6 class="float-right">Kg</h6>
                   </div>
@@ -274,86 +274,77 @@
                 <div class="per-30"></div>
               </div>
               <ul class="graph">
-                <br />
-                <br />
+                <br/>
+                <br/>
                 <li class="item1" :style="{ width: muscleg }"></li>
-                <br />
-                <br />
-                <br />
+                <br/>
+                <br/>
+                <br/>
                 <li class="item2" :style="{ width: bodyFatg }"></li>
               </ul>
             </div>
             <!-- 가로그래프 끝 -->
 
             <!-- 추천 체중관리 시작 -->
-            <div class="card shadow mt-3 col col-12">
-              <div
-                class="
-                  pa-4
-                  ml-3
-                  mt-2
-                  ma-3
-                  v-card v-card--flat
-                  v-sheet
-                  theme--light
-                "
-              >
-                <div class="v-card__title">추천 체중 관리</div>
-                <div class="mt-2 mb-3 v-card__text font-weight-bold">
-                  다이어트 추천, 상승다이어트 가능하나, 식단, 운동 노력이 상당히
-                  필요.
+            <div class="row">
+              <div class="col">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">추천 체중 관리</h6>
+                  </div>
+                  <div class="ml-3 mt-2 v-card__text font-weight-bold">
+                    다음 버튼을 누르시면, 체중당 단백질, 칼로리 조정 값을 입력하실
+                    수 있습니다.
+                  </div>
+                  <div id="app" class="ml-3 mt-2 mb-3 v-card__text font-weight-bold">
+                    <h1 v-if="basic.muscleMass<1 && basic.bodyFat<1">
+                      정보를 입력해 주세요
+                    </h1>
+                    <h1 v-else-if="basic.muscleMass<=35 && basic.bodyFat<=17">
+                      <router-link to="/activityManage">
+                        <button class="btn btn-primary ">벌크업</button>
+                      </router-link>
+                    </h1>
+                    <h1 v-else-if="basic.muscleMass<=35 && basic.bodyFat>18">
+                      <router-link to="/activityManage">
+                        <button class="btn btn-primary ">다이어트</button>
+                      </router-link>
+                      <router-link to="/activityManage">
+                        <button class="ml-3 btn btn-primary ">린매스업</button>
+                      </router-link>
+                    </h1>
+                    <h1 v-else-if="36<basic.muscleMass<=42 && basic.bodyFat<=17">
+                      <router-link to="/activityManage">
+                        <button class="btn btn-primary ">벌크업</button>
+                      </router-link>
+                      <router-link to="/activityManage">
+                        <button class="ml-3 btn btn-primary ">컷팅</button>
+                      </router-link>
+                    </h1>
+                    <h1 v-else-if="36<basic.muscleMass<=42 && basic.bodyFat>18">
+                      <router-link to="/activityManage">
+                        <button class="btn btn-primary ">다이어트</button>
+                      </router-link>
+                      <router-link to="/activityManage">
+                        <button class="ml-3 btn btn-primary ">린매스업</button>
+                      </router-link>
+                    </h1>
+                    <h1 v-else-if="basic.muscleMass>42 && basic.bodyFat<=17">
+                      <router-link to="/activityManage">
+                        <button class="btn btn-primary ">커팅</button>
+                      </router-link>
+                    </h1>
+                    <h1 v-else-if="basic.muscleMass>42 && basic.bodyFat>18">
+                      <router-link to="/activityManage">
+                        <button class="ml-3 btn btn-primary ">다이어트</button>
+                      </router-link>
+                    </h1>
+                    <h1 v-else> 정보를 입력해주세요.</h1>
+                  </div>
                 </div>
               </div>
             </div>
             <!-- 추천 체중관리 끝 -->
-
-            <!-- 체중 관리 가이드 시작 -->
-            <div class="card shadow mt-3 col col-12">
-              <div
-                class="
-                  big
-                  pa-4
-                  ma-3
-                  mt-0
-                  rounded-lg
-                  v-card v-card--flat
-                  v-sheet
-                  theme--light
-                "
-              >
-                <div class="ml-3 mt-2 v-card__title">체중 관리 가이드</div>
-                <div class="ml-3 mt-2 v-card__text font-weight-bold">
-                  다음 버튼을 누르시면, 체중당 단백질, 칼로리 조정 값을 입력하실
-                  수 있습니다.
-                </div>
-                <span style="color: red">
-                  <span data-v-541632ae="">
-                    <button
-                      data-v-541632ae=""
-                      type="button"
-                      class="
-                        elevation-0
-                        op_btn
-                        ml-3
-                        mt-3
-                        mb-3
-                        ma-2
-                        v-btn v-btn--is-elevated v-btn--has-bg
-                        theme--light
-                        v-size--default
-                      "
-                      style="
-                        background-color: rgb(251, 222, 68);
-                        border-color: rgb(251, 222, 68);
-                      "
-                    >
-                      <span class="v-btn__content"> 다이어트 </span>
-                    </button></span
-                  ><!----><!----><!----><!----><!----></span
-                >
-              </div>
-            </div>
-            <!-- 체중 관리 가이드 끝 -->
           </div>
           <!-- 본문 끝 -->
         </div>
@@ -370,6 +361,7 @@
 import dayjs from "dayjs";
 
 export default {
+  el: '#app',
   name: "basic",
   data() {
     return {

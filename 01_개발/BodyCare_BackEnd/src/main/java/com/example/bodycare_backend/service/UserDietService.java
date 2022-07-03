@@ -20,13 +20,7 @@ import java.util.Optional;
  */
 public interface UserDietService {
     //    식단관리페이지에서 아침조회
-    List<UserDiet> selectByIdM(Long id);
-    //    식단관리페이지에서 점심조회
-    List<UserDiet> selectByIdL(Long id);
-    //    식단관리페이지에서 저녁조회
-    List<UserDiet> selectByIdD(Long id);
-    //    식단관리페이지에서 간식조회
-    List<UserDiet> selectByIdS(Long id);
+    List<UserDiet> selectById(Long id);
 
 
 
