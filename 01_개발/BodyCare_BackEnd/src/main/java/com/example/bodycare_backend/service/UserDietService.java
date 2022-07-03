@@ -28,6 +28,8 @@ public interface UserDietService {
     //    식단관리페이지에서 간식조회
     List<UserDiet> selectByIdS(Long id);
 
+
+
     // 인풋창 저장 메소드(insert)
-    Optional<UserDiet> save(UserDiet userDiet);
+    List<UserDiet> save(UserDiet userDiet);
 }

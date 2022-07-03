@@ -28,8 +28,10 @@ public interface UserDietDao {
 //    식단관리페이지에서 간식조회
     List<UserDiet> selectByIdS(Long id);
 
+    List<UserDiet> findAll(Long id);
+
 //    인풋창에서 데이터 삽입
-    Long insertDiet(UserDietDao userDietDao);
+    Long insertDiet(UserDiet userDiet);
     
 
 
