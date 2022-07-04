@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,5 +36,34 @@ public class ActivityServiceImpl implements ActivityService {
     @Override
     public List<Activity> findAll(Criteria criteria) {
         return activityDao.findAll(criteria);
+    }
+
+    @Override
+    public List<Activity> findByEmailContaining(Criteria criteria)  {
+        // 빈 값으로 초기화
+        List<Activity> activities = Collections.emptyList();
+
+        // Email 이 Null 인지 체크
+        Optional<String> optionalCriteria
+                = Optional.ofNullable(criteria.getActivity());
+
+        // 테이블의 총 데이터 건수
+        // Null 이면 "" 로 바꿈
+        int totalCount = activityDao.selectTotalCount(optionalCriteria.orElse(""));
+
+        // criteria : 페이징 처리 클래스 객체
+        criteria.setTotalItems(totalCount);
+        // 총 페이지 개수 : 테이블의 총 건수(totalCount) / 페이지당 출력할 데이터 개수(size)
+        criteria.setTotalPages(totalCount / criteria.getSize());
+
+        if(criteria.getActivity() == null){
+            // title(제목)이 없으면 전채검색을 함
+            activities = activityDao.findAll(criteria);
+        } else {
+            // title(제목) 이 있으면 제목 검색을 함
+            activities = activityDao.findByEmailContaining(criteria);
+        }
+
+        return activities;
     }
 }

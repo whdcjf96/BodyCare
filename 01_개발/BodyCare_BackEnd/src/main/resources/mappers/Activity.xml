@@ -18,6 +18,28 @@
         WHERE R > #{page} * #{size}
     </select>
 
+    <select id="selectTotalCount"
+            parameterType="String"
+            resultType="int">
+        SELECT COUNT(*)
+        FROM ACTIVITY
+        WHERE ACTIVITY LIKE '%'|| #{activity} ||'%'
+    </select>
+
+    <select id="findByEmailContaining"
+            parameterType="com.example.bodycare_backend.paging.Criteria"
+            resultType="com.example.bodycare_backend.model.Activity">
+        SELECT *
+        FROM (
+                 SELECT ROWNUM R, TC.*
+                 FROM ACTIVITY TC
+                 WHERE
+                   ACTIVITY LIKE '%' || #{activity} || '%'
+                   AND ROWNUM &lt; = (#{page} + 1) * #{size}
+             )
+        WHERE R > #{page} * #{size}
+    </select>
+
 
 
 </mapper>

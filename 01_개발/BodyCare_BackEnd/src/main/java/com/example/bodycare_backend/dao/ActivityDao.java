@@ -23,6 +23,10 @@ public interface ActivityDao {
     // 전체 조회 메소드
     List<Activity> findAll(Criteria criteria);
 
+    public int selectTotalCount(String activity);
+
+    public List<Activity> findByEmailContaining(Criteria criteria);
+
 
 
 

@@ -32,6 +32,8 @@ public class Criteria {
     private  Integer totalPages; // 총 페이지수(totalItems / size)
     
     private String title; // 검색 제목
+
+    private String activity;
 //
 //    private String Email; // 검색 이메일
     
