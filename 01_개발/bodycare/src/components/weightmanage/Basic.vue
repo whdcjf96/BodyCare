@@ -297,7 +297,7 @@
                     수 있습니다.
                   </div>
                   <div id="app" class="ml-3 mt-2 mb-3 v-card__text font-weight-bold">
-                    <h1 v-if="basic.muscleMass<1 && basic.bodyFat<1">
+                    <h1 v-if="basic.muscleMass<1 || basic.bodyFat<1">
                       정보를 입력해 주세요
                     </h1>
                     <h1 v-else-if="basic.muscleMass<=35 && basic.bodyFat<=17">
