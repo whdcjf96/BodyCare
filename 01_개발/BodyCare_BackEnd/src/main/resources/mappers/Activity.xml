@@ -12,8 +12,7 @@
         FROM (
                  SELECT ROWNUM R, AT.*
                  FROM ACTIVITY AT
-                 WHERE TT.DELETE_YN = 'N'
-                   AND ROWNUM &lt; = (#{page} + 1) * #{size}
+                 WHERE ROWNUM &lt; = (#{page} + 1) * #{size}
              )
         WHERE R > #{page} * #{size}
     </select>

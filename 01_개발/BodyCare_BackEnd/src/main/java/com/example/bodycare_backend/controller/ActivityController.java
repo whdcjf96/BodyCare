@@ -43,12 +43,13 @@ public class ActivityController {
 
     // 모든 회원 조회 메뉴
     @GetMapping("/activities")
-    public ResponseEntity<Map<String,Object>> getAllComplains(Criteria criteria) {
+    public ResponseEntity<Map<String,Object>> getAllActivities(Criteria criteria) {
         logger.info("criteria {}", criteria);
         // 모든 회원 조회 서비스 호출
-        List<Activity> activities = activityService.findAll(criteria);
 
         try {
+            List<Activity> activities = activityService.findAll(criteria);
+
             if (activities.isEmpty()) {
                 // Vue 성공메세지 + 객체를 전송
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);

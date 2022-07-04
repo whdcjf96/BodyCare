@@ -16,7 +16,7 @@ class ActivityDataService {
     // tutorials 전체 목록 조회 메소드
     // axios -> spring 데이터 요청 -> spring -> db -> 결과 반환
     getAll(params) {
-        return http.get("/activitys", {params});
+        return http.get("/activities", {params});
     }
 }
 // export : 모듈을 다른 자바스크립트 파일에서 참조함
