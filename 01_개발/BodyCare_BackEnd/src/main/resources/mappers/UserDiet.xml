@@ -11,27 +11,41 @@
         INSERT INTO USER_DIET(ID,
                               QUANTITY,
                               CREATED_TIME,
-                              TIME,
+                              DIET_TIME,
                               USER_ID,
                               DIET_ID,
                               DIET_DATE)
         VALUES (SQ_USER_DIET.nextval,
                 #{quantity},
                 TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),
-                #{time},
+                #{dietTime},
                 #{userId},
                 #{dietId},
-                TO_CHAR(SYSDATE, 'YYYY-MM-DD'));
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD'))
     </insert>
 
     <!--    TODO: 식단관리페이지에서 조회-->
-    <select id="selectByIdM" parameterType="Long"
+    <select id="selectById" parameterType="Long"
             resultType="com.example.bodycare_backend.model.UserDiet">
-        SELECT *
-        FROM USER_DIET
-        WHERE ID = #{id}
+        SELECT A.USER_ID, A.DIET_TIME, A.DIET_DATE, B.TITLE,A.QUANTITY,(A.QUANTITY * B.CARBOHYDRATE), (A.QUANTITY * B.PROTEIN), (A.QUANTITY * B.FAT)
+        FROM USER_DIET A, DIET B, TB_USER C
+        WHERE A.USER_ID = C.ID AND A.DIET_ID= B.ID AND A.USER_ID = #{userId}
+        ORDER BY A.DIET_TIME
     </select>
 
+
+    <update id="updateDiet" parameterType="com.example.bodycare_backend.model.UserDiet">
+        UPDATE USER_DIET
+        SET DIET_ID = #{dietId},
+            QUANTITY = #{quantity},
+            DIET_TIME = #{dietTime},
+            DIET_DATE = TO_CHAR(SYSDATE, 'YYYY-MM-DD')
+        WHERE USER_ID=#{userId} AND ID=#{id}
+    </update>
+
+    <delete id="deleteDiet" parameterType="Long">
+        DELETE USER_DIET WHERE ID=#{id}
+    </delete>
 
 </mapper>
 

@@ -10,14 +10,14 @@
 <!--    TODO : ID2 -> FK-->
     <insert id="insertRecord" parameterType="com.example.bodycare_backend.model.UserDailyRecord">
         INSERT INTO USER_DAILY_RECORD(ID,
-                                      DATE,
+                                      RECORD_DATE,
                                       WEIGHT,
                                       BODY_FAT,
                                       MUSCLE_MASS,
                                       CREATED_TIME,
                                       ID2)
         VALUES (SQ_USER_DAILY_FECORD.NEXTVAL,
-                TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),
+                TO_CHAR(SYSDATE, 'YYYY-MM-DD'),
                 #{weight},
                 #{bodyFat},
                 #{muscleMass},
@@ -28,12 +28,23 @@
     <!--    TODO: 체중추적에서 조회-->
     <select id="selectById" parameterType="Long"
             resultType="com.example.bodycare_backend.model.UserDailyRecord">
-        SELECT ID,
-            DATE,
-            WEIGHT
-        FROM USER_DAILY_RECORD
+        SELECT ID2,RECORD_DATE, WEIGHT
+
+        FROM USER_DAILY_RECORD WHERE ID2=#{id2}
+        ORDER_BY RECORD_DATE DESC
     </select>
 
+    <update id="updateRecord" parameterType="com.example.bodycare_backend.model.UserDailyRecord">
+        UPDATE USER_DAILY_RECORD
+        SET
+            RECORD_DATE=#{recordTime}, WEIGHT=#{weight}, BODY_FAT=#{bodyFat}, MUSCLE_MASS=#{muscleMass}, UPDATE_TIME=TO_CHAR(SYSDATE 'YYYY-MM-DD HH24:MI:SS')
+        WHERE ID=#{id}
+    </update>
+
+
+    <delete id="deleteRecord" parameterType="Long">
+        DELETE USER_DAILY_RECORD WHERE ID=#{id}
+    </delete>
 
 </mapper>
 

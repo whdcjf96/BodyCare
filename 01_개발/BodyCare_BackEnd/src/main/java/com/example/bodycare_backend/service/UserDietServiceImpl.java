@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * packageName : com.example.bodycare_backend.service
@@ -31,23 +30,8 @@ public class UserDietServiceImpl implements UserDietService {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public List<UserDiet> selectByIdM(Long id) {
-        return userDietDao.selectByIdM(id);
-    }
-
-    @Override
-    public List<UserDiet> selectByIdL(Long id) {
-        return userDietDao.selectByIdL(id);
-    }
-
-    @Override
-    public List<UserDiet> selectByIdD(Long id) {
-        return userDietDao.selectByIdD(id);
-    }
-
-    @Override
-    public List<UserDiet> selectByIdS(Long id) {
-        return userDietDao.selectByIdS(id);
+    public List<UserDiet> selectById(Long id) {
+        return userDietDao.selectById(id);
     }
 
     @Override
@@ -62,23 +46,25 @@ public class UserDietServiceImpl implements UserDietService {
         // customer.getId() 없으면 insert 문 호출(새로운 회원 생성)
         if (userDiet.getId() == null) {
             userDietDao.insertDiet(userDiet);
-            seqId = userDiet.getId();
-            if (userDiet.getTime() == 0) {
-                logger.info("seqId {}", seqId);
-                return userDietDao.selectByIdM(seqId);
-            } else if (userDiet.getTime() == 1) {
-                logger.info("seqId {}", seqId);
-                return userDietDao.selectByIdL(seqId);
-            } else if (userDiet.getTime() == 2) {
-                logger.info("seqId {}", seqId);
-                return userDietDao.selectByIdD(seqId);
-            } else {
-                logger.info("seqId {}", seqId);
-                return userDietDao.selectByIdS(seqId);
-            }
-
+        }
+        //                  있으면 update 문 호출
+        else {
+            userDietDao.updateDiet(userDiet);
         }
 
-        return null;
+        // insert 문 후에는 customer 의 id 속성에 값이 저장됨(<selectkey>)
+        seqId = userDiet.getId();
+        logger.info("seqId {}", seqId);
+
+        return userDietDao.selectById(seqId);
+    }
+
+    @Override
+    public boolean deleteDiet(Long id) {
+        int queryResult = 0;
+
+        queryResult = Math.toIntExact(userDietDao.deleteDiet(id));
+
+        return (queryResult >= 1) ? true : false;
     }
 }
