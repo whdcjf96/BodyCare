@@ -109,7 +109,7 @@
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">체중</h6>
               </div>
-              <div class="card-body">체중값 긁어오기0000</div>
+              <div class="card-body"></div>
             </div>
           </div>
           <!--    체중 끝-->
@@ -120,7 +120,7 @@
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">체지방률</h6>
               </div>
-              <div class="card-body">체지방률 긁어오기</div>
+              <div class="card-body">{{bodyFat}}</div>
             </div>
           </div>
           <!--    체지방률 끝-->
