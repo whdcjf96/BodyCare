@@ -5,6 +5,28 @@
     <div class="row">
       <!-- 1번 row 시작 -->
       <div class="col-lg-6 mb-4">
+        <div class="input-group mb-3">
+          <!--        Todo: 수정 시작 #1 -->
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by email"
+            v-model="searchTitle"
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              @click="
+                page = 1;
+                retrieveActivitys();
+              "
+            >
+              Search
+            </button>
+          </div>
+          <!--        Todo : 수정 끝 #1 -->
+        </div>
         <div class="card shadow mb-4">
           <div class="card-body">
             <div class="table-responsive">
@@ -103,19 +125,20 @@ export default {
   data() {
     return {
       activityinputs: [],
+      searchTitle: "",
       page: 1,
       count: 0,
       pageSize: 3,
       pageSizes: [3, 6, 9],
     };
   },
-  getRequestParams(page, pageSize) {
+  getRequestParams(searchTitle, page, pageSize) {
     let params = {};
 
     // // searchTitle 값이 있으면 params객체에 title로 저장
-    // if (searchTitle) {
-    //     params["title"] = searchTitle;
-    // }
+    if (searchTitle) {
+      params["activity"] = searchTitle;
+    }
     // page 값이 있으면 params객체에 page 저장
     if (page) {
       params["page"] = page - 1;
@@ -128,8 +151,12 @@ export default {
     return params;
   },
   // 모든 회원 조회 서비스 호출
-  retrieveComplains() {
-    const params = this.getRequestParams(this.page, this.pageSize);
+  retrieveActivitys() {
+    const params = this.getRequestParams(
+      this.searchTitle,
+      this.page,
+      this.pageSize
+    );
     // axios로 spring에 모든 회원 조회 요청
     ActivityDataService.getAll(params)
       // 성공하면 then으로 서버 데이터(response.data)가 들어옴
@@ -149,7 +176,7 @@ export default {
     // 페이지번호 저장
     this.page = value;
     // 다시 데이터 조회
-    this.retrieveComplains();
+    this.retrieveActivitys();
   },
   // 역할 : 페이지당건수가 변경되면 다시 조회하는 메소드
   handlePageSizeChange(event) {
@@ -157,21 +184,21 @@ export default {
     this.pageSize = event.target.value; // 셀렉트박스 변경시 값 가져옴
     this.page = 1;
     // 다시 데이터 조회
-    this.retrieveComplains();
+    this.retrieveActivitys();
   },
   refreshList() {
-    this.retrieveComplains();
-    this.currentComplains = null;
+    this.retrieveActivitys();
+    this.currentActivityInputs = null;
     this.currentIndex = -1;
   },
 
-  setActiveComplains(complains, index) {
-    this.currentComplains = complains;
+  setActiveActivityInputs(activityinputs, index) {
+    this.currentActivityInputs = activityinputs;
     this.currentIndex = index;
   },
   // 최초 화면이 로딩될때(뜰때) 실행되는 이벤트(모든 회원조회가 실행됨)
   mounted() {
-    this.retrieveComplains();
+    this.retrieveActivitys();
   },
 };
 </script>
