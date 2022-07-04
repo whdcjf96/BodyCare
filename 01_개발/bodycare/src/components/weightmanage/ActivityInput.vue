@@ -38,12 +38,11 @@
                   </tr>
                 </thead>
                 <tbody
-                  v-for="(activityinput, index) in activityinputs"
-                  :key="index"
+                   v-for="(activitie, index) in activities" :key="index"
                 >
                   <tr>
-                    <td>{{ activityinput.activity }}</td>
-                    <td>{{ activityinput.intensity }}</td>
+                    <td>{{ activitie.activity }}</td>
+                    <td>{{ activitie.intensity }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -124,7 +123,7 @@ export default {
   name: "activityInput",
   data() {
     return {
-      activityinputs: [],
+      activities: [],
       searchTitle: "",
       page: 1,
       count: 0,
@@ -132,6 +131,9 @@ export default {
       pageSizes: [3, 6, 9],
     };
   },
+  methods:{
+
+  
   getRequestParams(searchTitle, page, pageSize) {
     let params = {};
 
@@ -161,8 +163,8 @@ export default {
     ActivityDataService.getAll(params)
       // 성공하면 then으로 서버 데이터(response.data)가 들어옴
       .then((response) => {
-        const { activityinputs, totalItems } = response.data;
-        this.activityinputs = activityinputs; // 객체
+        const { activities, totalItems } = response.data;
+        this.activities = activities; // 객체
         this.count = totalItems; // 총건수
 
         console.log(response.data);
@@ -195,6 +197,7 @@ export default {
   setActiveActivityInputs(activityinputs, index) {
     this.currentActivityInputs = activityinputs;
     this.currentIndex = index;
+  },
   },
   // 최초 화면이 로딩될때(뜰때) 실행되는 이벤트(모든 회원조회가 실행됨)
   mounted() {

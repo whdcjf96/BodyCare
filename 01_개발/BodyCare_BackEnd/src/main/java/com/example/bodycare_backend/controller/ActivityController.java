@@ -48,7 +48,7 @@ public class ActivityController {
         // 모든 회원 조회 서비스 호출
 
         try {
-            List<Activity> activities = activityService.findAll(criteria);
+            List<Activity> activities = activityService.findByEmailContaining(criteria);
 
             if (activities.isEmpty()) {
                 // Vue 성공메세지 + 객체를 전송
