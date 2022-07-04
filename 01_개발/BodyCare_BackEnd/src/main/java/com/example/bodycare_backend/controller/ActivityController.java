@@ -42,20 +42,20 @@ public class ActivityController {
     private ActivityServiceImpl activityService; // 객체 정의( null => 스프링 객체)
 
     // 모든 회원 조회 메뉴
-    @GetMapping("/activitys")
+    @GetMapping("/activities")
     public ResponseEntity<Map<String,Object>> getAllComplains(Criteria criteria) {
         logger.info("criteria {}", criteria);
         // 모든 회원 조회 서비스 호출
-        List<Activity> activitys = activityService.findAll(criteria);
+        List<Activity> activities = activityService.findAll(criteria);
 
         try {
-            if (activitys.isEmpty()) {
+            if (activities.isEmpty()) {
                 // Vue 성공메세지 + 객체를 전송
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
             logger.info("criteria {}", criteria);
             Map<String, Object> response = new HashMap<>();
-            response.put("activitys", activitys);
+            response.put("activities", activities);
             // page : 현재 페이지
             response.put("currentPage", criteria.getPage());
             // totalItems : 총 데이터 건수

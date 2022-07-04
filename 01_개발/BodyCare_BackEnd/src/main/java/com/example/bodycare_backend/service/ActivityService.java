@@ -20,4 +20,6 @@ import java.util.Optional;
 public interface ActivityService {
     // 모든 회원 조회하는 메소드(결과 : 여러건)
     public List<Activity> findAll(Criteria criteria);
+
+    public List<Activity> findByEmailContaining(Criteria criteria);
 }
