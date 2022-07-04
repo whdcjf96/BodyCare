@@ -8,11 +8,36 @@
 
 <!--    전체 조회 메소드 Todo:fk-->
     <select id="selectById" parameterType="Long" resultType="com.example.bodycare_backend.model.UserActivity">
-        SELECT * FROM USER_ACTIVITY WHERE USER_ID=#{userId};
+        SELECT A.USER_ID, B.ACTIVITY, B.INTENSITY, A.ACTIVITY_TIME
+        FROM USER_ACTIVITY A, ACTIVITY B
+        WHERE A.ACTIVITY_ID = B.ID AND A.USER_ID=#{userId}
     </select>
 
 <!--    TODO: 액티비티테이블에서 선택해서 유저액티비티 테이블에 삽입-->
+<insert id="insertUserActivity" parameterType="com.example.bodycare_backend.model.UserActivity">
+    INSERT INTO USER_ACTIVITY(
+        ID, ACTIVITY_TIME, CREATED_TIME, ACTIVITY_ID, USER_ID
+    ) VALUES (
+              SQ_USER_ACTIVITY.NAEXVAL,
+              #{activityTime},
+              TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),
+              #{activityId},
+              #{userId}
+                 )
+</insert>
 
+    <update id="updateUserActivity" parameterType="com.example.bodycare_backend.model.UserActivity">
+        UPDATE USER_ACTIVITY
+        SET
+            ACTIVITY_TIME=#{activityTime},
+            ACTIVITY_ID#{activityId},
+            UPDATE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
+        WHERE ID=#{id}
+    </update>
+
+    <delete id="deleteUserActivity" parameterType="Long">
+        DELETE USER_ACTIVITY WHERE ID=#{id}
+    </delete>
 
 
 </mapper>

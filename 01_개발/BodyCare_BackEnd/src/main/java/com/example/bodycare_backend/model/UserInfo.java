@@ -32,4 +32,11 @@ public class UserInfo {
     private String createdTime;
     private String updateTime;
 
+//    join 추가 컬럼
+    private float height;
+    private int age;
+    private char gender;
+    private Long intensity;
+    private float activityTime;
+
 }

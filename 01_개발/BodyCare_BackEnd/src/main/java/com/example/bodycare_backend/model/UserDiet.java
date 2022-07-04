@@ -23,7 +23,7 @@ public class UserDiet {
     private float quantity;
     private String createdTime;
     private String updateTime;
-    private Long time;
+    private Long dietTime;
 
 //    유저테이블 fk
     private Long userId;
@@ -31,4 +31,10 @@ public class UserDiet {
     private Long dietId;
 
     private String dietDate;
+
+//    join 컬럼
+    private String title;
+    private float carbohydrate;
+    private float protein;
+    private float fat;
 }

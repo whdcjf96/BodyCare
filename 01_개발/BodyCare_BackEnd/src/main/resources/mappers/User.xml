@@ -44,7 +44,7 @@
     </select>
 
 
-<!--    Todo:이메일 조회-->
+
     <select id="findAll"
             resultType="com.example.bodycare_backend.model.User">
         SELECT *
@@ -55,6 +55,17 @@
     <delete id="deleteUser" parameterType="String">
         DELETE FROM TB_USER WHERE EMAIL=#{email}
     </delete>
+
+    <update id="updateUser" parameterType="com.example.bodycare_backend.model.User">
+        UPDATE TB_USER
+        SET
+            PASSWORD = #{password},
+            NAME = #{name},
+            HEIGHT=#{height},
+            AGE = #{age},
+            GENDER = #{gender}
+        WHERE EMAIL = #{email}
+    </update>
 </mapper>
 
 

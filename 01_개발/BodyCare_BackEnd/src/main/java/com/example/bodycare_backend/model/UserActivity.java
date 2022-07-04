@@ -20,7 +20,7 @@ import lombok.ToString;
 @ToString
 public class UserActivity {
     private Long id;
-    private String activity;
+
     private float activityTime;
     private String createdTime;
     private String updateTime;
@@ -28,4 +28,8 @@ public class UserActivity {
     private Long activityId;
 //    유저테이블 fk
     private Long userId;
+
+//    join컬럼
+    private String activity;
+    private Long intensity;
 }

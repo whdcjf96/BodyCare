@@ -20,7 +20,7 @@ import lombok.ToString;
 @ToString
 public class UserDailyRecord {
     private Long id;
-    private String date;
+    private String recordDate;
     private float weight;
     private float bodyFat;
     private float muscleMass;
