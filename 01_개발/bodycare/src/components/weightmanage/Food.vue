@@ -256,12 +256,20 @@
 
                   <table>
 
-                    <tr v-for="item in items" :key="item.title">
-                      <td ><span v-html="item.title"></span></td>
-                      <td ><span v-html="item.one1"></span></td>
-                      <td ><span v-html="item.one2"></span></td>
-                      <td ><span v-html="item.one3"></span></td>
+                    <tr class="add">
+                      <th class="add">1</th>
+                      <th class="add">1</th>
+                      <th class="add">2</th>
+                      <th class="add">3</th>
                     </tr>
+
+                    <tr class="add" v-for="item in items" :key="item.title">
+                      <td class="add"><span v-html="item.title"></span></td>
+                      <td class="add"><span v-html="item.one1"></span></td>
+                      <td class="add"><span v-html="item.one2"></span></td>
+                      <td class="add"><span v-html="item.one3"></span></td>
+                    </tr>
+
                   </table>
                 </div>
               </template>
@@ -286,48 +294,64 @@
         </router-link>
         <!-- 추가하기버튼 끝 -->
       </div>
+      <div class="col-lg-8 mb-4">
+        <div class="card-header py-10">
+
+          <tr class="edd" v-for="item in bab" :key="item.title">
+            <td class="title"><span v-html="item.title"></span></td>
+            <td ><span v-html="item.one1"></span></td>
+
+            <td class="underscore_one"><span v-html="item.one2"></span></td>
+            <td class="underscore_two"><span v-html="item.one3"></span></td>
+            <td class="underscore_three"><span v-html="item.one4"></span></td>
+          </tr>
+
+        </div>
+      </div>
+
+
 
 
 
       <!--          아침 점심 저녁 간식 테이블-->
-          <div class="bab-table">
-            <div class="table-responsive">
+<!--          <div class="bab-table">-->
+<!--            <div class="table-responsive">-->
 
-            <tr class="one">
-              <th class="thh">아침</th>
-              <td>0Kcal</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
+<!--            <tr class="one">-->
+<!--              <th class="thh">아침</th>-->
+<!--              <td>0Kcal</td>-->
+<!--              <td>0</td>-->
+<!--              <td>0</td>-->
+<!--              <td>0</td>-->
+<!--            </tr>-->
 
-            <tr>
-              <th class="thh">점심</th>
-              <td>0Kcal</td>
-              <td class="carbohydrate">0</td>
-              <td class="protein">0</td>
-              <td class="Fat">0</td>
-            </tr>
+<!--            <tr>-->
+<!--              <th class="thh">점심</th>-->
+<!--              <td>0Kcal</td>-->
+<!--              <td class="carbohydrate">0</td>-->
+<!--              <td class="protein">0</td>-->
+<!--              <td class="Fat">0</td>-->
+<!--            </tr>-->
 
-            <tr class="one">
-              <th class="thh">저녁</th>
-              <td>0Kcal</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
+<!--            <tr class="one">-->
+<!--              <th class="thh">저녁</th>-->
+<!--              <td>0Kcal</td>-->
+<!--              <td>0</td>-->
+<!--              <td>0</td>-->
+<!--              <td>0</td>-->
 
-            </tr>
+<!--            </tr>-->
 
 
-            <tr class="one">
-              <th class="thh">간식</th>
-              <td>0Kcal</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-        </div>
-      </div>
+<!--            <tr class="one">-->
+<!--              <th class="thh">간식</th>-->
+<!--              <td>0Kcal</td>-->
+<!--              <td>0</td>-->
+<!--              <td>0</td>-->
+<!--              <td>0</td>-->
+<!--            </tr>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
 
 
@@ -369,11 +393,11 @@ export default {
     },
     width: {
       type: Number,
-      default: 200
+      default: 100
     },
     height: {
       type: Number,
-      default: 300
+      default: 400
     },
     cssClasses: {
       default: '',
@@ -418,6 +442,36 @@ export default {
           title: "<b>칼로리 조절</b>",
           one1: "0000",
           one2: "0000",
+        },
+      ],
+      bab: [
+        {
+          title: "아침",
+          one1: "0Kcal",
+          one2: "0g",
+          one3: "0g",
+          one4: "0g",
+        },
+        {
+          title: "점심",
+          one1: "0Kcal",
+          one2: "0g",
+          one3: "0g",
+          one4: "0g",
+        },
+        {
+          title: "저녁",
+          one1: "0Kcal",
+          one2: "0g",
+          one3: "0g",
+          one4: "0g",
+        },
+        {
+          title: "간식",
+          one1: "0Kcal",
+          one2: "0g",
+          one3: "0g",
+          one4: "0g",
         },
       ],
       chartData: {
@@ -544,24 +598,59 @@ ul {
 }
 
 
+.add{
+    padding: 30px;
+    border: 2px solid #ccc;
+    height: 100px;
+    background-color: white;
+}
+/*tr,td,th {
+/*  padding: 30px;*/
+/*  border: 2px solid #ccc;*/
+/*  height: 100px;*/
+/*  background-color: white;*/
 
-tr,td {
-  padding: 30px;
+
+/*}*/
+.underscore_one{
+  content: "";
+  display: block;
+  width: 150px;
+  border-bottom: 5px solid blue;
+}
+.underscore_two{
+  content: "";
+  display: block;
+  width: 150px;
+  border-bottom: 5px solid green;
+}
+.underscore_three{
+  content: "";
+  display: block;
+  width: 150px;
+  border-bottom: 5px solid skyblue;
+}
+
+.edd{
+  padding: 15px;
   border: 2px solid #ccc;
-  height: 100px;
+  text-indent: 70px;
   background-color: white;
 
-
 }
-
-.one.tr,td {
-  padding: 20px;
-  border: none;
-  height: 100px;
-  background-color: white;
-  line-height:0.1px;
-
+.title{
+  font-weight: bold;
+  text-align: right;
+  font-size: 20px;
 }
+/*.one{*/
+/*  padding: 20px;*/
+/*  border: none;*/
+/*  height: 100px;*/
+/*  background-color: white;*/
+/*  line-height:0.1px;  */
+
+/*}*/
 
 .content {
   position: relative;
@@ -578,9 +667,6 @@ tr,td {
   font-size: large;
 }
 
-.bab-table{
-
-}
 
 body {
   padding: 1rem;
