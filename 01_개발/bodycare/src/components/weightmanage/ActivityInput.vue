@@ -11,37 +11,45 @@
               <table class="table" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>활동</th>
-                    <th>활동강도</th>
+                    <th scope="col">활동</th>
+                    <th scope="col">활동강도</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody
+                  v-for="(activityinput, index) in activityinputs"
+                  :key="index"
+                >
                   <tr>
-                    <td>잠자기</td>
-                    <td>0.93</td>
-                  </tr>
-                  <tr>
-                    <td>누워있기</td>
-                    <td>1.2</td>
-                  </tr>
-                  <tr>
-                    <td>읽기</td>
-                    <td>1.3</td>
-                  </tr>
-                  <tr>
-                    <td>앉아서 TV</td>
-                    <td>1.57</td>
-                  </tr>
-                  <tr>
-                    <td>사무업무</td>
-                    <td>1.6</td>
-                  </tr>
-                  <tr>
-                    <td>휴일 직장인</td>
-                    <td>1.75</td>
+                    <td>{{ activityinput.activity }}</td>
+                    <td>{{ activityinput.intensity }}</td>
                   </tr>
                 </tbody>
               </table>
+              <!--    Todo : page 바 태그 추가 -->
+              <div class="col-md-12">
+                <div class="mb-3">
+                  Items per Page:
+                  <select
+                    v-model="pageSize"
+                    @change="handlePageSizeChange($event)"
+                  >
+                    <option v-for="size in pageSizes" :key="size" :value="size">
+                      {{ size }}
+                    </option>
+                  </select>
+                </div>
+
+                <!--      Todo : page bar 추가-->
+                <b-pagination
+                  v-model="page"
+                  :total-rows="count"
+                  :per-page="pageSize"
+                  prev-text="Prev"
+                  next-text="Next"
+                  @change="handlePageChange"
+                >
+                </b-pagination>
+              </div>
             </div>
           </div>
         </div>
@@ -79,7 +87,7 @@
 
     <!-- 취소버튼 -->
     <router-link to="/activityManage">
-    <button class="btn btn-danger float-left">취소</button>
+      <button class="btn btn-danger float-left">취소</button>
     </router-link>
 
     <!-- 저장 후 추가 버튼 -->
@@ -88,8 +96,83 @@
 </template>
 
 <script>
+import ActivityDataService from "@/services/ActivityDataService";
+/* eslint-disable */
 export default {
   name: "activityInput",
+  data() {
+    return {
+      activityinputs: [],
+      page: 1,
+      count: 0,
+      pageSize: 3,
+      pageSizes: [3, 6, 9],
+    };
+  },
+  getRequestParams(page, pageSize) {
+    let params = {};
+
+    // // searchTitle 값이 있으면 params객체에 title로 저장
+    // if (searchTitle) {
+    //     params["title"] = searchTitle;
+    // }
+    // page 값이 있으면 params객체에 page 저장
+    if (page) {
+      params["page"] = page - 1;
+    }
+    // pageSize 값이 있으면 params객체에 size 저장
+    if (pageSize) {
+      params["size"] = pageSize;
+    }
+
+    return params;
+  },
+  // 모든 회원 조회 서비스 호출
+  retrieveComplains() {
+    const params = this.getRequestParams(this.page, this.pageSize);
+    // axios로 spring에 모든 회원 조회 요청
+    ActivityDataService.getAll(params)
+      // 성공하면 then으로 서버 데이터(response.data)가 들어옴
+      .then((response) => {
+        const { activityinputs, totalItems } = response.data;
+        this.activityinputs = activityinputs; // 객체
+        this.count = totalItems; // 총건수
+
+        console.log(response.data);
+      })
+      // 실패하면 catch로 에러메세지가 들어옴
+      .catch((e) => {
+        alert(e);
+      });
+  },
+  handlePageChange(value) {
+    // 페이지번호 저장
+    this.page = value;
+    // 다시 데이터 조회
+    this.retrieveComplains();
+  },
+  // 역할 : 페이지당건수가 변경되면 다시 조회하는 메소드
+  handlePageSizeChange(event) {
+    // 한 페이지 당 건수 저장
+    this.pageSize = event.target.value; // 셀렉트박스 변경시 값 가져옴
+    this.page = 1;
+    // 다시 데이터 조회
+    this.retrieveComplains();
+  },
+  refreshList() {
+    this.retrieveComplains();
+    this.currentComplains = null;
+    this.currentIndex = -1;
+  },
+
+  setActiveComplains(complains, index) {
+    this.currentComplains = complains;
+    this.currentIndex = index;
+  },
+  // 최초 화면이 로딩될때(뜰때) 실행되는 이벤트(모든 회원조회가 실행됨)
+  mounted() {
+    this.retrieveComplains();
+  },
 };
 </script>
 

@@ -20,14 +20,18 @@ import java.util.List;
 public interface UserDietDao {
 
 //    식단관리페이지에서 아침조회
-    List<UserDiet> selectById(Long id);
+    List<UserDiet> selectByIdM(Long id);
+//    식단관리페이지에서 점심조회
+    List<UserDiet> selectByIdL(Long id);
+//    식단관리페이지에서 저녁조회
+    List<UserDiet> selectByIdD(Long id);
+//    식단관리페이지에서 간식조회
+    List<UserDiet> selectByIdS(Long id);
+
+    List<UserDiet> findAll(Long id);
 
 //    인풋창에서 데이터 삽입
     Long insertDiet(UserDiet userDiet);
-
-    Long updateDiet(UserDiet userDiet);
-
-    Long deleteDiet(Long id);
     
 
 

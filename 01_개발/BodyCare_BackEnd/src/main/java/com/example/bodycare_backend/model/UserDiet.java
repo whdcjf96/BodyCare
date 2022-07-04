@@ -30,6 +30,7 @@ public class UserDiet {
 //    식단테이블 fk
     private Long dietId;
 
+
     private String dietDate;
 
 //    join 컬럼
@@ -37,4 +38,5 @@ public class UserDiet {
     private float carbohydrate;
     private float protein;
     private float fat;
+
 }
