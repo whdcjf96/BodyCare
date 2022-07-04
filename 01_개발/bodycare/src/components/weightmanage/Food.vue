@@ -299,8 +299,7 @@
 
           <tr class="edd" v-for="item in bab" :key="item.title">
             <td class="title"><span v-html="item.title"></span></td>
-            <td ><span v-html="item.one1"></span></td>
-
+            <td class="underscore_zero"><span v-html="item.one1"></span></td>
             <td class="underscore_one"><span v-html="item.one2"></span></td>
             <td class="underscore_two"><span v-html="item.one3"></span></td>
             <td class="underscore_three"><span v-html="item.one4"></span></td>
@@ -598,11 +597,14 @@ ul {
 }
 
 
+
+
 .add{
     padding: 30px;
     border: 2px solid #ccc;
     height: 100px;
     background-color: white;
+
 }
 /*tr,td,th {
 /*  padding: 30px;*/
@@ -612,35 +614,41 @@ ul {
 
 
 /*}*/
+.underscore_zero{
+
+  width: 200px;
+background-color: white;
+
+}
 .underscore_one{
-  content: "";
-  display: block;
-  width: 150px;
+
+
+  width: 200px;
   border-bottom: 5px solid blue;
+
 }
 .underscore_two{
-  content: "";
-  display: block;
-  width: 150px;
+
+
+  width: 200px;
   border-bottom: 5px solid green;
 }
 .underscore_three{
-  content: "";
-  display: block;
-  width: 150px;
+
+
+  width: 200px;
   border-bottom: 5px solid skyblue;
 }
 
 .edd{
-  padding: 15px;
-  border: 2px solid #ccc;
-  text-indent: 70px;
+
+  text-indent: 100px;
   background-color: white;
 
 }
 .title{
   font-weight: bold;
-  text-align: right;
+  text-indent: 30px;
   font-size: 20px;
 }
 /*.one{*/
