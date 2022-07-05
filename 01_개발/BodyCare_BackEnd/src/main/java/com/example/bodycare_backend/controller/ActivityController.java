@@ -1,17 +1,16 @@
 package com.example.bodycare_backend.controller;
 
 import com.example.bodycare_backend.model.Activity;
+import com.example.bodycare_backend.model.UserActivity;
 import com.example.bodycare_backend.paging.Criteria;
 import com.example.bodycare_backend.service.ActivityServiceImpl;
+import com.example.bodycare_backend.service.UserActivityServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +27,7 @@ import java.util.Map;
  * -----------------------------------------------------------
  * 2022-06-30         4571c          최초 생성
  */
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8081")
 // @RestController : 통신을 json 형태로 주고받고 싶을 때 사용
 @RestController
 // @RequestMapping("/api") : http://localhost:8000/api
@@ -41,6 +40,9 @@ public class ActivityController {
     @Autowired
     private ActivityServiceImpl activityService; // 객체 정의( null => 스프링 객체)
 
+    @Autowired
+    private UserActivityServiceImpl userActivityService;
+
     // 모든 회원 조회 메뉴
     @GetMapping("/activities")
     public ResponseEntity<Map<String,Object>> getAllActivities(Criteria criteria) {
@@ -48,7 +50,7 @@ public class ActivityController {
         // 모든 회원 조회 서비스 호출
 
         try {
-            List<Activity> activities = activityService.findAll(criteria);
+            List<Activity> activities = activityService.findByEmailContaining(criteria);
 
             if (activities.isEmpty()) {
                 // Vue 성공메세지 + 객체를 전송
@@ -69,6 +71,30 @@ public class ActivityController {
             logger.error(ex.getMessage(), ex);
             // Vue 에 에러메세지 전송
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+    @PostMapping("/activities")
+    public ResponseEntity<Object>
+    insertActivities(@RequestBody UserActivity userActivity){
+        UserActivity savedUA = userActivityService.save(userActivity).get();
+        try{
+            return new ResponseEntity<Object>(savedUA, HttpStatus.OK);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("activities/deletion/{id}")
+    public ResponseEntity<HttpStatus> deleteActivities(@PathVariable("id") Long id){
+        try{
+            userActivityService.deleteById(id);
+            return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            return new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);
         }
     }
 }

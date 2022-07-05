@@ -38,6 +38,9 @@
     <delete id="deleteUserActivity" parameterType="Long">
         DELETE USER_ACTIVITY WHERE ID=#{id}
     </delete>
+    <delete id="deleteUserActivityAll">
+        DELETE USER_ACTIVITY
+    </delete>
 
 
 </mapper>

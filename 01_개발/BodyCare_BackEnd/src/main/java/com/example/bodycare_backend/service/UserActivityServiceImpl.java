@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -31,12 +30,12 @@ public class UserActivityServiceImpl implements UserActivityService{
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public List<UserActivity> selectById(Long id) {
+    public Optional<UserActivity> selectById(Long id) {
         return userActivityDao.selectById(id);
     }
 
     @Override
-    public List<UserActivity> save(UserActivity userActivity) {
+    public Optional<UserActivity> save(UserActivity userActivity) {
         // db 시퀀스 번호 저장을 위한 변수
         long seqId = 0;
 
@@ -58,4 +57,14 @@ public class UserActivityServiceImpl implements UserActivityService{
 
         return userActivityDao.selectById(seqId);
     }
+
+    @Override
+    public boolean deleteById(Long id) {
+       int queryResult =0;
+       queryResult = userActivityDao.deleteUserActivity(id);
+
+       return (queryResult >= 1) ? true:false;
+    }
+
+
 }
