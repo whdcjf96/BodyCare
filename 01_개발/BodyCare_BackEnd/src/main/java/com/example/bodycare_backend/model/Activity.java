@@ -20,6 +20,6 @@ import lombok.ToString;
 @ToString
 public class Activity {
     private Long id; // 식별번호
-    private Long intensity; // 활동강도
+    private float intensity; // 활동강도
     private String activity; // 활동명
 }

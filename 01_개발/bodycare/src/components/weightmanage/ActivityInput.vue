@@ -5,31 +5,10 @@
     <div class="row">
       <!-- 1번 row 시작 -->
       <div class="col-lg-6 mb-4">
-        <div class="input-group mb-3">
-          <!--        Todo: 수정 시작 #1 -->
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Search by email"
-            v-model="searchTitle"
-          />
-          <div class="input-group-append">
-            <button
-              class="btn btn-outline-secondary"
-              type="button"
-              @click="
-                page = 1;
-                retrieveActivitys();
-              "
-            >
-              Search
-            </button>
-          </div>
-          <!--        Todo : 수정 끝 #1 -->
-        </div>
         <div class="card shadow mb-4">
           <div class="card-body">
             <div class="table-responsive">
+              <!-- Todo: 수정 시작 #1 -->
               <!-- <table class="table" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
@@ -51,6 +30,10 @@
               </table> -->
 
               <div>활동명<div class="float-right">활동강도</div></div>
+              <div>
+                활동명
+                <div class="float-right">활동강도</div>
+              </div>
               <!-- 제목(title) 목록 -->
               <ul class="list-group">
                 <li
@@ -60,11 +43,20 @@
                   :key="index"
                   @click="setActiveActivity(activitie, index)"
                 >
-                 
+
                   <div>{{ activitie.activity }}<div class="float-right">{{ activitie.intensity }}</div></div>
                 </li>
               </ul>
               <!--    Todo : page 바 태그 추가 -->
+                  <div>
+                    {{ activitie.activity }}
+                    <div class="float-right">{{ activitie.intensity }}</div>
+                  </div>
+                </li>
+              </ul>
+              <!-- Todo : 수정 끝 #1 -->
+
+              <!-- Todo : page 바 태그 추가 -->
               <div class="col-md-12">
                 <div class="mb-3">
                   Items per Page:
@@ -126,6 +118,17 @@
 <!--                <br />-->
 <!--                <h2>선택하세요...</h2>-->
 <!--              </div>-->
+              <!-- currentTutorial != null 이면 -->
+              <div v-if="currentActivity">
+                <h2>
+                  {{ currentActivity.activity }}
+                </h2>
+              </div>
+              <!-- currentTutorial == null 이면 -->
+              <div v-else>
+                <br />
+                <h2>선택하세요...</h2>
+              </div>
             </div>
             <!-- 상세 정보를 보여주는 div 끝 -->
           </div>
@@ -148,6 +151,8 @@
             </div>
 <!--            <div class="text-center">0</div>-->
 <!--            <div class="float-right">hours</div>-->
+            <input class="text-center"/>
+            <div class="float-right">hours</div>
           </div>
         </div>
         <!-- 시간창 끝 -->
@@ -246,6 +251,7 @@ export default {
     refreshList() {
       this.retrieveActivitys();
       this.currentActivity = null;
+      this.currentActivityInputs = null;
       this.currentIndex = -1;
     },
 
