@@ -25,7 +25,7 @@ public interface UserDao {
 
     User findByEmail(String email);
 
-    Long insertUser(User user);
+    int insertUser(User user);
 
     int deleteUser(String email);
 

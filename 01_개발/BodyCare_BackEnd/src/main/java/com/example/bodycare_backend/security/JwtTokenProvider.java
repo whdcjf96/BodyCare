@@ -1,10 +1,17 @@
 package com.example.bodycare_backend.security;
 
 import com.example.bodycare_backend.service.BodyUserDetailService;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.Jwts;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -89,7 +96,7 @@ public class JwtTokenProvider {
     public Authentication getAuthientication(String token) {
 //        토큰(인증키)으로 회원정보 얻기
         UserDetails userDetails =
-                customUserDetailService
+                bodyUserDetailService
                         .loadUserByUsername(this.getUserId(token));
 // UsernamePasswordAuthenticationToken 호출하면 인증된 유저정보가 나옴
 //        인증된 유저정보가 Authentication 에 저장됨

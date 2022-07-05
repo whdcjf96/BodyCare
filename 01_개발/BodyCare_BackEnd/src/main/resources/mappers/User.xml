@@ -8,7 +8,7 @@
 <mapper namespace="com.example.bodycare_backend.dao.UserDao">
 
     <insert id="insertUser" parameterType="com.example.bodycare_backend.model.User">
-        INSERT INTO USER
+        INSERT INTO TB_USER
         ( ID
         , EMAIL
         , PASSWORD
@@ -16,6 +16,7 @@
         , GENDER
         , HEIGHT
         , AGE
+        ,ROLES
         , CREATED_TIME)
         VALUES ( SQ_USER.NEXTVAL
                , #{email}
@@ -24,6 +25,7 @@
                , #{gender}
                , #{height}
                , #{age}
+               ,#{roles}
                , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))
     </insert>
 
@@ -34,13 +36,11 @@
         FROM TB_USER
         WHERE ID = #{id}
     </select>
-
-<!--    Todo:이메일 조회-->
     <select id="findByEmail" parameterType="String"
             resultType="com.example.bodycare_backend.model.User">
         SELECT *
         FROM TB_USER
-        WHERE EMAIL = #{email}
+        WHERE EMAIL LIKE '%'|| #{email} ||'%'
     </select>
 
 
@@ -53,7 +53,7 @@
 
 <!--    Todo: 데이터 삭제-->
     <delete id="deleteUser" parameterType="String">
-        DELETE FROM TB_USER WHERE EMAIL=#{email}
+        DELETE FROM TB_USER WHERE EMAIL LIKE '%'|| #{email} ||'%'
     </delete>
 
     <update id="updateUser" parameterType="com.example.bodycare_backend.model.User">
@@ -64,7 +64,7 @@
             HEIGHT=#{height},
             AGE = #{age},
             GENDER = #{gender}
-        WHERE EMAIL = #{email}
+        WHERE EMAIL LIKE '%'|| #{email} ||'%'
     </update>
 </mapper>
 
