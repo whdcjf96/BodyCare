@@ -61,14 +61,14 @@
       <nav
           class="
           navbar navbar-expand navbar-light
-          bg-primary
+          bg-gradient-primary
           topbar
           static-top
           shadow
         "
       >
         <!-- Topbar Navbar -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ">
           <li class="nav-item">
             <router-link
                 to="/basic"

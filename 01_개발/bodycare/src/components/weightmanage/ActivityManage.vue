@@ -61,7 +61,7 @@
       <nav
         class="
           navbar navbar-expand navbar-light
-          bg-primary
+          bg-gradient-primary
           topbar
           static-top
           shadow
