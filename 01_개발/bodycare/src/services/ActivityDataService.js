@@ -18,6 +18,14 @@ class ActivityDataService {
     getAll(params) {
         return http.get("/activities", {params});
     }
+    // customer 데이터 추가 메소드(insert 문 호출)
+    create(data) {
+        return http.post("/activities", data);
+    }
+    // customer 데이터 삭제 메소드(update 문 호출)
+    delete(id) {
+        return http.delete(`/activities/deletion/${id}`);
+    }
 }
 // export : 모듈을 다른 자바스크립트 파일에서 참조함
 // new 모듈명 : class 객체생성을 위해 new 사용함
