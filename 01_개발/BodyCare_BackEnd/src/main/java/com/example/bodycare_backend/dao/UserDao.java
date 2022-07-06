@@ -28,7 +28,6 @@ public interface UserDao {
 
     int insertUser(User user);
 
-    int deleteUser(String email);
 
     int updateUser(User user);
 //    Long updateBasic(User user);

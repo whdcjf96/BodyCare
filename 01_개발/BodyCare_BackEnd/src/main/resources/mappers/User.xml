@@ -67,10 +67,7 @@
         FROM TB_USER
     </select>
 
-<!--    Todo: 데이터 삭제-->
-    <delete id="deleteUser" parameterType="String">
-        DELETE FROM TB_USER WHERE EMAIL LIKE '%'|| #{email} ||'%'
-    </delete>
+
 
     <update id="updateUser" parameterType="com.example.bodycare_backend.model.User">
         UPDATE TB_USER

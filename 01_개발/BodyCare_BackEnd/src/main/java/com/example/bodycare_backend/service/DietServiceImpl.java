@@ -1,6 +1,7 @@
 package com.example.bodycare_backend.service;
 
 import com.example.bodycare_backend.dao.DietDao;
+import com.example.bodycare_backend.model.Activity;
 import com.example.bodycare_backend.model.Diet;
 import com.example.bodycare_backend.paging.Criteria;
 import org.slf4j.Logger;
@@ -60,7 +61,7 @@ public class DietServiceImpl implements DietService{
             diets = dietDao.selectAll(criteria);
         } else {
             // title(제목) 이 있으면 제목 검색을 함
-            diets = dietDao.selectByTitle(criteria);
+            diets = dietDao.findByTitleContaining(criteria);
         }
 
         return diets;
@@ -88,5 +89,34 @@ public class DietServiceImpl implements DietService{
         logger.info("seqId {}", seqId);
 
         return dietDao.selectById(seqId);
+    }
+
+    @Override
+    public List<Diet> findByTitleContaining(Criteria criteria)  {
+        // 빈 값으로 초기화
+        List<Diet> diets = Collections.emptyList();
+
+        // Email 이 Null 인지 체크
+        Optional<String> optionalCriteria
+                = Optional.ofNullable(criteria.getTitle());
+
+        // 테이블의 총 데이터 건수
+        // Null 이면 "" 로 바꿈
+        int totalCount = dietDao.selectTotalCount(optionalCriteria.orElse(""));
+
+        // criteria : 페이징 처리 클래스 객체
+        criteria.setTotalItems(totalCount);
+        // 총 페이지 개수 : 테이블의 총 건수(totalCount) / 페이지당 출력할 데이터 개수(size)
+        criteria.setTotalPages(totalCount / criteria.getSize());
+
+        if(criteria.getTitle() == null){
+            // title(제목)이 없으면 전채검색을 함
+            diets = dietDao.selectAll(criteria);
+        } else {
+            // title(제목) 이 있으면 제목 검색을 함
+            diets = dietDao.findByTitleContaining(criteria);
+        }
+
+        return diets;
     }
 }

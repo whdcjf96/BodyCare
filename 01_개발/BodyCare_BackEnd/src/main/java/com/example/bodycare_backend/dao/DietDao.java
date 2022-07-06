@@ -1,5 +1,6 @@
 package com.example.bodycare_backend.dao;
 
+import com.example.bodycare_backend.model.Activity;
 import com.example.bodycare_backend.model.Diet;
 import com.example.bodycare_backend.paging.Criteria;
 import org.apache.ibatis.annotations.Mapper;
@@ -25,7 +26,9 @@ public interface DietDao {
     List<Diet> selectAll(Criteria criteria);
 
     //    인풋창에서 타이틀별로 검색
-    List<Diet> selectByTitle(Criteria criteria);
+    public int selectTotalCount(String title);
+
+    public List<Diet> findByTitleContaining(Criteria criteria);
 
     // id 로 회원 조회 메소드
     Optional<Diet> selectById(Long id);

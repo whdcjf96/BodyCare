@@ -30,6 +30,10 @@
         WHERE R > #{page} * #{size}
     </select>
 
+    <select id="selectById" parameterType="Long" resultType="com.example.bodycare_backend.model.Diet">
+        SELECT * FROM DIET WHERE ID= #{id}
+    </select>
+
 <!--    음식 추가-->
     <update id="insertDiet" parameterType="com.example.bodycare_backend.model.Diet">
         INSERT INTO DIET(
@@ -43,8 +47,34 @@
                             #{protein},
                             #{fat},
                             #{title}
-                        );
+                        )
+        <selectKey keyProperty="id" resultType="long" order="AFTER">
+            SELECT SQ_DIET.CURRVAL FROM DUAL
+        </selectKey>
     </update>
+
+
+    <select id="selectTotalCount"
+            parameterType="String"
+            resultType="int">
+        SELECT COUNT(*)
+        FROM DIET
+        WHERE TITLE LIKE '%'|| #{title} ||'%'
+    </select>
+
+    <select id="findByTitleContaining"
+            parameterType="com.example.bodycare_backend.paging.Criteria"
+            resultType="com.example.bodycare_backend.model.Diet">
+        SELECT *
+        FROM (
+                 SELECT ROWNUM R, TC.*
+                 FROM DIET TC
+                 WHERE
+                     TITLE LIKE '%' || #{title} || '%'
+                   AND ROWNUM &lt; = (#{page} + 1) * #{size}
+             )
+        WHERE R > #{page} * #{size}
+    </select>
 
 
 

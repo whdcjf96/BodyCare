@@ -42,10 +42,7 @@ public class BodyUserDetailService implements UserDetailsService {
         }
     }
 
-    public int deleteUser(String email){
-        return userDao.deleteUser(email);
 
-    }
 
 
 }

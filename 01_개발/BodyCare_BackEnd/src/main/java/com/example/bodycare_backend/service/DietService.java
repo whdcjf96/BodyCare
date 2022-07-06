@@ -24,6 +24,7 @@ public interface DietService {
     //    인풋창에서 타이틀별로 검색
     public List<Diet> selectByTitle(Criteria criteria);
 
+    public List<Diet> findByTitleContaining(Criteria criteria);
     // 음식 저장 메소드(insert)
     Optional<Diet> save(Diet diet);
     
