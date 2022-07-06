@@ -123,7 +123,26 @@
         <!-- 화면 바디 시작 -->
         <div class="basic">
           <!-- 본문 -->
+
+          <!-- TODO : 현재 날짜 출력 -->
+          <div class="row">
+            <div
+                class="ma-0 pa-3 col col-12"
+                style="
+              color: #4e73df;
+              font-size: 30px;
+              font-weight: bold;
+              text-align: center;
+            "
+            >
+              <span>&lt; </span>{{ today }}<span c> &gt;</span>
+            </div>
+          </div>
+          <!-- 현재 날짜 출력 끝 -->
+
           <div class="row no-gutters align-center justify-center">
+
+
             <!-- 그래프란 -->
             <div class="card shadow mt-3 col col-12">
               <div class="card shadow mb-4">
@@ -184,6 +203,7 @@ import {
   CategoryScale,
   PointElement
 } from 'chart.js'
+import dayjs from "dayjs";
 ChartJS.register(
     Title,
     Tooltip,
@@ -229,6 +249,10 @@ export default {
   },
   data() {
     return {
+      // TODO : 오늘 날짜 가져오는 함수
+      today: dayjs().format("YYYY-MM-DD"),
+      // TODO : 그래프 위 막대 그래프 수치
+
       chartData: {
         labels: [
           '1',

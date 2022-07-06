@@ -49,11 +49,11 @@
               </ul>
               <!--    Todo : page 바 태그 추가 -->
                   <div>
+
                     {{ activitie.activity }}
                     <div class="float-right">{{ activitie.intensity }}</div>
                   </div>
-                </li>
-              </ul>
+
               <!-- Todo : 수정 끝 #1 -->
 
               <!-- Todo : page 바 태그 추가 -->

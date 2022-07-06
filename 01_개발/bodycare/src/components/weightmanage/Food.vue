@@ -483,7 +483,15 @@ export default {
         datasets: [
           {
             label: 'Kcal',
-            backgroundColor : ['blue','green','Skyblue'],
+            backgroundColor : ['rgba(54, 162, 235, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(75, 192, 192, 0.2)'],
+            borderColor: [
+              'rgb(54, 162, 235)',
+              'rgb(255, 159, 64)',
+              'rgb(75, 192, 192)'
+            ],
+            borderWidth: 1,
             data: [100, 90, 80,]
           }
         ]
@@ -624,20 +632,20 @@ background-color: white;
 
 
   width: 200px;
-  border-bottom: 5px solid blue;
+  border-bottom: 5px solid skyblue;
 
 }
 .underscore_two{
 
 
   width: 200px;
-  border-bottom: 5px solid green;
+  border-bottom: 5px solid #FFA500;
 }
 .underscore_three{
 
 
   width: 200px;
-  border-bottom: 5px solid skyblue;
+  border-bottom: 5px solid #66CDAA;
 }
 
 .edd{
