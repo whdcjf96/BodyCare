@@ -4,6 +4,7 @@ import com.example.bodycare_backend.model.User;
 import com.example.bodycare_backend.model.UserDailyRecord;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * packageName : com.example.bodycare_backend.service
@@ -19,7 +20,7 @@ import java.util.List;
 public interface UserService {
     List<User> findAll();
 
-    User findById(Long id);
+    Optional<User> findById(Long id);
 
     User findByEmail(String email);
 

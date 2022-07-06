@@ -16,6 +16,14 @@
         , GENDER
         , HEIGHT
         , AGE
+        , WEIGHT
+        , BODY_FAT
+        , MUSCLE_MASS
+        , KCAL_START
+        , KCAL_WEEKLY
+        , WEIGHT_GOAL
+        ,WEIGHT_LOSS
+        , FAT_GOAL
         ,ROLES
         , CREATED_TIME)
         VALUES ( SQ_USER.NEXTVAL
@@ -25,6 +33,14 @@
                , #{gender}
                , #{height}
                , #{age}
+               , #{weight}
+               , #{bodyFat}
+               , #{muscleMass}
+               , #{kcalStart}
+               , #{kcalWeekly}
+               , #{weightGoal}
+               , #{weightLoss}
+               , #{fatGoal}
                ,#{roles}
                , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))
     </insert>
@@ -56,7 +72,7 @@
         DELETE FROM TB_USER WHERE EMAIL LIKE '%'|| #{email} ||'%'
     </delete>
 
-    <update id="updateUser" parameterType="com.example.bodycare_backend.model.User">
+    <update id="updateMyPage" parameterType="com.example.bodycare_backend.model.User">
         UPDATE TB_USER
         SET
             PASSWORD = #{password},
@@ -64,8 +80,26 @@
             HEIGHT=#{height},
             AGE = #{age},
             GENDER = #{gender}
-        WHERE EMAIL LIKE '%'|| #{email} ||'%'
+        WHERE ID = #{id}
     </update>
+    <update id="updateBasic" parameterType="com.example.bodycare_backend.model.User">
+        UPDATE TB_USER
+        SET
+            WEIGHT = #{weight},
+            BODY_FAT = #{bodyFat},
+            MUSCLE_MASS=#{muscleMass},
+            UPDATE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
+        WHERE ID = #{id}
+        </update>
+    <update id="updateExer" parameterType="com.example.bodycare_backend.model.User">
+        UPDATE TB_USER
+        SET
+            FAT_GOAL = #{fatGoal},
+            KCAL_START = #{kcalStart},
+            KCAL_WEEKLY=#{kcalWeekly},
+            UPDATE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
+        WHERE ID = #{id}
+        </update>
 </mapper>
 
 
