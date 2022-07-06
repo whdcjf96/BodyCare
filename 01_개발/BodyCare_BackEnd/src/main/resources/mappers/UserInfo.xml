@@ -8,12 +8,12 @@
     <!--    TODO: 기본페이지 데이터 입력-->
     <!--    TODO: FK-->
     <insert id="insertUserBasic" parameterType="com.example.bodycare_backend.model.UserInfo">
-        INSERT INTO USER_INFO(ID,
+        INSERT INTO USER_INFO(USER_ID,
                               WEIGHT,
                               BODY_FAT,
                               MUSCLE_MASS,
                               CREATED_TIME)
-        VALUES (#{id},
+        VALUES (#{userId},
                 #{weight},
                 #{bodyFat},
                 #{muscleMass},
@@ -60,7 +60,7 @@
           AND B.ACTIVITY_ID = D.ID
           AND C.USER_ID = #{userId}
         group by C.USER_ID, A.HEIGHT, A.AGE, A.GENDER, C.WEIGHT,
-                 C.BODY_FAT, C.MUSCLE_MASS;
+                 C.BODY_FAT, C.MUSCLE_MASS
     </select>
 
     <!--    TODO: 운동도우미에서 리드-->
@@ -69,7 +69,7 @@
             resultType="com.example.bodycare_backend.model.UserInfo">
         SELECT USER_ID, WEIGHT, BODY_FAT
         FROM USER_INFO
-        WHERE USER_ID = #{userId};
+        WHERE USER_ID = #{userId}
     </select>
 
 

@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * packageName : com.example.bodycare_backend.service
  * fileName : UserInfoServiceImpl
@@ -29,17 +31,19 @@ public class UserInfoServiceImpl implements UserInfoService{
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public UserInfo selectAct(Long userId) {
+    public Optional<UserInfo> selectAct(Long userId) {
+
         return userInfoDao.selectAct(userId);
     }
 
     @Override
-    public UserInfo selectExer(Long userId) {
+    public Optional<UserInfo> selectExer(Long userId) {
+
         return userInfoDao.selectExer(userId);
     }
 
     @Override
-    public UserInfo saveFirst(UserInfo userInfo) {
+    public Optional<UserInfo> saveAct(UserInfo userInfo) {
         // db 시퀀스 번호 저장을 위한 변수
         long seqId = 0;
 
@@ -50,20 +54,20 @@ public class UserInfoServiceImpl implements UserInfoService{
         if (userInfo.getUserId() == null) {
             userInfoDao.insertUserBasic(userInfo);
         }
-        //                  있으면 update 문 호출
-//        else {
-//            complainDao.updateComplain(complain);
-//        }
+//                          있으면 update 문 호출
+        else {
+           userInfoDao.updateUserAct(userInfo);
+        }
 
         // insert 문 후에는 customer 의 id 속성에 값이 저장됨(<selectkey>)
         seqId = userInfo.getUserId();
         logger.info("seqId {}", seqId);
 
-        return userInfoDao.findByIdF(seqId);
+        return userInfoDao.selectAct(seqId);
     }
 
     @Override
-    public UserInfo saveSecond(UserInfo userInfo) {
+    public Optional<UserInfo> saveExer(UserInfo userInfo) {
         // db 시퀀스 번호 저장을 위한 변수
         long seqId = 0;
 
@@ -71,8 +75,8 @@ public class UserInfoServiceImpl implements UserInfoService{
         logger.info("userInfo {}", userInfo);
 
         // customer.getId() 없으면 insert 문 호출(새로운 회원 생성)
-        if (userInfo.getUserId() == null) {
-            userInfoDao.insertUserExer(userInfo);
+        if (userInfo.getUserId() != null) {
+            userInfoDao.updateUserExer(userInfo);
         }
         //                  있으면 update 문 호출
 //        else {
@@ -83,6 +87,6 @@ public class UserInfoServiceImpl implements UserInfoService{
         seqId = userInfo.getUserId();
         logger.info("seqId {}", seqId);
 
-        return userInfoDao.findByIdS(seqId);
+        return userInfoDao.selectExer(seqId);
     }
 }

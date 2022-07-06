@@ -1,12 +1,14 @@
 package com.example.bodycare_backend.controller;
 
+import com.example.bodycare_backend.model.User;
+import com.example.bodycare_backend.model.UserInfo;
 import com.example.bodycare_backend.service.UserInfoServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * packageName : com.example.bodycare_backend.controller
@@ -32,5 +34,75 @@ public class UserInfoController {
     private UserInfoServiceImpl userInfoService;
 
 
+    @GetMapping("/userInfoAct/{id}")
+    public ResponseEntity<Object> getUserInfoAct(@PathVariable("id") Long id){
+        UserInfo userInfo= userInfoService.selectAct(id).get();
+
+        try{
+            if(userInfo != null){
+                return new ResponseEntity<Object>(userInfo, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
+
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
+    @GetMapping("/userInfoExer/{id}")
+    public ResponseEntity<Object> getUserInfoExer(@PathVariable("id") Long id){
+        UserInfo userInfo= userInfoService.selectExer(id).get();
+
+        try{
+            if(userInfo != null){
+                return new ResponseEntity<Object>(userInfo, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
+
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("userInfoAct")
+    public ResponseEntity<Object> createUserInfoAct(@RequestBody UserInfo userInfo){
+        UserInfo savedUserInfo = userInfoService.saveAct(userInfo).get();
+
+        try{
+            return new ResponseEntity<Object>(savedUserInfo, HttpStatus.OK);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("userInfoAct/{id}")
+    public ResponseEntity<Object> updateUserInfoAct(@PathVariable("id") Long id, @RequestBody UserInfo userInfo){
+        try{
+            userInfo.setUserId(id);
+            UserInfo savedUserInfo = userInfoService.saveAct(userInfo).get();
+
+            return new ResponseEntity<Object>(savedUserInfo, HttpStatus.OK);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
+    @PutMapping("userInfoExer/{id}")
+    public ResponseEntity<Object> updateUserInfoExer(@PathVariable("id") Long id, @RequestBody UserInfo userInfo){
+        try{
+            userInfo.setUserId(id);
+            UserInfo savedUserInfo = userInfoService.saveExer(userInfo).get();
+
+            return new ResponseEntity<Object>(savedUserInfo, HttpStatus.OK);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
 
 }

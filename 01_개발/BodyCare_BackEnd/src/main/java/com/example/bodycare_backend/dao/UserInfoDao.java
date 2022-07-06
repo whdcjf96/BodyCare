@@ -4,6 +4,7 @@ import com.example.bodycare_backend.model.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * packageName : com.example.bodycare_backend.dao
@@ -23,17 +24,17 @@ public interface UserInfoDao {
     Long insertUserBasic(UserInfo userInfo);
 
     //    활동관리페이지/식단관리에서 활동대사량 계산을 위해 읽어오기
-    UserInfo selectAct(Long userId);
+    Optional<UserInfo> selectAct(Long userId);
 
     //    운동도우미에서 리드
-    UserInfo selectExer(Long userId);
+    Optional<UserInfo> selectExer(Long userId);
 
     //    운동도우미에서 데이터 삽입
-    Long insertUserExer(UserInfo userInfo);
+    Long updateUserExer(UserInfo userInfo);
 
-    UserInfo findByIdF(Long id);
+    Long updateUserAct(UserInfo userInfo);
 
-    UserInfo findByIdS(Long id);
+
 
 
 }
