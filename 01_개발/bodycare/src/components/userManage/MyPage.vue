@@ -33,7 +33,7 @@
       <nav
           class="
           navbar navbar-expand navbar-light
-          bg-gradient-primary
+          bg-gradient-primary2
           topbar
           static-top
           shadow
