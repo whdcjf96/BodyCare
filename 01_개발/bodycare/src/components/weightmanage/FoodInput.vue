@@ -1,13 +1,21 @@
 <template>
   <!-- 화면 시작 -->
   <div class="container-fluid" id="page-top">
+
+
+
     <!-- 화면 바디 시작 -->
     <div class="row">
+
       <!-- 1번 row 시작 -->
       <div class="col-lg-6 mb-4">
         <div class="card shadow mb-4">
           <div class="card-body">
+
+
             <div class="table-responsive">
+
+
               <table class="table" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>

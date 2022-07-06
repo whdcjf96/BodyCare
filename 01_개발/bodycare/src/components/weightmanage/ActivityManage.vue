@@ -61,7 +61,7 @@
       <nav
         class="
           navbar navbar-expand navbar-light
-          bg-gradient-primary
+          bg-gradient-primary2
           topbar
           static-top
           shadow
@@ -122,8 +122,18 @@
         <!-- 화면 헤더 시작 -->
         <!-- 현재 날짜 출력 시작 -->
         <!-- TODO : 현재 날짜 출력 -->
-        <div class="text-center">
-          <h2 class="text-primary">&lt;{{ today }}&gt;</h2>
+        <div class="row">
+          <div
+              class="ma-0 pa-3 col col-12"
+              style="
+              color: #4e73df;
+              font-size: 30px;
+              font-weight: bold;
+              text-align: center;
+            "
+          >
+            <span>&lt; </span>{{ today }}<span c> &gt;</span>
+          </div>
         </div>
         <!-- 현재 날짜 출력 끝 -->
         <!-- 화면 헤더 끝 -->
