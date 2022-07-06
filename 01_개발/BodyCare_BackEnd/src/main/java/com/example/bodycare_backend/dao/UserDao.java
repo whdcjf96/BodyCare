@@ -4,6 +4,7 @@ import com.example.bodycare_backend.model.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * packageName : com.example.bodycare_backend.dao
@@ -21,7 +22,7 @@ public interface UserDao {
 
     List<User> findAll();
 
-    User findById(Long id);
+    Optional<User> findById(Long id);
 
     User findByEmail(String email);
 
@@ -29,5 +30,7 @@ public interface UserDao {
 
     int deleteUser(String email);
 
-    Long updateUser(User user);
+    Long updateMyPage(User user);
+    Long updateBasic(User user);
+    Long updateExer(User user);
 }
