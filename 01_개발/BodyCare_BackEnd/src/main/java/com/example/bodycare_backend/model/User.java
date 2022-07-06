@@ -43,12 +43,7 @@ public class User implements UserDetails {
     private float weightGoal;
     private float weightLoss;
     private float fatGoal;
-
     
-    
-    
-    
-
     // Serialize 네트워크 전송 자동 생성 번호 => 수동으로 이름을 명시함
     // 보안 관련해서 자동 번호 생성
     private static final long serialVersionUID = 1L;
