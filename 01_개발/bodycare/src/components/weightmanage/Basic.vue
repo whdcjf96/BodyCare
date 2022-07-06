@@ -61,14 +61,14 @@
       <nav
           class="
           navbar navbar-expand navbar-light
-          bg-primary
+          bg-gradient-primary
           topbar
           static-top
           shadow
         "
       >
         <!-- Topbar Navbar -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ">
           <li class="nav-item">
             <router-link
                 to="/basic"
@@ -313,6 +313,11 @@
                         <button class="ml-3 btn btn-primary ">린매스업</button>
                       </router-link>
                     </h1>
+                    <h1 v-else-if="basic.muscleMass>42 && basic.bodyFat<=17">
+                      <router-link to="/activityManage">
+                        <button class="btn btn-primary ">커팅</button>
+                      </router-link>
+                    </h1>
                     <h1 v-else-if="36<basic.muscleMass<=42 && basic.bodyFat<=17">
                       <router-link to="/activityManage">
                         <button class="btn btn-primary ">벌크업</button>
@@ -321,7 +326,7 @@
                         <button class="ml-3 btn btn-primary ">컷팅</button>
                       </router-link>
                     </h1>
-                    <h1 v-else-if="36<basic.muscleMass<=42 && basic.bodyFat>18">
+                    <h1 v-else-if="36<basic.muscleMass<=42 && basic.bodyFat>=18">
                       <router-link to="/activityManage">
                         <button class="btn btn-primary ">다이어트</button>
                       </router-link>
@@ -329,11 +334,7 @@
                         <button class="ml-3 btn btn-primary ">린매스업</button>
                       </router-link>
                     </h1>
-                    <h1 v-else-if="basic.muscleMass>42 && basic.bodyFat<=17">
-                      <router-link to="/activityManage">
-                        <button class="btn btn-primary ">커팅</button>
-                      </router-link>
-                    </h1>
+
                     <h1 v-else-if="basic.muscleMass>42 && basic.bodyFat>18">
                       <router-link to="/activityManage">
                         <button class="ml-3 btn btn-primary ">다이어트</button>

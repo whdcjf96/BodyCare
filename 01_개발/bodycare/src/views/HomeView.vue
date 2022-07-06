@@ -1,13 +1,18 @@
 <template>
   <div id="content-wrapper" class="d-flex flex-column">
     <HeaderCom></HeaderCom>
-    <div id="wrapper" style="width: 100%">
+    <div id="wrapper" style="width: 100%" >
 
       <!-- Begin Page Content -->
-      <div style="width: 100%; background-color:whitesmoke">
+      <div style="width: 100%; background-color: #FFFFFF">
         <div class="container-fluid" id="page-top">
-          <div class="mt-3" style="text-align: center; color: blue; ">
-            <h1> Nutrution Assistant</h1>
+          <div class="row row--dense mt-3">
+            <div  class="col-md-8 col-12 center mr-0 ml-0 ">
+              <img class="mt-4 img-responsive center-block" src="../assets/main2.png" height=400 width="100%" >
+            </div>
+            <div  class="col-md-4 col-12 center mr-0 ml-0">
+              <img class="img-responsive center-block" src="../assets/main6.png" height=400 width="100%" style="opacity: 0.8">
+            </div>
           </div>
           <!-- row -->
           <div class="row mt-3">
