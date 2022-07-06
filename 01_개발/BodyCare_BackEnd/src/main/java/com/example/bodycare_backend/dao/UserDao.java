@@ -22,7 +22,7 @@ public interface UserDao {
 
     List<User> findAll();
 
-    Optional<User> findById(Long id);
+    User findById(Long id);
 
     User findByEmail(String email);
 
@@ -30,7 +30,7 @@ public interface UserDao {
 
     int deleteUser(String email);
 
-    Long updateMyPage(User user);
-    Long updateBasic(User user);
-    Long updateExer(User user);
+    int updateUser(User user);
+//    Long updateBasic(User user);
+//    Long updateExer(User user);
 }

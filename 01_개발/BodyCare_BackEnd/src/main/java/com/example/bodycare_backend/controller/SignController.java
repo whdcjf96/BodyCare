@@ -53,7 +53,7 @@ public class SignController {
     public ResponseEntity<?> signInUser( @RequestBody User user ) {
 //        임시 유저 객체를 정의( 이름으로 DB 유저정보 조회 )
         User result = (User)bodyUserDetailService
-                .findByEmail(user.getEmail());
+                .loadUserByUsername(user.getEmail());
 //        암호 맞는 지 확인 절차
 //        user.getPassword() : 암호화 전 패스워드
 //        result.getPassword() : DB에 저장된 패스워드(암호화가 된 패스워드)
@@ -116,6 +116,38 @@ public class SignController {
             return ResponseEntity
                     .ok(new MessageResponse("User registered successfully!"));
         } else if( result == -1 ) {
+//            db에 유저가 있으므로 있다고 응답을 전송
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse
+                            ("Error: Username is already taken!"));
+        } else {
+//            DB 에러났으므로 관리자에게 문의하세요 응답 보냄
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse
+                            ("Error: Ask system admin"));
+        }
+    }
+
+    @PutMapping(value = "/signUpdate/{email}")
+    public ResponseEntity<?> updateUser(@PathVariable("email") String email, @RequestBody User signupUser){
+        User user = signupUser;
+//        유저에 role(역할) : ROLE_USER , 이 사이트는 롤이 1개임
+        user.setRoles("ROLE_USER");
+//        signupUser.getPassword() : 암호화되기전 패스워드
+//        passwordEncoder.encode : 패스워드 암호화가 됨
+        user.setPassword(passwordEncoder.encode(signupUser.getPassword()));
+
+//        DB insert 할 서비스(메소드) 호출
+        int result = bodyUserDetailService.signInUser(user);
+
+//        DB insert 성공
+        if( result == -1) {
+//            성공메세지 전송
+            return ResponseEntity
+                    .ok(new MessageResponse("User registered successfully!"));
+        } else if( result == 1 ) {
 //            db에 유저가 있으므로 있다고 응답을 전송
             return ResponseEntity
                     .badRequest()

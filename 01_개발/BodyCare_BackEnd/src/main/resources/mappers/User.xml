@@ -56,7 +56,7 @@
             resultType="com.example.bodycare_backend.model.User">
         SELECT *
         FROM TB_USER
-        WHERE EMAIL LIKE '%'|| #{email} ||'%'
+        WHERE EMAIL = #{email}
     </select>
 
 
@@ -72,7 +72,7 @@
         DELETE FROM TB_USER WHERE EMAIL LIKE '%'|| #{email} ||'%'
     </delete>
 
-    <update id="updateMyPage" parameterType="com.example.bodycare_backend.model.User">
+    <update id="updateUser" parameterType="com.example.bodycare_backend.model.User">
         UPDATE TB_USER
         SET
             PASSWORD = #{password},
@@ -80,26 +80,38 @@
             HEIGHT=#{height},
             AGE = #{age},
             GENDER = #{gender}
-        WHERE ID = #{id}
-    </update>
-    <update id="updateBasic" parameterType="com.example.bodycare_backend.model.User">
-        UPDATE TB_USER
-        SET
+            FAT_GOAL = #{fatGoal},
+            KCAL_START = #{kcalStart},
+            KCAL_WEEKLY=#{kcalWeekly},
             WEIGHT = #{weight},
             BODY_FAT = #{bodyFat},
             MUSCLE_MASS=#{muscleMass},
             UPDATE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
         WHERE ID = #{id}
-        </update>
-    <update id="updateExer" parameterType="com.example.bodycare_backend.model.User">
-        UPDATE TB_USER
-        SET
-            FAT_GOAL = #{fatGoal},
-            KCAL_START = #{kcalStart},
-            KCAL_WEEKLY=#{kcalWeekly},
-            UPDATE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
-        WHERE ID = #{id}
-        </update>
+    </update>
+
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM TB_USER WHERE EMAIL LIKE '%' || #{email} || '%'
+    </delete>
+
+<!--    <update id="updateBasic" parameterType="com.example.bodycare_backend.model.User">-->
+<!--        UPDATE TB_USER-->
+<!--        SET-->
+<!--            WEIGHT = #{weight},-->
+<!--            BODY_FAT = #{bodyFat},-->
+<!--            MUSCLE_MASS=#{muscleMass},-->
+<!--            UPDATE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')-->
+<!--        WHERE ID = #{id}-->
+<!--        </update>-->
+<!--    <update id="updateExer" parameterType="com.example.bodycare_backend.model.User">-->
+<!--        UPDATE TB_USER-->
+<!--        SET-->
+<!--            FAT_GOAL = #{fatGoal},-->
+<!--            KCAL_START = #{kcalStart},-->
+<!--            KCAL_WEEKLY=#{kcalWeekly},-->
+<!--            UPDATE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')-->
+<!--        WHERE ID = #{id}-->
+<!--        </update>-->
 </mapper>
 
 

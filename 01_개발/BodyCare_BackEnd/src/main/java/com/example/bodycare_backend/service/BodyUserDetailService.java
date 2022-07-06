@@ -32,17 +32,19 @@ public class BodyUserDetailService implements UserDetailsService {
         return userDao.findByEmail(email);
     }
 
-    public UserDetails findByEmail(String email) {
-        return userDao.findByEmail(email);
-    }
 
     //    유저객체가 null이면 insert하고(유저생성), 아니면 -1 반환하는 메소드
     public int signInUser(User user) {
         if(userDao.findByEmail(user.getEmail()) == null) {
             return userDao.insertUser(user);
-        } else {
-            return -1;
+        } else{
+            return userDao.updateUser(user);
         }
+    }
+
+    public int deleteUser(String email){
+        return userDao.deleteUser(email);
+
     }
 
 
