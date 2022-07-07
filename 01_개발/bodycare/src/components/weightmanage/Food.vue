@@ -202,19 +202,9 @@
                         <div>지</div>
                       </b-progress-bar>
                     </b-progress>
-                    <template>
-                      <Bar
-                          :chart-options="chartOptions"
-                          :chart-data="chartData"
-                          :chart-id="chartId"
-                          :dataset-id-key="datasetIdKey"
-                          :plugins="plugins"
-                          :css-classes="cssClasses"
-                          :styles="styles"
-                          :width="width"
-                          :height="height"
-                      />
-                    </template>
+                    <div id="chart">
+                      <apexchart type="bar" height="350" :options="chartOptions" :series="series"></apexchart>
+                    </div>
                   </div>
 
                   <strong class="tit">Kcal</strong>
@@ -361,59 +351,89 @@
 <script>
 /*eslint-disable*/
 import dayjs from "dayjs";
-import {Bar} from 'vue-chartjs/legacy'
-
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-} from 'chart.js'
-
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+import VueApexCharts from 'vue-apexcharts'
 
 
 export default {
   name: "food",
   components: {
-    Bar
+    apexchart: VueApexCharts,
   },
-  props: {
-    chartId: {
-      type: String,
-      default: 'bar-chart'
-    },
-    datasetIdKey: {
-      type: String,
-      default: 'label'
-    },
-    width: {
-      type: Number,
-      default: 100
-    },
-    height: {
-      type: Number,
-      default: 400
-    },
-    cssClasses: {
-      default: '',
-      type: String
-    },
-    styles: {
-      type: Object,
-      default: () => {
-      }
-    },
-    plugins: {
-      type: Array,
-      default: () => []
-    }
-  },
-  data() {
+  data:function() {
     return {
+      // methods: {
+      //   updateChart() {
+      //     const max = 90;
+      //     const min = 20;
+      //     const newData = this.series[0].data.map(() => {
+      //       return Math.floor(Math.random() * (max - min + 1)) + min
+      //     })
+      //     // In the same way, update the series option
+      //     this.series = [{
+      //       data: newData
+      //     }]
+      //   }
+      // }
+      // 막대 그래프
+      series: [{
+        name: '아침',
+        data: [44, 55, 41]
+      }, {
+        name: '점심',
+        data: [13, 23, 20]
+      }, {
+        name: '저녘',
+        data: [11, 17, 15]
+      }, {
+        name: '간식',
+        data: [21, 7, 25]
+      },{
+        name: '부족한 양' +
+            '',
+        data: [0, 3, 5]
+      }
+      ],
+      chartOptions: {
+        chart: {
+          type: 'bar',
+          height: 350,
+          stacked: true,
+          toolbar: {
+            show: true
+          },
+          zoom: {
+            enabled: true
+          }
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            legend: {
+              position: 'bottom',
+              offsetX: -10,
+              offsetY: 0
+            }
+          }
+        }],
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            borderRadius: 10
+          },
+        },
+        xaxis: {
+          type: 'category',
+          categories: ['탄수화물','단백질','지방'
+          ],
+        },
+        legend: {
+          position: 'right',
+          offsetY: 40
+        },
+        fill: {
+          opacity: 1
+        }
+      },
       // TODO : 오늘 날짜 가져오는 함수
       today: dayjs().format("YYYY-MM-DD"),
       // TODO : 그래프 위 막대 그래프 수치
@@ -496,10 +516,6 @@ export default {
           }
         ]
       },
-      chartOptions: {
-        responsive: true,
-        maintainAspectRatio: false
-      }
     };
   },
 };
