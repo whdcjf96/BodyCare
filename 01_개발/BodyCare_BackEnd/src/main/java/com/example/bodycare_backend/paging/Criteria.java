@@ -3,6 +3,7 @@ package com.example.bodycare_backend.paging;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.stereotype.Component;
 
 /**
  * packageName : com.example.dongsungsi.paging
@@ -18,6 +19,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+// ( 스프링 등록 객체 어노테이션 : @Component, @Service, @Bean
+@Component
 public class Criteria {
     // 현재 페이지 번호
     // Long(객체) long(기본형)
@@ -35,6 +38,10 @@ public class Criteria {
 // 검색 제목
 
     private String activity;
+
+//    파라미터 타입2개용
+    private Long userId;
+    private String dietDate;
 //
 //    private String Email; // 검색 이메일
     

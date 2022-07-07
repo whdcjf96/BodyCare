@@ -1,8 +1,12 @@
 package com.example.bodycare_backend.service;
 
+import com.example.bodycare_backend.model.User;
 import com.example.bodycare_backend.model.UserDiet;
+import com.example.bodycare_backend.paging.Criteria;
+import jdk.nashorn.internal.ir.Optimistic;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * packageName : com.example.bodycare_backend.service
@@ -17,7 +21,9 @@ import java.util.List;
  */
 public interface UserDietService {
     //    식단관리페이지에서 아침조회
-    List<UserDiet> selectById(Long id);
+    List<UserDiet> selectById(Criteria criteria);
+
+    List<UserDiet> selectAll();
 
     boolean deleteDiet(Long id);
 
