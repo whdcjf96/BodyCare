@@ -4,9 +4,9 @@
         PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
-<!--    TODO:유저 가입-->
-<mapper namespace="com.example.bodycare_backend.dao.UserDao">
 
+<mapper namespace="com.example.bodycare_backend.dao.UserDao">
+    <!--    TODO:유저 가입-->
     <insert id="insertUser" parameterType="com.example.bodycare_backend.model.User">
         INSERT INTO TB_USER
         ( ID
@@ -76,13 +76,13 @@
             NAME = #{name},
             HEIGHT=#{height},
             AGE = #{age},
-            GENDER = #{gender}
---             FAT_GOAL = #{fatGoal},
---             KCAL_START = #{kcalStart},
---             KCAL_WEEKLY=#{kcalWeekly},
---             WEIGHT = #{weight},
---             BODY_FAT = #{bodyFat},
---             MUSCLE_MASS=#{muscleMass},
+            GENDER = #{gender},
+            FAT_GOAL = #{fatGoal},
+            KCAL_START = #{kcalStart},
+            KCAL_WEEKLY=#{kcalWeekly},
+            WEIGHT = #{weight},
+            BODY_FAT = #{bodyFat},
+            MUSCLE_MASS=#{muscleMass},
             UPDATE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
         WHERE ID = #{id}
     </update>

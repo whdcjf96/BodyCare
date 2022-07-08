@@ -22,56 +22,56 @@ import java.util.Optional;
  * 2022-07-01         4571c          최초 생성
  */
 @Service
-public class UserServiceImpl{
-//
-//    @Autowired
-//    private UserDao userDao;
-//
-//    // 나중에 에러 로그 추적을 위해 하나 만들어둠
-//    Logger logger = LoggerFactory.getLogger(this.getClass());
-//
-//    @Override
-//    public List<User> findAll() {
-//        return userDao.findAll();
-//    }
-//
-//    @Override
-//    public Optional<User> findById(Long id) {
-//        return userDao.findById(id);
-//    }
-//
-//    @Override
-//    public User findByEmail(String email) {
-//        return userDao.findByEmail(email);
-//    }
-//
-//    @Override
-//    public User save(User user) {
-//        // db 시퀀스 번호 저장을 위한 변수
-//        long seqId = 0;
-//
-//        // 매개변수 user 정보 출력
-//        logger.info("user {}", user);
-//
-//        // customer.getId() 없으면 insert 문 호출(새로운 회원 생성)
-//        if (user.getId() == null) {
-//            userDao.insertUser(user);
-//        }
-//        //                  있으면 update 문 호출
-////        else {
-////            complainDao.updateComplain(complain);
-////        }
-//
-//        // insert 문 후에는 customer 의 id 속성에 값이 저장됨(<selectkey>)
-//        seqId = user.getId();
-//        logger.info("seqId {}", seqId);
-//
-//        return userDao.findById(seqId);
-//    }
+public class UserServiceImpl implements UserService{
+
+    @Autowired
+    private UserDao userDao;
+
+    // 나중에 에러 로그 추적을 위해 하나 만들어둠
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
+
+    @Override
+    public Optional<User> findById(Long id) {
+        return userDao.findById(id);
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return userDao.findByEmail(email);
+    }
+
+    @Override
+    public Optional<User> save(User user) {
+        // db 시퀀스 번호 저장을 위한 변수
+        long seqId = 0;
+
+        // 매개변수 user 정보 출력
+        logger.info("user {}", user);
+
+        // customer.getId() 없으면 insert 문 호출(새로운 회원 생성)
+        if (user.getId() == null) {
+            userDao.insertUser(user);
+        }
+        //                  있으면 update 문 호출
+        else {
+            userDao.updateUser(user);
+        }
+
+        // insert 문 후에는 customer 의 id 속성에 값이 저장됨(<selectkey>)
+        seqId = user.getId();
+        logger.info("seqId {}", seqId);
+
+        return userDao.findById(seqId);
+    }
 
 //    @Override
 //    public Boolean deleteUser(String email) {
-//        int queryResult = 0;
+//        boolean queryResult = false;
 //
 //        queryResult = userDao.deleteUser(email);
 //

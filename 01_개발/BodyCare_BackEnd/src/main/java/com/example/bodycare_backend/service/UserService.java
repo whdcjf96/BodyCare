@@ -25,7 +25,7 @@ public interface UserService {
     User findByEmail(String email);
 
     // 유저정보 저장 메소드(insert)
-    User save(User user);
+    Optional<User> save(User user);
 
-    Boolean deleteUser(String email);
+//    Boolean deleteUser(String email);
 }
