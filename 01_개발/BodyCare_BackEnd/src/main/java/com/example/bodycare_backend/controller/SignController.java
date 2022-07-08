@@ -137,7 +137,7 @@ public class SignController {
         user.setRoles("ROLE_USER");
 //        signupUser.getPassword() : 암호화되기전 패스워드
 //        passwordEncoder.encode : 패스워드 암호화가 됨
-        user.setPassword(passwordEncoder.encode(signupUser.getPassword()));
+//        user.setPassword(passwordEncoder.encode(signupUser.getPassword()));
 
 //        DB insert 할 서비스(메소드) 호출
         int result = bodyUserDetailService.signInUser(user);

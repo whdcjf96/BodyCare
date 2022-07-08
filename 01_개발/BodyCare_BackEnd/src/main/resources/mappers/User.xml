@@ -77,12 +77,12 @@
             HEIGHT=#{height},
             AGE = #{age},
             GENDER = #{gender}
-            FAT_GOAL = #{fatGoal},
-            KCAL_START = #{kcalStart},
-            KCAL_WEEKLY=#{kcalWeekly},
-            WEIGHT = #{weight},
-            BODY_FAT = #{bodyFat},
-            MUSCLE_MASS=#{muscleMass},
+--             FAT_GOAL = #{fatGoal},
+--             KCAL_START = #{kcalStart},
+--             KCAL_WEEKLY=#{kcalWeekly},
+--             WEIGHT = #{weight},
+--             BODY_FAT = #{bodyFat},
+--             MUSCLE_MASS=#{muscleMass},
             UPDATE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
         WHERE ID = #{id}
     </update>
