@@ -30,7 +30,7 @@ public class UserDailyRecordServiceImpl implements UserDailyRecordService {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public UserDailyRecord save(UserDailyRecord userDailyRecord) {
+    public List<UserDailyRecord> save(UserDailyRecord userDailyRecord) {
         // db 시퀀스 번호 저장을 위한 변수
         long seqId = 0;
 
@@ -42,9 +42,9 @@ public class UserDailyRecordServiceImpl implements UserDailyRecordService {
             userDailyRecordDao.insertRecord(userDailyRecord);
         }
         //                  있으면 update 문 호출
-//        else {
-//            dietDao.updateDiet(diet);
-//        }
+        else {
+            userDailyRecordDao.updateRecord(userDailyRecord);
+        }
 
         // insert 문 후에는 diet 의 id 속성에 값이 저장됨(<selectkey>)
         seqId = userDailyRecord.getId();
@@ -54,7 +54,7 @@ public class UserDailyRecordServiceImpl implements UserDailyRecordService {
     }
 
     @Override
-    public UserDailyRecord selectById(Long id) {
+    public List<UserDailyRecord> selectById(Long id) {
         return userDailyRecordDao.selectById(id);
     }
 }

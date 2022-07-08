@@ -47,9 +47,9 @@ public class UserActivityServiceImpl implements UserActivityService{
             userActivityDao.insertUserActivity(userActivity);
         }
         //                  있으면 update 문 호출
-//        else {
-//            dietDao.updateDiet(diet);
-//        }
+        else {
+            userActivityDao.updateUserActivity(userActivity);
+        }
 
         // insert 문 후에는 diet 의 id 속성에 값이 저장됨(<selectkey>)
         seqId = userActivity.getId();

@@ -18,8 +18,10 @@ import java.util.List;
  */
 public interface UserDailyRecordService {
     // 유저정보 저장 메소드(insert)
-    UserDailyRecord save(UserDailyRecord userDailyRecord);
+    List<UserDailyRecord> save(UserDailyRecord userDailyRecord);
 
     //    체중추적에서 조회
-    UserDailyRecord selectById(Long id);
+    List<UserDailyRecord> selectById(Long id);
+
+
 }

@@ -1,9 +1,6 @@
 package com.example.bodycare_backend.controller;
 
-import com.example.bodycare_backend.model.Activity;
-import com.example.bodycare_backend.model.Diet;
-import com.example.bodycare_backend.model.UserActivity;
-import com.example.bodycare_backend.model.UserDiet;
+import com.example.bodycare_backend.model.*;
 import com.example.bodycare_backend.paging.Criteria;
 import com.example.bodycare_backend.service.ActivityServiceImpl;
 import com.example.bodycare_backend.service.DietServiceImpl;
@@ -47,7 +44,7 @@ public class DietController {
     @Autowired
     private UserDietServiceImpl userDietService;
 
-    // 모든 회원 조회 메뉴
+    // 모든 식단 조회 메뉴
     @GetMapping("/diets")
     public ResponseEntity<Map<String,Object>> getAllDiets(Criteria criteria) {
         logger.info("criteria {}", criteria);
@@ -79,18 +76,89 @@ public class DietController {
     }
 
 
-//    @PostMapping("/diets")
-//    public ResponseEntity<Object>
-//    insertActivities(@RequestBody UserDiet userDiet){
-//        UserDiet savedUD = userDietService.save(userDiet).get();
-//        try{
-//            return new ResponseEntity<Object>(savedUD, HttpStatus.OK);
-//        }catch (Exception e){
-//            logger.error(e.getMessage(),e);
-//            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-//        }
-//    }
-//
+    @PostMapping("/diets")
+    public ResponseEntity<Object>
+    insertActivities(@RequestBody Diet diet){
+        Diet diets = dietService.save(diet).get();
+        try{
+            return new ResponseEntity<Object>(diets, HttpStatus.OK);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/userDiets")
+    public ResponseEntity<Object>
+    getAllUserDiet(){
+        try{
+            List<UserDiet> diets = userDietService.selectAll();
+
+            if(diets.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            Map<String , Object> res = new HashMap<>();
+            res.put("diets" , diets);
+            return new ResponseEntity<>(res, HttpStatus.OK);
+        }catch (Exception e){
+            logger.error(e.getMessage(), e);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/userDiets/userId/{userId}/dietDate/{dietDate}")
+    public ResponseEntity<Object> getUserDietById(Criteria criteria){
+        List<UserDiet> userDiet = userDietService.selectById(criteria);
+        logger.info("userDiet",userDiet);
+
+        try{
+            if(userDiet!=null){
+                return new ResponseEntity<Object>(userDiet, HttpStatus.OK);
+            }else {
+                return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    // 회원 생성 메뉴
+    @PostMapping("/userDiets")
+    public ResponseEntity<Object>
+    createUserDiet(@RequestBody UserDiet userDiet) {
+        // save 리턴값 Optional<Customer> => save(customer).get() 객체를 꺼냄
+        List<UserDiet> savedUD =  userDietService.save(userDiet);
+        try {
+            return new ResponseEntity<Object>(savedUD, HttpStatus.OK);
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+            // Vue 에 보낼 에러 메세지 전송
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("/userDiets/{id}")
+    public ResponseEntity<Object> updateUserDiet(
+            @PathVariable("id") Long id,
+            @RequestBody UserDiet userDiet
+    ) {
+        try {
+            // customer 에 id 값 저장
+            userDiet.setId(id);
+            // save : id 가 null 일 경우 insert , id 가 null이 아닐경우 update
+            // Optional<Customer> => Customer 객체를 꺼낼려면 get() 메소드를 호출해야함
+            List<UserDiet> savedUD =  userDietService.save(userDiet);
+            // Vue 에 DB에 저장된 객체 + 상태메세지를 전송(OK)
+            return new ResponseEntity<Object>(savedUD, HttpStatus.OK);
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+            // Vue 에 에러 메세지 전송
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
 //    @DeleteMapping("activities/deletion/{id}")
 //    public ResponseEntity<HttpStatus> deleteActivities(@PathVariable("id") Long id){
 //        try{

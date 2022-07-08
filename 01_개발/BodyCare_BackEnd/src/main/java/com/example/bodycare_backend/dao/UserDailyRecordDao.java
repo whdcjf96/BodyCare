@@ -3,6 +3,8 @@ package com.example.bodycare_backend.dao;
 import com.example.bodycare_backend.model.UserDailyRecord;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * packageName : com.example.bodycare_backend.dao
  * fileName : UserDailyRecord
@@ -21,7 +23,7 @@ public interface UserDailyRecordDao {
     Long insertRecord(UserDailyRecord userDailyRecord);
 
 //    체중추적에서 조회
-    UserDailyRecord selectById(Long id);
+    List<UserDailyRecord> selectById(Long id);
 
     Long updateRecord(UserDailyRecord userDailyRecord);
 
