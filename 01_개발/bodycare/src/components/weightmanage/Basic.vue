@@ -284,7 +284,6 @@
               </ul>
             </div>
             <!-- 가로그래프 끝 -->
-
             <!-- 추천 체중관리 시작 -->
             <div class="row">
               <div class="col">
@@ -364,8 +363,9 @@ import dayjs from "dayjs";
 export default {
   el: '#app',
   name: "basic",
-  data() {
+  data () {
     return {
+      //그래프
       // TODO : 오늘 날짜 가져오는 함수
       today: dayjs().format("YYYY-MM-DD"),
       // 체지방률 가져오는 변수

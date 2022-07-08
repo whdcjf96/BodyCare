@@ -3,7 +3,6 @@
   <div class="container-fluid" id="page-top">
 
 
-
     <!-- 화면 바디 시작 -->
     <div class="row">
 
@@ -11,43 +10,39 @@
       <div class="col-lg-6 mb-4">
         <div class="card shadow mb-4">
           <div class="card-body">
-
-
             <div class="table-responsive">
-
-
               <table class="table" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                  <tr>
-                    <th>활동</th>
-                    <th>활동강도</th>
-                  </tr>
+                <tr>
+                  <th>활동</th>
+                  <th>활동강도</th>
+                </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>잠자기</td>
-                    <td>0.93</td>
-                  </tr>
-                  <tr>
-                    <td>누워있기</td>
-                    <td>1.2</td>
-                  </tr>
-                  <tr>
-                    <td>읽기</td>
-                    <td>1.3</td>
-                  </tr>
-                  <tr>
-                    <td>앉아서 TV</td>
-                    <td>1.57</td>
-                  </tr>
-                  <tr>
-                    <td>사무업무</td>
-                    <td>1.6</td>
-                  </tr>
-                  <tr>
-                    <td>휴일 직장인</td>
-                    <td>1.75</td>
-                  </tr>
+                <tr>
+                  <td>잠자기</td>
+                  <td>0.93</td>
+                </tr>
+                <tr>
+                  <td>누워있기</td>
+                  <td>1.2</td>
+                </tr>
+                <tr>
+                  <td>읽기</td>
+                  <td>1.3</td>
+                </tr>
+                <tr>
+                  <td>앉아서 TV</td>
+                  <td>1.57</td>
+                </tr>
+                <tr>
+                  <td>사무업무</td>
+                  <td>1.6</td>
+                </tr>
+                <tr>
+                  <td>휴일 직장인</td>
+                  <td>1.75</td>
+                </tr>
                 </tbody>
               </table>
             </div>
@@ -98,18 +93,18 @@
               <!-- dropdown #1 시작 -->
               <li class="nav-item dropdown mr-4">
                 <a
-                  class="nav-link dropdown-toggle mr-5"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
+                    class="nav-link dropdown-toggle mr-5"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
                 >
                   식사구분
                 </a>
                 <div
-                  class="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
+                    class="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink"
                 >
                   <a href="#" class="dropdown-item"> 아침 </a>
                   <a href="#" class="dropdown-item"> 점심 </a>
