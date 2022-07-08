@@ -382,7 +382,7 @@ export default {
         name: '점심',
         data: [13, 23, 20]
       }, {
-        name: '저녘',
+        name: '저녁',
         data: [11, 17, 15]
       }, {
         name: '간식',
@@ -418,20 +418,35 @@ export default {
         plotOptions: {
           bar: {
             horizontal: false,
-            borderRadius: 10
+            borderRadius: 10,
+            barHeight: '70%',
           },
         },
         xaxis: {
           type: 'category',
           categories: ['탄수화물','단백질','지방'
           ],
+          labels:{
+            style:{
+              fontWeight: '1000',
+              fontSize: '15px',
+            }
+          }
         },
         legend: {
           position: 'right',
-          offsetY: 40
+          offsetY: 40,
+          markers: {
+            width: 12,
+            height: 12,
+            strokeWidth: 0,
+            strokeColor: '#fff',
+            fillColors: ['#4375DB', '#6799FF','#8BBDFF','#AFE1FF','#8C8C8C'],
+          },
         },
         fill: {
-          opacity: 1
+          colors: ['#4375DB', '#6799FF','#8BBDFF','#AFE1FF','#8C8C8C'],
+          opacity: 1,
         }
       },
       // TODO : 오늘 날짜 가져오는 함수
