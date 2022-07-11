@@ -26,6 +26,10 @@ class UserDataService {
     // createUserDiet(data) {
     //     return http.post("/userDiets", data);
     // }
+    getUsersByEmail(email){
+        return http.get(`/Users/${email}`);
+    }
+
     updateUsers(id, data) {
         return http.put(`/users/${id}`, data);
     }

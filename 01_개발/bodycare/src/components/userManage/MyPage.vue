@@ -114,7 +114,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{user.name}}
+                         {{cu.name}}
                       </div>
                     </div>
                   </div>
@@ -132,7 +132,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ user.email }}
+                        {{ cu.email }}
                       </div>
                     </div>
                   </div>
@@ -149,7 +149,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ user.height }}
+                        {{ cu.height }}
                       </div>
                     </div>
                   </div>
@@ -163,7 +163,20 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ user.gender }}
+                        {{ cu.gender }}
+                      </div>
+                    </div>
+                  </div>
+                  <!--                  성별 끝-->
+                  <div class="col">
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                          나이
+                        </h6>
+                      </div>
+                      <div class="card-body">
+                        {{ cu.age }}
                       </div>
                     </div>
                   </div>
@@ -180,13 +193,38 @@
 </template>
 
 <script>
+/*eslint-disable*/
+import UserDataService from "@/services/UserDataService";
 export default {
   name: "MyPage",
-  data() {
-    return {
-      user:[]
+  data(){
+    return{
+      // currentUser: null,
+      message:"",
+      cu:{}
     }
   },
+  computed:{
+    currentUser(){
+      return this.$store.state.auth.user;
+    }
+  },
+  mounted() {
+    this.message="";
+    console.log("mounted"+this.currentUser.id);
+    this.getUsersById(this.currentUser.id);
+  },
+  methods:{
+    getUsersById(id){
+      UserDataService.getUsersById(id)
+          .then((response)=>{
+            this.cu= response.data;
+            console.log(response.data + "~~~~~~~~~~~~~~~");
+          }).catch((e)=>{
+            console.log(e+"~~~~~~~~~~~~~~~`");
+      })
+    }
+  }
 }
 </script>
 
