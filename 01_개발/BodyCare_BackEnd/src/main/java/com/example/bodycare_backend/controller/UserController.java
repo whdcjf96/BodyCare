@@ -35,6 +35,7 @@ public class UserController {
     @GetMapping("/Users/{id}")
     public ResponseEntity<Object> getUsersById(@PathVariable("id") Long id){
         User users = userService.findById(id).get();
+        logger.info("user {}", users);
 
         try {
             if(users !=null){
