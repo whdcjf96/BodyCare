@@ -194,16 +194,33 @@
 
 <script>
 /*eslint-disable*/
+import UserDataService from "@/services/UserDataService";
 export default {
   name: "MyPage",
-  computed:{
-    currentUser(){
-      return this.$store.state.auth.user;
+  data(){
+    return{
+      currentUser: null,
+      message:"",
     }
   },
+  computed:{
+    // currentUser(){
+    //   return this.$store.state.auth.user;
+    // }
+  },
   mounted() {
-    if(!this.currentUser){
-      this.$router.push("/signIn");
+    this.message="";
+    this.getUsersById(this.$route.params.id);
+  },
+  methods:{
+    getUsersById(id){
+      UserDataService.getUsersById(id)
+          .then((response)=>{
+            this.currentUser= response.data;
+            console.log(response.data);
+          }).catch((e)=>{
+            console.log(e);
+      })
     }
   }
 }
