@@ -25,6 +25,12 @@
             <span>다이어트</span>
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/supplement" class="nav-link">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>보충제</span>
+          </router-link>
+        </li>
       </ul>
       <!-- End of Sidebar -->
     </div>
@@ -109,7 +115,7 @@
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">체중</h6>
               </div>
-              <div class="card-body"></div>
+              <div class="card-body">{{ weight }}</div>
             </div>
           </div>
           <!--    체중 끝-->

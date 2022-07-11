@@ -45,10 +45,10 @@
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary text-center">
-                    기타등등
+                    보충제 추천
                   </h6>
                 </div>
-                <div class="card-body">기타등등기타등등</div>
+                <div class="card-body">보충제의 종류,섭취양,섭취 방법 및 상황에 맞게 선택할 수 있도록 도와줍니다.</div>
               </div>
             </div>
             <!--3번끝-->

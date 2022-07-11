@@ -22,7 +22,6 @@ const routes = [
     name: 'weight',
     component: () => import('../components/weightmanage/Weight.vue')
   },
-
   // TODO : food 라우터 달기
   {
     path: '/food',
@@ -57,6 +56,13 @@ const routes = [
     path: '/diet',
     name: 'diet',
     component: () => import("../components/exerciseAssistant/Diet")
+
+  },
+  // TODO : supplement 라우터 달기
+  {
+    path: '/supplement',
+    name: 'supplement',
+    component: () => import("../components/exerciseAssistant/Supplement")
 
   },
   {

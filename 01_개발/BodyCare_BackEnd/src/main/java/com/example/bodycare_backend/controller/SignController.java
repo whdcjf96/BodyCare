@@ -94,10 +94,7 @@ public class SignController {
                 result.getId(),
                 result.getEmail(),
                 result.getName(),
-                roles,
-                result.getHeight(),
-                result.getAge(),
-                result.getGender()));
+                roles));
     }
 
 //    회원가입 메뉴( sign up ) : insert 문 호출
