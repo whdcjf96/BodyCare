@@ -58,6 +58,7 @@
                       <button
                         class="btn btn-primary btn-block"
                         :disabled="loading"
+                        @click="handleLogin()"
                       >
                         <span
                           v-show="loading"
@@ -93,13 +94,13 @@
 </template>
 
 <script>
-import User from "@/models/user";
+import User2 from "@/models/user2";
 /* eslint-disable */
 export default {
   name: "LogInCom",
   data() {
     return {
-      user: new User("","","","",0,0),
+      user: new User2("",""),
       loading: false,
       message: "",
     };
@@ -132,14 +133,17 @@ export default {
       this.$validator.validateAll().then((isValid) => {
         //  유효성 체크가 걸린 입력박스가 하나라도 에러가 나면 : false
         //  isValid = false 이면 로그인 함수 종료
+        alert(isValid);
         if (!isValid) {
           this.loading = false;
           return;
         }
 
+
         //  로그인 절차 진행
         //  springboot 서버와 통신
-        if (this.user.name && this.user.password) {
+        if (this.user.email && this.user.password) {
+          alert(this.user);
           //  springboot로 username, password 전송해서 로그인 진행
           //  공유저장소의 비동기 메소드 호출 ( login )
           this.$store
@@ -150,6 +154,7 @@ export default {
               // 성공
               () => {
                 // 로그인 성공시 자동 페이지 전환 : /profile 페이지
+                alert(this.user)
                 this.$router.push("/basic");
               },
               // 실패
