@@ -99,7 +99,7 @@ export default {
   name: "LogInCom",
   data() {
     return {
-      user: new User("", ""),
+      user: new User("","","","",0,0),
       loading: false,
       message: "",
     };
