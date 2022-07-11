@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  * 2022-06-20         ds          최초 생성
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/api/auth")
 public class SignController {
 //
@@ -52,49 +52,58 @@ public class SignController {
 //    로그인 메뉴( sign in / log in )
     @PostMapping(value="/signin")
     public ResponseEntity<?> signInUser( @RequestBody User user ) {
+        logger.info("user {}",user);
+
+        try {
 //        임시 유저 객체를 정의( 이름으로 DB 유저정보 조회 )
-        User result = (User)bodyUserDetailService
-                .loadUserByUsername(user.getEmail());
+            User result = (User) bodyUserDetailService
+                    .loadUserByUsername(user.getEmail());
+            logger.info("result {}", result);
 //        암호 맞는 지 확인 절차
 //        user.getPassword() : 암호화 전 패스워드
 //        result.getPassword() : DB에 저장된 패스워드(암호화가 된 패스워드)
 //        암호가 틀리면 에러를 전송하고 함수를 종료
-        if(!passwordEncoder
-                .matches(user.getPassword(),result.getPassword())) {
+            if (!passwordEncoder
+                    .matches(user.getPassword(), result.getPassword())) {
 //            Vue에 에러 전송(암호 틀리다고 )
-            return ResponseEntity
-                    .badRequest()
-                    .body(new MessageResponse
-                            ("Error: ID or Password is invalid."));
-        }
+                return ResponseEntity
+                        .badRequest()
+                        .body(new MessageResponse
+                                ("Error: ID or Password is invalid."));
+            }
 
 //        밑으로 내려오면 암호가 같다는 의미
 //        권한 체크( ROLE_USER )
 //        User 안에 role : "ROLE_USER"
-        List<String> roleList = Arrays.asList(result.getRoles().split(","));
+            List<String> roleList = Arrays.asList(result.getRoles().split(","));
 
 //        로그인 : 유저정보가 DB에 있는것이 확인되면
 //        JWT 토큰 생성해서 Vue에 전송
 //        1) 토큰 생성
-        String jwt = jwtTokenProvider.createToken(result.getEmail(),roleList);
+            String jwt = jwtTokenProvider.createToken(result.getEmail(), roleList);
 
 //        권한이 여러개일 경우 아래 처리
 //        map: 자동 for문을 호출( 함수형 프로그래밍에서 제공하는 메소드 )
-        List<String> roles = result.getAuthorities()
+            List<String> roles = result.getAuthorities()
 //                리스트 -> 스트림
-                .stream()
-                .map(item -> item.getAuthority())
+                    .stream()
+                    .map(item -> item.getAuthority())
 //                스트림 -> 리스트로 변환
-                .collect(Collectors.toList());
+                    .collect(Collectors.toList());
 
-        logger.info("signUpReguest roles {}", roles);
+            logger.info("signUpReguest roles {}", roles);
 
 //        2) 웹토큰(JWT) + 유저정보 Vue로 전송
-        return ResponseEntity.ok(new JwtResponse(jwt,
-                result.getId(),
-                result.getEmail(),
-                result.getName(),
-                roles));
+            return ResponseEntity.ok(new JwtResponse(jwt,
+                    result.getId(),
+                    result.getEmail(),
+                    result.getName(),
+                    roles));
+        }
+        catch (Exception e) {
+            logger.info("Exception e {}", e);
+            return null;
+        }
     }
 
 //    회원가입 메뉴( sign up ) : insert 문 호출
