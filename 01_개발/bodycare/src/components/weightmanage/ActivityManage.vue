@@ -147,16 +147,19 @@
               <!-- 활동대사량 제목부분 -->
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">
-                  활동대사량
                   <!-- TODO : 활동대사량 제목부분에 기초대사량 추가 -->
-                  <h6 class="m-0 font-weight-bold text-primary float-right">
-                    기초대사량 : 0000 kcal
+                  <h6 v-if="user.gender==F" class="m-0 font-weight-bold text-primary float-right">
+                    기초대사량 : {{ mBmr }} kcal
+                  </h6>
+                  <h6 v-else class="m-0 font-weight-bold text-primary float-right">
+                    기초대사량 : {{ wBmr }} kcal
                   </h6>
                 </h6>
               </div>
               <!-- 활동대사량 바디부분 -->
               <div class="card-body text-center">
-                <h2>0000</h2>
+                <h2 v-if="user.gender==F">{{ mAmr }}</h2>
+                <h2 v-else>{{ wAmr }}</h2>
                 <h6 class="float-right">kcal</h6>
               </div>
             </div>
@@ -194,35 +197,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>빈둥빈둥</td>
-                        <td>24hr</td>
-                        <td>1.4</td>
-                      </tr>
-                      <tr>
-                        <td>좌식업무</td>
-                        <td>24hr</td>
-                        <td>1.5</td>
-                      </tr>
-                      <tr>
-                        <td>돌아다니는 업무</td>
-                        <td>24hr</td>
-                        <td>1.75</td>
-                      </tr>
-                      <tr>
-                        <td>활동적인 업무</td>
-                        <td>24hr</td>
-                        <td>1.75</td>
-                      </tr>
-                      <tr>
-                        <td>일반 직장인</td>
-                        <td>24hr</td>
-                        <td>1.75</td>
-                      </tr>
-                      <tr>
-                        <td>휴일 직장인</td>
-                        <td>24hr</td>
-                        <td>1.75</td>
+                      <tr v-for="(list,index) in saveActivities" :key="index">
+                        <td>{{ saveActivities.activity }}</td>
+                        <td>{{ saveActivities.actTime }}</td>
+                        <td>{{ saveActivities.intensity}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -262,13 +240,46 @@
 import dayjs from "dayjs";
 
 export default {
+  /* eslint-disable */
   name: "activityManage",
   data() {
     return {
+      user:[],
+      activities: [],
+      bmr:0,
+      saveActivities:{
+        id:null,
+        activity:"",
+        actTime:0,
+        intensity:0,
+      },
+      basic: {
+        // 체지방률
+        bodyFat: 0,
+        // 골격근량
+        muscleMass: 0,
+        // 체중
+        weight: 0,
+      },
+      message: "", // 에러 메세지 저장용
       // TODO : 오늘 날짜 가져오는 함수
       today: dayjs().format("YYYY-MM-DD"),
     };
   },
+  methods:{
+  //  기초대사량
+    // 체지방률 메소드
+    //남
+    mBmr: function () {
+      this.mBmr = 66+ (13.8*this.basic.weight)+(5*this.user.height)-(6.8*this.user.age);
+    },
+    //여
+    wBmr: function () {
+      this.mBmr = 655+ (9.6*this.basic.weight)+(1.8*this.user.height)-(4.7*this.user.age);
+    },
+  },
+  computed:{
+  }
 };
 </script>
 

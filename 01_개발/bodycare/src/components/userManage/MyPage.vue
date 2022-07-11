@@ -103,7 +103,7 @@
                 <p class="font-weight-bold text-info mt-3">기본 정보 표시</p>
               </div>
               <div class="card-body">
-<!--                마이페이지 시작-->
+                <!--                마이페이지 시작-->
                 <div class="row">
                   <!--    이름 시작-->
                   <div class="col">
@@ -114,29 +114,29 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        유종철
+                        {{user.name}}
                       </div>
                     </div>
                   </div>
-<!--                  이름 끝-->
+                  <!--                  이름 끝-->
 
 
                 </div>
                 <!--    이메일 시작-->
                 <div class="row">
-                <div class="col">
-                  <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                      <h6 class="m-0 font-weight-bold text-primary">
-                        이메일
-                      </h6>
-                    </div>
-                    <div class="card-body">
-                      test@test.com
+                  <div class="col">
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                          이메일
+                        </h6>
+                      </div>
+                      <div class="card-body">
+                        {{ user.email }}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <!--                  이메일 끝-->
+                  <!--                  이메일 끝-->
                 </div>
 
                 <div class="row">
@@ -149,13 +149,13 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        182
+                        {{ user.height }}
                       </div>
                     </div>
                   </div>
                   <!--                  키 끝-->
                   <!--    성별 시작-->
-                 <div class="col">
+                  <div class="col">
                     <div class="card shadow mb-4">
                       <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">
@@ -163,7 +163,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        남성
+                        {{ user.gender }}
                       </div>
                     </div>
                   </div>
@@ -181,7 +181,12 @@
 
 <script>
 export default {
-  name: "MyPage"
+  name: "MyPage",
+  data() {
+    return {
+      user:[]
+    }
+  },
 }
 </script>
 

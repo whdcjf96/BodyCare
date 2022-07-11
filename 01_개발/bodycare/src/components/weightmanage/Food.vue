@@ -149,8 +149,11 @@
                 <h6 class="m-0 font-weight-bold text-primary">
                   섭취할 칼로리
                   <!-- TODO : 기초대사량 추가 -->
-                  <h6 class="m-0 font-weight-bold text-primary float-right">
-                    기초대사량 : 0000 kcal
+                  <h6 v-if="user.gender==F" class="m-0 font-weight-bold text-primary float-right">
+                    기초대사량 : {{ mBmr }} kcal
+                  </h6>
+                  <h6 v-else class="m-0 font-weight-bold text-primary float-right">
+                    기초대사량 : {{ wBmr }} kcal
                   </h6>
                 </h6>
               </div>
@@ -361,6 +364,9 @@ export default {
   },
   data:function() {
     return {
+      user:[],
+      wBmr:0,
+      mBmr:0,
       // methods: {
       //   updateChart() {
       //     const max = 90;
