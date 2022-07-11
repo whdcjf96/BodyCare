@@ -114,7 +114,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{user.name}}
+                        {{currentUser.name}}
                       </div>
                     </div>
                   </div>
@@ -132,7 +132,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ user.email }}
+                        {{ currentUser.email }}
                       </div>
                     </div>
                   </div>
@@ -149,7 +149,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ user.height }}
+                        {{ currentUser.height }}
                       </div>
                     </div>
                   </div>
@@ -163,7 +163,20 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ user.gender }}
+                        {{ currentUser.gender }}
+                      </div>
+                    </div>
+                  </div>
+                  <!--                  성별 끝-->
+                  <div class="col">
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                          나이
+                        </h6>
+                      </div>
+                      <div class="card-body">
+                        {{ currentUser.age }}
                       </div>
                     </div>
                   </div>
@@ -180,13 +193,19 @@
 </template>
 
 <script>
+/*eslint-disable*/
 export default {
   name: "MyPage",
-  data() {
-    return {
-      user:[]
+  computed:{
+    currentUser(){
+      return this.$store.state.auth.user;
     }
   },
+  mounted() {
+    if(!this.currentUser){
+      this.$router.push("/signIn");
+    }
+  }
 }
 </script>
 
