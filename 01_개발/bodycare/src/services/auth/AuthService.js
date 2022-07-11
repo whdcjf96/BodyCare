@@ -10,7 +10,7 @@ class AuthService {
     return (
       http
         .post("/signin", {
-          username: user.username,
+          email: user.email,
           password: user.password,
         })
         // 성공하면 then으로 결과가 들어옴

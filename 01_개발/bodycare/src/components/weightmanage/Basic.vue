@@ -91,18 +91,22 @@
               운동도우미
             </router-link>
           </li>
-
-          <li class="nav-item" style="position: fixed; right: 0px">
-            <router-link
-                to="/login"
-                class="nav-link mr-5 text-white"
-                id="navbarDropdownMenuLink"
-                aria-haspopup="true"
-                aria-expanded="false"
-            >
-              로그인
-            </router-link>
-          </li>
+          <div v-if="currentUser" class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <router-link to="/profile" class="nav-link">
+                <!--            웹 아이콘 추가 : user -->
+                <font-awesome-icon icon="user"></font-awesome-icon>
+                {{ currentUser.username }}
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <a href @click.prevent="logOut" class="nav-link">
+                <!--            웹 아이콘 추가 : LogOut -->
+                <font-awesome-icon icon="sign-out-alt"></font-awesome-icon>
+                LogOut
+              </a>
+            </li>
+          </div>
           <li class="nav-item" style="position: fixed; right: 100px">
             <router-link
                 to="/mypage"
@@ -363,7 +367,7 @@ import dayjs from "dayjs";
 export default {
   el: '#app',
   name: "basic",
-  data () {
+  data() {
     return {
       //그래프
       // TODO : 오늘 날짜 가져오는 함수
@@ -391,6 +395,20 @@ export default {
     // 골격근량 메소드
     changeMuscle: function () {
       this.muscleg = ((this.basic.muscleMass / 36) * 30.2 * 1.8) + "%";
+    },
+    logOut() {
+      // dispatch 호출하는 메소드 : actions에 있는 메소드를 호출함
+      this.$store.dispatch("auth/logout");
+      // 로그아웃 후 이동할 페이지 지정
+      this.$router.push("/login");
+    },
+  }, computed: {
+    currentUser() {
+      // 공유저장소의 전역변수(공유변수 : user)
+      // 자동으로 로그인이 되었으면 loggedIn = true, user객체 있음
+      // 아니면 loggedIn = false, user객체 = null
+      return this.$store.state.auth.user;
+      // return true; // 테스트용
     },
   },
 };
