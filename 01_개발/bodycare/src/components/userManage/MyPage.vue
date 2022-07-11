@@ -114,7 +114,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        <!-- {{currentUser.name}} -->
+                         {{cu.name}}
                       </div>
                     </div>
                   </div>
@@ -132,7 +132,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ currentUser.email }}
+                        {{ cu.email }}
                       </div>
                     </div>
                   </div>
@@ -149,7 +149,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ currentUser.height }}
+                        {{ cu.height }}
                       </div>
                     </div>
                   </div>
@@ -163,7 +163,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ currentUser.gender }}
+                        {{ cu.gender }}
                       </div>
                     </div>
                   </div>
@@ -176,7 +176,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{ currentUser.age }}
+                        {{ cu.age }}
                       </div>
                     </div>
                   </div>
@@ -199,8 +199,9 @@ export default {
   name: "MyPage",
   data(){
     return{
-      currentUser: null,
+      // currentUser: null,
       message:"",
+      cu:{}
     }
   },
   computed:{
@@ -210,15 +211,14 @@ export default {
   },
   mounted() {
     this.message="";
-    console.log(this.$route.params.email);
-    console.log(this.currentUser);
-    this.getUsersById(this.$route.params.id);
+    console.log("mounted"+this.currentUser.id);
+    this.getUsersById(this.currentUser.id);
   },
   methods:{
     getUsersById(id){
       UserDataService.getUsersById(id)
           .then((response)=>{
-            this.currentUser= response.data;
+            this.cu= response.data;
             console.log(response.data + "~~~~~~~~~~~~~~~");
           }).catch((e)=>{
             console.log(e+"~~~~~~~~~~~~~~~`");

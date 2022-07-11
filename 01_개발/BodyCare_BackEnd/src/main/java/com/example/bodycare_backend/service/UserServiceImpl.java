@@ -37,8 +37,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public Optional<User> findById(Long id) {
-        logger.info("userDaoService {}", userDao.findById(id));
-        logger.info("userDao111 {}", userDao.findById(id));
+        logger.info("userDao", userDao.findById(id));
         return userDao.findById(id);
     }
 

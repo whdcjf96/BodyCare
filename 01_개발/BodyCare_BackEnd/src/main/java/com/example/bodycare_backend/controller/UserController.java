@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  * -----------------------------------------------------------
  * 2022-07-08         jc          최초 생성
  */
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8081")
 // @RestController : 통신을 json 형태로 주고받고 싶을 때 사용
 @RestController
 // @RequestMapping("/api") : http://localhost:8000/api
@@ -35,23 +35,6 @@ public class UserController {
     @GetMapping("/Users/{id}")
     public ResponseEntity<Object> getUsersById(@PathVariable("id") Long id){
         User users = userService.findById(id).get();
-        logger.info("user {}", users);
-
-        try {
-            if(users !=null){
-                return new ResponseEntity<Object>(users, HttpStatus.OK);
-            }else{
-                return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
-            }
-
-        }catch (Exception e){
-            logger.error(e.getMessage(),e);
-            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-        }
-    }
-    @GetMapping("/Users/{email}")
-    public ResponseEntity<Object> getUsersById(@PathVariable("email") String email){
-        User users = userService.findByEmail(email);
         logger.info("user {}", users);
 
         try {
