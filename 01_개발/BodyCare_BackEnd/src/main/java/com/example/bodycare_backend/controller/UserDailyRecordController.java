@@ -42,7 +42,7 @@ public class UserDailyRecordController {
 
     // 조회
     @GetMapping("/userDailyRecords/{userId}")
-    public ResponseEntity<Object> getUserDaliyRecordById(@PathVariable("userId") Long userId){
+    public ResponseEntity<Object> getUserDailyRecordById(@PathVariable("userId") Long userId){
         List<UserDailyRecord> userDailyRecords = userDailyRecordService.selectById(userId);
         logger.info("userDailyRecords",userDailyRecords);
 

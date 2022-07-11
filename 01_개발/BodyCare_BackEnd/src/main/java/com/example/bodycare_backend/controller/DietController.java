@@ -78,7 +78,7 @@ public class DietController {
 
     @PostMapping("/diets")
     public ResponseEntity<Object>
-    insertActivities(@RequestBody Diet diet){
+    insertDiets(@RequestBody Diet diet){
         Diet diets = dietService.save(diet).get();
         try{
             return new ResponseEntity<Object>(diets, HttpStatus.OK);
