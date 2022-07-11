@@ -114,7 +114,7 @@
                         </h6>
                       </div>
                       <div class="card-body">
-                        {{currentUser.name}}
+                        <!-- {{currentUser.name}} -->
                       </div>
                     </div>
                   </div>
