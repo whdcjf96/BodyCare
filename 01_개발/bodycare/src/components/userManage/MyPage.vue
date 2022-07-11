@@ -3,15 +3,15 @@
     <div>
       <!-- Sidebar -->
       <ul
-          class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-          id="accordionSidebar"
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
         <router-link
-            to="/"
-            class="sidebar-brand d-flex align-items-center justify-content-center"
+          to="/"
+          class="sidebar-brand d-flex align-items-center justify-content-center"
         >
-          <div class="sidebar-brand-icon ">
+          <div class="sidebar-brand-icon">
             <i class="fas fa-laptop-medical"></i>
           </div>
           <div class="sidebar-brand-text mx-3">Nutrition Assistant</div>
@@ -31,7 +31,7 @@
     <div style="width: 100%">
       <!-- Topbar -->
       <nav
-          class="
+        class="
           navbar navbar-expand navbar-light
           bg-gradient-primary2
           topbar
@@ -43,45 +43,45 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link
-                to="/basic"
-                class="nav-link mr-5 text-white"
-                id="navbarDropdownMenuLink"
-                aria-haspopup="true"
-                aria-expanded="false"
+              to="/basic"
+              class="nav-link mr-5 text-white"
+              id="navbarDropdownMenuLink"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
               체중관리
             </router-link>
           </li>
           <li class="nav-item">
             <router-link
-                to="/diet"
-                class="nav-link mr-5 text-white"
-                id="navbarDropdownMenuLink"
-                aria-haspopup="true"
-                aria-expanded="false"
+              to="/diet"
+              class="nav-link mr-5 text-white"
+              id="navbarDropdownMenuLink"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
               운동도우미
             </router-link>
           </li>
 
-          <li class="nav-item" style="position: fixed; right: 0px;">
+          <li class="nav-item" style="position: fixed; right: 0px">
             <router-link
-                to="/login"
-                class="nav-link mr-5 text-white"
-                id="navbarDropdownMenuLink"
-                aria-haspopup="true"
-                aria-expanded="false"
+              to="/login"
+              class="nav-link mr-5 text-white"
+              id="navbarDropdownMenuLink"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
               로그인
             </router-link>
           </li>
-          <li class="nav-item" style="position: fixed; right: 100px;">
+          <li class="nav-item" style="position: fixed; right: 100px">
             <router-link
-                to="/mypage"
-                class="nav-link mr-5 text-white"
-                id="navbarDropdownMenuLink"
-                aria-haspopup="true"
-                aria-expanded="false"
+              to="/mypage"
+              class="nav-link mr-5 text-white"
+              id="navbarDropdownMenuLink"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
               마이페이지
             </router-link>
@@ -92,51 +92,42 @@
 
       <!-- 화면 전체 시작 -->
       <div class="container-fluid">
-
         <div class="row mt-3">
           <div class="col">
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h3 class="m-0 font-weight-bold text-info">
-                  계정
-                </h3>
+                <h3 class="m-0 font-weight-bold text-info">계정</h3>
                 <p class="font-weight-bold text-info mt-3">기본 정보 표시</p>
               </div>
               <div class="card-body">
-<!--                마이페이지 시작-->
+                <!--                마이페이지 시작-->
                 <div class="row">
                   <!--    이름 시작-->
                   <div class="col">
                     <div class="card shadow mb-4">
                       <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">
-                          이름
-                        </h6>
+                        <h6 class="m-0 font-weight-bold text-primary">이름</h6>
                       </div>
                       <div class="card-body">
-                        유종철
+                        {{currentUser.name}}
                       </div>
                     </div>
                   </div>
-<!--                  이름 끝-->
-
-
+                  <!--                  이름 끝-->
                 </div>
                 <!--    이메일 시작-->
                 <div class="row">
-                <div class="col">
-                  <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                      <h6 class="m-0 font-weight-bold text-primary">
-                        이메일
-                      </h6>
-                    </div>
-                    <div class="card-body">
-                      test@test.com
+                  <div class="col">
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                          이메일
+                        </h6>
+                      </div>
+                      <div class="card-body">{{currentUser.email}}</div>
                     </div>
                   </div>
-                </div>
-                <!--                  이메일 끝-->
+                  <!--                  이메일 끝-->
                 </div>
 
                 <div class="row">
@@ -144,32 +135,33 @@
                   <div class="col">
                     <div class="card shadow mb-4">
                       <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">
-                          키
-                        </h6>
+                        <h6 class="m-0 font-weight-bold text-primary">키</h6>
                       </div>
-                      <div class="card-body">
-                        182
-                      </div>
+                      <div class="card-body">{{currentUser.height}}</div>
                     </div>
                   </div>
                   <!--                  키 끝-->
                   <!--    성별 시작-->
-                 <div class="col">
+                  <div class="col">
                     <div class="card shadow mb-4">
                       <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">
-                          성별
-                        </h6>
+                        <h6 class="m-0 font-weight-bold text-primary">성별</h6>
                       </div>
-                      <div class="card-body">
-                        남성
+                      <div class="card-body">{{currentUser.gender}}</div>
+                    </div>
+                  </div>
+                  <!--                  성별 끝-->
+                  <!--    성별 시작-->
+                  <div class="col">
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">나이</h6>
                       </div>
+                      <div class="card-body">{{currentUser.age}}</div>
                     </div>
                   </div>
                   <!--                  성별 끝-->
                 </div>
-
               </div>
             </div>
           </div>
@@ -181,10 +173,24 @@
 
 <script>
 export default {
-  name: "MyPage"
-}
+  name: "MyPage",
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+  },
+  // 화면이 뜨자마자 실행되는 이벤트
+  mounted() {
+    console.log(this.currentUser);
+    // 사용자가 로그인하지 않은 경우 로그인 페이지로 강제 이동
+    if (!this.currentUser) {
+
+      // 강제 로그인 페이지로 이동시킴
+      this.$router.push("/login");
+    }
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

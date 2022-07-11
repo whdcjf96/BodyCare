@@ -58,10 +58,12 @@
                       <button
                         class="btn btn-primary btn-block"
                         :disabled="loading"
+                        @click="handleLogin"
                       >
                         <span
                           v-show="loading"
                           class="spinner-border spinner-border-sm"
+                          
                         ></span>
                         <span>Login</span>
                       </button>
@@ -93,13 +95,13 @@
 </template>
 
 <script>
-import User from "@/models/user";
+import User2 from "@/models/user2";
 /* eslint-disable */
 export default {
   name: "LogInCom",
   data() {
     return {
-      user: new User("","","","",0,0),
+      user: new User2("",""),
       loading: false,
       message: "",
     };
@@ -130,16 +132,18 @@ export default {
       //  validateAll => v-validate 체크해서 모두 true, false 인지 확인
       //  값이 isValid = true ( false )
       this.$validator.validateAll().then((isValid) => {
+        alert(isValid+"1");
         //  유효성 체크가 걸린 입력박스가 하나라도 에러가 나면 : false
         //  isValid = false 이면 로그인 함수 종료
         if (!isValid) {
           this.loading = false;
           return;
-        }
+        } alert(isValid+"2");
 
         //  로그인 절차 진행
         //  springboot 서버와 통신
-        if (this.user.name && this.user.password) {
+        if (this.user.email && this.user.password) {
+          alert(this.user.email && this.user.password);
           //  springboot로 username, password 전송해서 로그인 진행
           //  공유저장소의 비동기 메소드 호출 ( login )
           this.$store
@@ -149,11 +153,13 @@ export default {
             .then(
               // 성공
               () => {
+                alert(this.user);
                 // 로그인 성공시 자동 페이지 전환 : /profile 페이지
                 this.$router.push("/basic");
               },
               // 실패
               (error) => {
+                alert(error);
                 this.loading = false;
                 this.message = error.message || error.toString();
               }

@@ -124,6 +124,7 @@
                   <div class="form-group">
                     <button class="btn btn-primary btn-block">가입하기</button>
                   </div>
+                  
                 </form>
                 <div class="text-center">
                   <router-link to="/login" class="small"

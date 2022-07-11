@@ -10,3 +10,6 @@ export default class User {
     this.age=age;
   }
 }
+
+
+
