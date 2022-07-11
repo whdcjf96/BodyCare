@@ -109,7 +109,7 @@ export default {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
     },
-  },
+  },  
   // 화면이 뜨자마자 실행되는 이벤트
   // created(Vue 객체가 최초로 만들어 질때 실행됨)
   // mounted(화면 모두 뜰때 실행됨)

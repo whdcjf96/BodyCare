@@ -81,6 +81,7 @@ export const auth = {
     },
     // register(회원가입) AuthService.register
     register({ commit }, user) {
+      console.log(user);
       // axios(post) 서버쪽으로 user 객체를 전송해서 insert 요청을 함
       return AuthService.register(user)
         // 성공하면 then으로 결과가 들어옴
