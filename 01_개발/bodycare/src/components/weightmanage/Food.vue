@@ -158,7 +158,9 @@
                 </h6>
               </div>
               <div class="card-body text-center">
-                <h2>0000</h2>
+                <h2>{{ mAmr }}</h2>
+<!--                <h2 v-if="user.gender=='F'">{{ mAmr }}</h2>-->
+<!--                <h2 v-else>{{ wAmr }}</h2>-->
 
                 <h6 class="float-right">kcal</h6>
                 <h6 class="float-none">0000 kcal 부족</h6>
@@ -539,8 +541,15 @@ export default {
       },
     };
   },
+  methods:{
+    mAmr: function () {
+      this.mAmr =mBmr+1;
+    },
+    wAmr: function () {
+      this.wAmr =wBmr+1 ;
+    },
+  }
 };
-
 
 </script>
 

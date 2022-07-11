@@ -197,11 +197,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(list,index) in saveActivities" :key="index">
-                        <td>{{ saveActivities.activity }}</td>
-                        <td>{{ saveActivities.actTime }}</td>
-                        <td>{{ saveActivities.intensity}}</td>
-                      </tr>
+<!--                      <tr v-for="(act,index) in saveActivities" :key="index">-->
+<!--                        <td>{{ act.activity }}</td>-->
+<!--                        <td>{{ act.actTime }}</td>-->
+<!--                        <td>{{ act.intensity}}</td>-->
+<!--                      </tr>-->
                     </tbody>
                   </table>
                 </div>
