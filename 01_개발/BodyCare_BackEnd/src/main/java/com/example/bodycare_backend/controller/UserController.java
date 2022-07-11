@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  * -----------------------------------------------------------
  * 2022-07-08         jc          최초 생성
  */
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 // @RestController : 통신을 json 형태로 주고받고 싶을 때 사용
 @RestController
 // @RequestMapping("/api") : http://localhost:8000/api
