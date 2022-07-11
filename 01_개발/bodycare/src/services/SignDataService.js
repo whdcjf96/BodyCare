@@ -15,9 +15,9 @@ import http from "../http-common";
 class SignDataService {
     // tutorials 전체 목록 조회 메소드
     // axios -> spring 데이터 요청 -> spring -> db -> 결과 반환
-    getAll(params) {
-        return http.get("/signIn", {params});
-    }
+    // getAll(params) {
+    //     return http.get("/signIn", {params});
+    // }
     // customer 데이터 추가 메소드(insert 문 호출)
     signInUser(data) {
         return http.post("/signIn", data);
