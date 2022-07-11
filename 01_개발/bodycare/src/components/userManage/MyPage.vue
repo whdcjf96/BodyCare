@@ -204,12 +204,14 @@ export default {
     }
   },
   computed:{
-    // currentUser(){
-    //   return this.$store.state.auth.user;
-    // }
+    currentUser(){
+      return this.$store.state.auth.user;
+    }
   },
   mounted() {
     this.message="";
+    console.log(this.$route.params.email);
+    console.log(this.currentUser);
     this.getUsersById(this.$route.params.id);
   },
   methods:{
@@ -217,9 +219,9 @@ export default {
       UserDataService.getUsersById(id)
           .then((response)=>{
             this.currentUser= response.data;
-            console.log(response.data);
+            console.log(response.data + "~~~~~~~~~~~~~~~");
           }).catch((e)=>{
-            console.log(e);
+            console.log(e+"~~~~~~~~~~~~~~~`");
       })
     }
   }

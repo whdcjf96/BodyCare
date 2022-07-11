@@ -49,6 +49,23 @@ public class UserController {
             return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
         }
     }
+    @GetMapping("/Users/{email}")
+    public ResponseEntity<Object> getUsersById(@PathVariable("email") String email){
+        User users = userService.findByEmail(email);
+        logger.info("user {}", users);
+
+        try {
+            if(users !=null){
+                return new ResponseEntity<Object>(users, HttpStatus.OK);
+            }else{
+                return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
+            }
+
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+        }
+    }
 
     @PutMapping("/users/{id}")
     public ResponseEntity<Object> updateUsers(@PathVariable("id") Long id, @RequestBody User user){
