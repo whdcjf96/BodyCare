@@ -41,9 +41,12 @@ class AuthService {
   // 영문 사이트 : sign up(회원가입), sign in(로그인)
   register(user) {
     return http.post("/signup", {
-        username: user.username,
+        name: user.name,
         email: user.email,
-        password: user.password
+        password: user.password,
+        gender:user.gender,
+        height:user.height,
+        age:user.age
     })
   }
 }

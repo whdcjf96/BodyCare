@@ -20,10 +20,10 @@ class SignDataService {
     // }
     // customer 데이터 추가 메소드(insert 문 호출)
     signInUser(data) {
-        return http.post("/signIn", data);
+        return http.post("/signin", data);
     }
     addUser(data) {
-        return http.post("/signUp", data);
+        return http.post("/signup", data);
     }
     updateUser(email, data) {
         return http.put(`/signUpdate/${email}`, data);
