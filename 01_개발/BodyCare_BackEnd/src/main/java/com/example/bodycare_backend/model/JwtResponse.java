@@ -30,12 +30,19 @@ public class JwtResponse {
     private String name;
     private List<String> roles; // 역할 (ROLE_ADMIN, ROLE_USER 등등)
 
+    private float height;
+    private Long age;
+    private String gender;
+
     // type 을 제외한 모든 매개변수가 있는 생성자 정의
-    public JwtResponse(String token, Long id, String email, String name, List<String> roles) {
+    public JwtResponse(String token, Long id, String email, String name, List<String> roles, float height, int age, char gender) {
         this.token = token;
         this.id = id;
         this.email = email;
         this.name = name;
         this.roles = roles;
+        this.height = height;
+        this.age= age;
+        this.gender= gender;
     }
 }
