@@ -25,6 +25,12 @@
             <span>다이어트</span>
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/supplement" class="nav-link">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>보충제</span>
+          </router-link>
+        </li>
       </ul>
       <!-- End of Sidebar -->
     </div>
