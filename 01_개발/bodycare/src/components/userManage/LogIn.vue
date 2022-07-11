@@ -93,8 +93,8 @@
 </template>
 
 <script>
-/* eslint-disable */
 import User from "@/models/user";
+/* eslint-disable */
 export default {
   name: "LogInCom",
   data() {

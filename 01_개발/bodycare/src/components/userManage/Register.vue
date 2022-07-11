@@ -123,14 +123,14 @@
                     />
                   </div>
                   <router-link
-                      to="login.vue"
+                      to="/login"
                       class="btn btn-primary btn-user btn-block"
                   >
                     가입하기
                   </router-link>
                 </form>
                 <div class="text-center">
-                  <router-link to="login.vue" class="small"
+                  <router-link to="/login" class="small"
                   >이미 가입하셨나요? 로그인하러가기
                   </router-link
                   >
@@ -157,7 +157,8 @@
 
 <script>
 import User from "@/models/user";
-
+import SignDataService from "@/services/SignDataService";
+/*eslint-disable*/
 export default {
   name: "RegisterCom",
   data() {
@@ -203,6 +204,34 @@ export default {
         }
       });
     },
+    // 모든 회원 조회 서비스 호출
+    saveUser() {
+      var data = {
+          name : this.user.name,
+          email : this.user.email,
+          password : this.user.password,
+          gender : this.user.gender,
+          height : this.user.height,
+          age : this.user.age
+      };
+      // axios로 spring에 모든 회원 조회 요청
+      SignDataService.addUser(data)
+          // 성공하면 then으로 서버 데이터(response.data)가 들어옴
+          .then((response) => {
+           this.user.email = response.data.email;
+            this.submitted = true; // 객체
+
+            console.log(response.data);
+          })
+          // 실패하면 catch로 에러메세지가 들어옴
+          .catch((e) => {
+            alert(e);
+          });
+    },
+    newUser(){
+      this.submitted = false;
+      this.user = {};
+    }
   },
   computed: {
     loggedIn() {
