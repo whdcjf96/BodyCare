@@ -58,7 +58,7 @@
                       <button
                         class="btn btn-primary btn-block"
                         :disabled="loading"
-                        @click="handleLogin()"
+                        @click="loggedIn"
                       >
                         <span
                           v-show="loading"
@@ -143,7 +143,7 @@ export default {
         //  로그인 절차 진행
         //  springboot 서버와 통신
         if (this.user.email && this.user.password) {
-          alert(this.user);
+          console.log(this.user);
           //  springboot로 username, password 전송해서 로그인 진행
           //  공유저장소의 비동기 메소드 호출 ( login )
           this.$store
@@ -159,6 +159,7 @@ export default {
               },
               // 실패
               (error) => {
+                // alert(error);
                 this.loading = false;
                 this.message = error.message || error.toString();
               }
