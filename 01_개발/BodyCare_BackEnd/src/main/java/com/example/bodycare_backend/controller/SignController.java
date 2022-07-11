@@ -30,6 +30,7 @@ import java.util.stream.Collectors;
  * 2022-06-20         ds          최초 생성
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping("/api/auth")
 public class SignController {
 //

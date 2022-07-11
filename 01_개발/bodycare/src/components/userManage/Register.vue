@@ -15,17 +15,17 @@
                   <div class="form-group">
                     <label for="name">이름</label>
                     <input
-                      type="text"
-                      class="form-control form-control-user"
-                      id="Name"
-                      placeholder="Name"
-                      v-model="user.name"
-                      v-validate="'required|min:3|max:20'"
-                      name="name"
+                        type="text"
+                        class="form-control form-control-user"
+                        id="Name"
+                        placeholder="Name"
+                        v-model="user.name"
+                        v-validate="'required|min:3|max:20'"
+                        name="name"
                     />
                     <div
-                      v-if="errors.has('name') && submitted"
-                      class="alert-danger"
+                        v-if="errors.has('name') && submitted"
+                        class="alert-danger"
                     >
                       {{ errors.first("name") }}
                     </div>
@@ -33,25 +33,25 @@
                   <div class="form-group">
                     <label for="email">이메일</label>
                     <input
-                      type="email"
-                      class="form-control form-control-user"
-                      id="Email"
-                      placeholder="Email Address"
-                      v-model="user.email"
-                      v-validate="'required|max:50'"
-                      name="email"
+                        type="email"
+                        class="form-control form-control-user"
+                        id="Email"
+                        placeholder="Email Address"
+                        v-model="user.email"
+                        v-validate="'required|max:50'"
+                        name="email"
                     />
                     <div
-                      v-if="errors.has('email') && submitted"
-                      class="alert-danger"
+                        v-if="errors.has('email') && submitted"
+                        class="alert-danger"
                     >
                       {{ errors.first("email") }}
                     </div>
                   </div>
-                  <div class="form-group row">
+                  <div class="form-group">
                     <label for="password">비밀번호</label>
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                      <input
+
+                    <input
                         type="password"
                         class="form-control form-control-user"
                         id="Password"
@@ -59,45 +59,30 @@
                         v-model="user.password"
                         v-validate="'required|min:6|max:40'"
                         name="password"
-                      />
-                      <div
+                    />
+                    <div
                         v-if="errors.has('password') && submitted"
                         class="alert-danger"
-                      >
-                        {{ errors.first("password") }}
-                      </div>
+                    >
+                      {{ errors.first("password") }}
+
                     </div>
-                    <div class="col-sm-6">
-                      <input
-                        type="password"
-                        class="form-control form-control-user"
-                        id="RepeatPassword"
-                        placeholder="Repeat Password"
-                        v-validate="'required|min:6|max:40'"
-                        v-model="repeat"
-                      />
-                      <div
-                        v-if="errors.has('repeat') && submitted"
-                        class="alert-danger"
-                      >
-                        {{ errors.first("repeat") }}
-                      </div>
-                    </div>
+
                   </div>
                   <div class="form-group">
                     <label for="height">키</label>
                     <input
-                      type="text"
-                      class="form-control form-control-user"
-                      id="height"
-                      placeholder="height"
-                      v-model="user.height"
-                      v-validate="'required|max:200'"
-                      name="height"
+                        type="text"
+                        class="form-control form-control-user"
+                        id="height"
+                        placeholder="height"
+                        v-model="user.height"
+                        v-validate="'required|max:200'"
+                        name="height"
                     />
                     <div
-                      v-if="errors.has('height') && submitted"
-                      class="alert-danger"
+                        v-if="errors.has('height') && submitted"
+                        class="alert-danger"
                     >
                       {{ errors.first("height") }}
                     </div>
@@ -105,17 +90,17 @@
                   <div class="form-group">
                     <label for="age">나이</label>
                     <input
-                      type="text"
-                      class="form-control form-control-user"
-                      id="age"
-                      placeholder="age"
-                      v-model="user.age"
-                      v-validate="'required|max:100'"
-                      name="age"
+                        type="text"
+                        class="form-control form-control-user"
+                        id="age"
+                        placeholder="age"
+                        v-model="user.age"
+                        v-validate="'required|max:100'"
+                        name="age"
                     />
                     <div
-                      v-if="errors.has('age') && submitted"
-                      class="alert-danger"
+                        v-if="errors.has('age') && submitted"
+                        class="alert-danger"
                     >
                       {{ errors.first("age") }}
                     </div>
@@ -124,29 +109,30 @@
                     성별
                     <label for="female">여성</label>
                     <input
-                      type="radio"
-                      name="female"
-                      value="F"
-                      v-model="user.picked"
+                        type="radio"
+                        name="female"
+                        value="F"
+                        v-model="user.gender"
                     />
                     <label for="male">남성</label>
                     <input
-                      type="radio"
-                      name="male"
-                      value="M"
-                      v-model="user.picked"
+                        type="radio"
+                        name="male"
+                        value="M"
+                        v-model="user.gender"
                     />
                   </div>
                   <router-link
-                    to="login.vue"
-                    class="btn btn-primary btn-user btn-block"
+                      to="login.vue"
+                      class="btn btn-primary btn-user btn-block"
                   >
                     가입하기
                   </router-link>
                 </form>
                 <div class="text-center">
                   <router-link to="login.vue" class="small"
-                    >이미 가입하셨나요? 로그인하러가기</router-link
+                  >이미 가입하셨나요? 로그인하러가기
+                  </router-link
                   >
                 </div>
               </div>
@@ -159,18 +145,19 @@
         v-if="message"
         class="alert"
         :class="successful ? 'alert-success' : 'alert-danger'"
-        >
-        {{ message }}
-      </div>
+    >
+      {{ message }}
+    </div>
   </div>
-  
+
 </template>
 
 <!--      화면에 에러메세지 출력 -->
-      
+
 
 <script>
 import User from "@/models/user";
+
 export default {
   name: "RegisterCom",
   data() {
@@ -194,25 +181,25 @@ export default {
         if (isValid) {
           //  springboot 서버 통신 : 공유저장소의 비동기메소드 호출(register)
           this.$store
-            .dispatch("auth/register", this.user)
-            //  성공 / 실패 then
-            //      성공하면 첫번째 매개변수 실행
-            //      실패하면 두번째 매개변수 실행
-            .then(
-              //  성공
-              (data) => {
-                // response == data ( 서버쪽 응답 메세지(객체) )
-                this.message = data.message;
-                this.successful = true;
-                //  강제 페이지 전환 : login
-                //   this.$router.push("/login");
-              },
-              // 실패
-              (error) => {
-                this.message = error.message || error.toString();
-                this.successful = false;
-              }
-            );
+              .dispatch("auth/register", this.user)
+              //  성공 / 실패 then
+              //      성공하면 첫번째 매개변수 실행
+              //      실패하면 두번째 매개변수 실행
+              .then(
+                  //  성공
+                  (data) => {
+                    // response == data ( 서버쪽 응답 메세지(객체) )
+                    this.message = data.message;
+                    this.successful = true;
+                    //  강제 페이지 전환 : login
+                    //   this.$router.push("/login");
+                  },
+                  // 실패
+                  (error) => {
+                    this.message = error.message || error.toString();
+                    this.successful = false;
+                  }
+              );
         }
       });
     },
@@ -225,8 +212,8 @@ export default {
   },
   // 화면이 뜨자마자 실행되는 이벤트
   mounted() {
-  //  로그인 되어 있는 유저이면 /profile로 강제 페이지 이동시킴
-    if(this.loggedIn) {
+    //  로그인 되어 있는 유저이면 /profile로 강제 페이지 이동시킴
+    if (this.loggedIn) {
       this.$router.push("/basic");
     }
   },
