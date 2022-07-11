@@ -21,9 +21,7 @@ class DietDataService {
     getUserDietById(id,dietDate){
         return http.get(`/userDiets/userId/${id}/dietDate/${dietDate}`);
     }
-    getAllUserDiet(id,dietDate){
-        return http.get(`/userDiets`);
-    }
+ 
     // customer 데이터 추가 메소드(insert 문 호출)
     insertDiets(data) {
         return http.post("/diets", data);
